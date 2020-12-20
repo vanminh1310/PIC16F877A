@@ -1,0 +1,377 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+end_init CODE 0 0 0 3 2
+$dist/default/production\TX_UART.X.production.obj
+cinit CODE 0 7FC 7FC 4 2
+text1 CODE 0 70C 70C 22 2
+text2 CODE 0 762 762 34 2
+text3 CODE 0 6EF 6EF 1D 2
+text4 CODE 0 72E 72E 34 2
+text5 CODE 0 6C3 6C3 10 2
+text6 CODE 0 6A6 6A6 7 2
+text7 CODE 0 6D3 6D3 1C 2
+text8 CODE 0 6AD 6AD 8 2
+text9 CODE 0 6B5 6B5 E 2
+maintext CODE 0 796 796 66 2
+cstackCOMMON COMMON 1 70 70 A 1
+strings STRING 0 3 3 37 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 20-6F 1
+RAM A0-EF 1
+RAM 110-16F 1
+RAM 190-1EF 1
+BANK0 20-6F 1
+BANK1 A0-EF 1
+BANK2 110-16F 1
+BANK3 190-1EF 1
+CONST 3A-6A5 2
+CONST 800-1FFF 2
+ENTRY 3A-6A5 2
+ENTRY 800-1FFF 2
+IDLOC 2000-2003 2
+STACK 110-16F 1
+CODE 3A-6A5 2
+CODE 800-1FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-10F 1
+SFR3 180-18F 1
+COMMON 7A-7D 1
+CONFIG 2007-2007 2
+EEDATA 2100-21FF 2
+STRCODE 3A-6A5 2
+STRCODE 800-1FFF 2
+STRING 3A-6A5 2
+STRING 800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\TX_UART.X.production.obj
+7FC cinit CODE >462:C:\Users\tamin\AppData\Local\Temp\s9r4.as
+7FC cinit CODE >465:C:\Users\tamin\AppData\Local\Temp\s9r4.as
+7FC cinit CODE >471:C:\Users\tamin\AppData\Local\Temp\s9r4.as
+7FC cinit CODE >473:C:\Users\tamin\AppData\Local\Temp\s9r4.as
+7FD cinit CODE >474:C:\Users\tamin\AppData\Local\Temp\s9r4.as
+6B5 text9 CODE >8:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6B5 text9 CODE >10:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6B6 text9 CODE >11:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6B7 text9 CODE >13:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6B8 text9 CODE >14:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6B9 text9 CODE >15:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6BA text9 CODE >16:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6BC text9 CODE >17:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6BE text9 CODE >18:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6C0 text9 CODE >19:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6C2 text9 CODE >20:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6AD text8 CODE >30:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6AE text8 CODE >32:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6B1 text8 CODE >33:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6D3 text7 CODE >36:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6D4 text7 CODE >38:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6DE text7 CODE >39:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6EA text7 CODE >40:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6EE text7 CODE >38:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6A6 text6 CODE >22:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6A6 text6 CODE >24:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6A9 text6 CODE >25:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6AB text6 CODE >27:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6AC text6 CODE >28:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\UART.h
+6C3 text5 CODE >124:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+6C3 text5 CODE >129:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+72E text4 CODE >52:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+72F text4 CODE >55:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+730 text4 CODE >57:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+734 text4 CODE >59:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+739 text4 CODE >61:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+73A text4 CODE >63:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+73F text4 CODE >65:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+740 text4 CODE >66:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+745 text4 CODE >68:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+749 text4 CODE >70:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+757 text4 CODE >72:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+758 text4 CODE >74:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+75D text4 CODE >76:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+75E text4 CODE >78:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+761 text4 CODE >80:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+6EF text3 CODE >37:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+6EF text3 CODE >40:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+6F5 text3 CODE >42:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+6FB text3 CODE >44:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+701 text3 CODE >46:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+707 text3 CODE >48:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+70B text3 CODE >50:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+762 text2 CODE >82:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+763 text2 CODE >85:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+764 text2 CODE >87:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+768 text2 CODE >89:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+76D text2 CODE >91:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+76E text2 CODE >93:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+773 text2 CODE >95:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+774 text2 CODE >97:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+779 text2 CODE >99:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+77D text2 CODE >101:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+78B text2 CODE >103:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+78C text2 CODE >105:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+791 text2 CODE >107:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+792 text2 CODE >109:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+795 text2 CODE >111:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+70C text1 CODE >113:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+70C text1 CODE >116:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+719 text1 CODE >118:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+72D text1 CODE >116:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\lcd4.h
+796 maintext CODE >14:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+796 maintext CODE >17:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+798 maintext CODE >18:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+799 maintext CODE >19:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+79F maintext CODE >20:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7A4 maintext CODE >21:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7A9 maintext CODE >22:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7AF maintext CODE >23:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7B8 maintext CODE >24:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7BE maintext CODE >28:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7C6 maintext CODE >30:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7CC maintext CODE >31:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7D8 maintext CODE >32:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7DC maintext CODE >33:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7E2 maintext CODE >34:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7EE maintext CODE >35:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7EF maintext CODE >38:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7F3 maintext CODE >39:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+7F9 maintext CODE >40:E:\PIC16F877A\TX_RX_UART\TX_RX_UART\TX_UART.X\main.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 2 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Hspace_0 800 0 ABS 0 - -
+__Hspace_1 7A 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__Hstrings 0 0 ABS 0 strings -
+___sp 0 0 STACK 2 stack C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+_main F2C 0 CODE 0 maintext dist/default/production\TX_UART.X.production.obj
+_show E18 0 CODE 0 text1 dist/default/production\TX_UART.X.production.obj
+btemp 7E 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+cmd@a 74 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+dat@b 74 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+start 0 0 CODE 0 init C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__size_of_show 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Hpowerup 0 0 CODE 0 powerup -
+show@s 75 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+__end_of_lcd_delay DA6 0 CODE 0 text5 dist/default/production\TX_UART.X.production.obj
+__size_of_lcd_delay 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+intlevel0 0 0 ENTRY 0 functab C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+intlevel1 0 0 ENTRY 0 functab C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+intlevel2 0 0 ENTRY 0 functab C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+intlevel3 0 0 ENTRY 0 functab C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+intlevel4 0 0 ENTRY 0 functab C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+intlevel5 0 0 ENTRY 0 functab C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+wtemp0 7E 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Hfunctab 0 0 ENTRY 0 functab -
+_UART_write D5A 0 CODE 0 text8 dist/default/production\TX_UART.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+_lcd_delay D86 0 CODE 0 text5 dist/default/production\TX_UART.X.production.obj
+UART_printf@cadena 72 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+__Lmaintext 0 0 ABS 0 maintext -
+_UART_printf DA6 0 CODE 0 text7 dist/default/production\TX_UART.X.production.obj
+___stackhi 0 0 ABS 0 - C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+___stacklo 0 0 ABS 0 - C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+__end_of_UART_write D6A 0 CODE 0 text8 dist/default/production\TX_UART.X.production.obj
+UART_write@dato 70 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+start_initialization FF8 0 CODE 0 cinit dist/default/production\TX_UART.X.production.obj
+_TRISBbits 86 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_TRISCbits 87 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_TRISB0 430 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_TRISC0 438 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_TRISC1 439 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Hcinit 1000 0 CODE 0 cinit -
+__Hstack 0 0 STACK 2 stack -
+__stringbase 24 0 STRING 0 strings dist/default/production\TX_UART.X.production.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__size_of_lcd_init 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Hcommon 0 0 ABS 0 common -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 ABS 0 bank3 -
+__Lcinit FF8 0 CODE 0 cinit -
+__Lstack 0 0 STACK 2 stack -
+_PORTBbits 6 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+main@dato_rx 79 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+lcd_delay@lcd_delay 70 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+_RC0 38 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_RC1 39 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__S0 800 0 ABS 0 - -
+__S1 7A 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+_cmd E5C 0 CODE 0 text4 dist/default/production\TX_UART.X.production.obj
+_dat EC4 0 CODE 0 text2 dist/default/production\TX_UART.X.production.obj
+__end_of_cmd EC4 0 CODE 0 text4 dist/default/production\TX_UART.X.production.obj
+__end_of_dat F2C 0 CODE 0 text2 dist/default/production\TX_UART.X.production.obj
+_lcd_init DDE 0 CODE 0 text3 dist/default/production\TX_UART.X.production.obj
+__Lintentry 0 0 CODE 0 intentry -
+__stringtab 6 0 STRING 0 strings dist/default/production\TX_UART.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\tamin\AppData\Local\Temp\s9r4.obj
+__end_of_lcd_init E18 0 CODE 0 text3 dist/default/production\TX_UART.X.production.obj
+_RCSTAbits 18 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__size_of_UART_write 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__pmaintext F2C 0 CODE 0 maintext dist/default/production\TX_UART.X.production.obj
+__Lcommon 0 0 ABS 0 common -
+__end_of_UART_printf DDE 0 CODE 0 text7 dist/default/production\TX_UART.X.production.obj
+__end_of__stringtab 26 0 STRING 0 strings dist/default/production\TX_UART.X.production.obj
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+_PIR1bits C 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Lend_init 0 0 CODE 0 end_init -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+end_of_initialization FF8 0 CODE 0 cinit dist/default/production\TX_UART.X.production.obj
+__Hintentry 0 0 CODE 0 intentry -
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__end_of_UART_init D86 0 CODE 0 text9 dist/default/production\TX_UART.X.production.obj
+__end_of_UART_read D5A 0 CODE 0 text6 dist/default/production\TX_UART.X.production.obj
+__size_of_UART_init 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__size_of_UART_read 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__ptext1 E18 0 CODE 0 text1 dist/default/production\TX_UART.X.production.obj
+__ptext2 EC4 0 CODE 0 text2 dist/default/production\TX_UART.X.production.obj
+__ptext3 DDE 0 CODE 0 text3 dist/default/production\TX_UART.X.production.obj
+__ptext4 E5C 0 CODE 0 text4 dist/default/production\TX_UART.X.production.obj
+__ptext5 D86 0 CODE 0 text5 dist/default/production\TX_UART.X.production.obj
+__ptext6 D4C 0 CODE 0 text6 dist/default/production\TX_UART.X.production.obj
+__ptext7 DA6 0 CODE 0 text7 dist/default/production\TX_UART.X.production.obj
+__ptext8 D5A 0 CODE 0 text8 dist/default/production\TX_UART.X.production.obj
+__ptext9 D6A 0 CODE 0 text9 dist/default/production\TX_UART.X.production.obj
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+_UART_init D6A 0 CODE 0 text9 dist/default/production\TX_UART.X.production.obj
+_UART_read D4C 0 CODE 0 text6 dist/default/production\TX_UART.X.production.obj
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/production\TX_UART.X.production.obj
+__Lfunctab 0 0 ENTRY 0 functab -
+__Lclrtext 0 0 ABS 0 clrtext -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\TX_UART.X.production.obj
+_TXSTAbits 98 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Hend_init 6 0 CODE 0 end_init -
+__end_of_main FF8 0 CODE 0 maintext dist/default/production\TX_UART.X.production.obj
+__end_of_show E5C 0 CODE 0 text1 dist/default/production\TX_UART.X.production.obj
+_PORTB 6 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_RCREG 1A 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_SPBRG 99 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_TRISB 86 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+_TXREG 19 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__size_of_UART_printf 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__size_of_cmd 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__size_of_dat 0 0 ABS 0 - dist/default/production\TX_UART.X.production.obj
+__initialization FF8 0 CODE 0 cinit dist/default/production\TX_UART.X.production.obj
+__pstrings 6 0 STRING 0 strings dist/default/production\TX_UART.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7FC FF8 4 2
+text1 0 70C E18 22 2
+text2 0 762 EC4 34 2
+text3 0 6EF DDE 1D 2
+text4 0 72E E5C 34 2
+text5 0 6C3 D86 10 2
+text6 0 6A6 D4C 7 2
+text7 0 6D3 DA6 1C 2
+text8 0 6AD D5A 8 2
+text9 0 6B5 D6A E 2
+maintext 0 796 F2C 66 2
+cstackCOMMON 1 70 70 A 1
+reset_vec 0 0 0 3 2
+strings 0 3 6 37 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

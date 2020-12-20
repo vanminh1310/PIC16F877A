@@ -1,0 +1,10 @@
+_timer0: CODE, 1973 0 37
+_led3: CODE, 1884 0 25
+_main: CODE, 1909 0 30
+_timer1: CODE, 2010 0 38
+_timer2: CODE, 1939 0 34
+_setup: CODE, 1820 0 4
+_ledoff: CODE, 1828 0 6
+_led1: CODE, 1834 0 25
+_led2: CODE, 1859 0 25
+Total: 224

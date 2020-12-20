@@ -1,0 +1,1467 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Fri Dec 18 09:20:32 2020
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 10 "newmain.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 10 "newmain.c"
+    45  2007  377A               	dw 0x377A ;#
+    46                           	FNCALL	_main,_chedo1
+    47                           	FNCALL	_main,_chedo2
+    48                           	FNCALL	_main,_chedo3
+    49                           	FNCALL	_main,_chedo4
+    50                           	FNCALL	_main,_chedo5
+    51                           	FNCALL	_main,_chedo6
+    52                           	FNCALL	_chedo6,_delay
+    53                           	FNCALL	_chedo5,_delay
+    54                           	FNCALL	_chedo4,_delay
+    55                           	FNCALL	_chedo3,_delay
+    56                           	FNCALL	_chedo2,_delay
+    57                           	FNCALL	_chedo1,_delay
+    58                           	FNROOT	_main
+    59                           	global	_PORTD
+    60                           psect	text128,local,class=CODE,delta=2
+    61                           global __ptext128
+    62  0000                     __ptext128:
+    63  0008                     _PORTD	set	8
+    64                           	global	_TRISD
+    65  0088                     _TRISD	set	136
+    66                           	global	_TRISB1
+    67  0431                     _TRISB1	set	1073
+    68                           	file	"C:\Users\tamin\AppData\Local\Temp\s6cg."
+    69                           	line	#
+    70                           psect cinit,class=CODE,delta=2
+    71                           global start_initialization
+    72  064A                     start_initialization:
+    73                           
+    74                           psect cinit,class=CODE,delta=2
+    75                           global end_of_initialization
+    76                           
+    77                           ;End of C runtime variable initialization code
+    78                           
+    79  064A                     end_of_initialization:
+    80  064A  0183               clrf status
+    81  064B  120A  118A  2E81   ljmp _main	;jump to C main() function
+    82                           psect	cstackCOMMON,class=COMMON,space=1
+    83                           global __pcstackCOMMON
+    84  0070                     __pcstackCOMMON:
+    85                           	global	?_delay
+    86  0070                     ?_delay:	; 0 bytes @ 0x0
+    87                           	global	??_delay
+    88  0070                     ??_delay:	; 0 bytes @ 0x0
+    89                           	global	?_chedo1
+    90  0070                     ?_chedo1:	; 0 bytes @ 0x0
+    91                           	global	?_chedo2
+    92  0070                     ?_chedo2:	; 0 bytes @ 0x0
+    93                           	global	?_chedo3
+    94  0070                     ?_chedo3:	; 0 bytes @ 0x0
+    95                           	global	?_chedo4
+    96  0070                     ?_chedo4:	; 0 bytes @ 0x0
+    97                           	global	?_chedo5
+    98  0070                     ?_chedo5:	; 0 bytes @ 0x0
+    99                           	global	?_chedo6
+   100  0070                     ?_chedo6:	; 0 bytes @ 0x0
+   101                           	global	?_main
+   102  0070                     ?_main:	; 0 bytes @ 0x0
+   103                           	global	delay@i
+   104  0070                     delay@i:	; 2 bytes @ 0x0
+   105  0070                     	ds	2
+   106                           	global	??_chedo1
+   107  0072                     ??_chedo1:	; 0 bytes @ 0x2
+   108                           	global	??_chedo2
+   109  0072                     ??_chedo2:	; 0 bytes @ 0x2
+   110                           	global	??_chedo3
+   111  0072                     ??_chedo3:	; 0 bytes @ 0x2
+   112                           	global	??_chedo4
+   113  0072                     ??_chedo4:	; 0 bytes @ 0x2
+   114                           	global	??_chedo5
+   115  0072                     ??_chedo5:	; 0 bytes @ 0x2
+   116                           	global	??_chedo6
+   117  0072                     ??_chedo6:	; 0 bytes @ 0x2
+   118                           	global	chedo1@i
+   119  0072                     chedo1@i:	; 2 bytes @ 0x2
+   120                           	global	chedo4@i
+   121  0072                     chedo4@i:	; 2 bytes @ 0x2
+   122  0072                     	ds	1
+   123                           	global	chedo2@i
+   124  0073                     chedo2@i:	; 2 bytes @ 0x3
+   125                           	global	chedo5@i
+   126  0073                     chedo5@i:	; 2 bytes @ 0x3
+   127                           	global	chedo6@i
+   128  0073                     chedo6@i:	; 2 bytes @ 0x3
+   129  0073                     	ds	2
+   130                           	global	chedo2@i_1232
+   131  0075                     chedo2@i_1232:	; 2 bytes @ 0x5
+   132                           	global	chedo6@i_1240
+   133  0075                     chedo6@i_1240:	; 2 bytes @ 0x5
+   134  0075                     	ds	2
+   135                           	global	??_main
+   136  0077                     ??_main:	; 0 bytes @ 0x7
+   137 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   138 ;;Auto spaces:   Size  Autos    Used
+   139 ;; COMMON          14      7       7
+   140 ;; BANK0           80      0       0
+   141 ;; BANK1           80      0       0
+   142 ;; BANK3           96      0       0
+   143 ;; BANK2           96      0       0
+   144                           
+   145 ;;
+   146 ;; Pointer list with targets:
+   147                           
+   148                           
+   149                           
+   150 ;;
+   151 ;; Critical Paths under _main in COMMON
+   152 ;;
+   153 ;;   _main->_chedo2
+   154 ;;   _main->_chedo6
+   155 ;;   _chedo6->_delay
+   156 ;;   _chedo5->_delay
+   157 ;;   _chedo4->_delay
+   158 ;;   _chedo3->_delay
+   159 ;;   _chedo2->_delay
+   160 ;;   _chedo1->_delay
+   161 ;;
+   162 ;; Critical Paths under _main in BANK0
+   163 ;;
+   164 ;;   None.
+   165 ;;
+   166 ;; Critical Paths under _main in BANK1
+   167 ;;
+   168 ;;   None.
+   169 ;;
+   170 ;; Critical Paths under _main in BANK3
+   171 ;;
+   172 ;;   None.
+   173 ;;
+   174 ;; Critical Paths under _main in BANK2
+   175 ;;
+   176 ;;   None.
+   177                           
+   178 ;;
+   179 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   180 ;;
+   181                           
+   182 ;;
+   183 ;;Call Graph Tables:
+   184 ;;
+   185 ;; ---------------------------------------------------------------------------------
+   186 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   187 ;; ---------------------------------------------------------------------------------
+   188 ;; (0) _main                                                 0     0      0     390
+   189 ;;                             _chedo1
+   190 ;;                             _chedo2
+   191 ;;                             _chedo3
+   192 ;;                             _chedo4
+   193 ;;                             _chedo5
+   194 ;;                             _chedo6
+   195 ;; ---------------------------------------------------------------------------------
+   196 ;; (1) _chedo6                                               5     5      0      90
+   197 ;;                                              2 COMMON     5     5      0
+   198 ;;                              _delay
+   199 ;; ---------------------------------------------------------------------------------
+   200 ;; (1) _chedo5                                               3     3      0      60
+   201 ;;                                              2 COMMON     3     3      0
+   202 ;;                              _delay
+   203 ;; ---------------------------------------------------------------------------------
+   204 ;; (1) _chedo4                                               2     2      0      60
+   205 ;;                                              2 COMMON     2     2      0
+   206 ;;                              _delay
+   207 ;; ---------------------------------------------------------------------------------
+   208 ;; (1) _chedo3                                               0     0      0      30
+   209 ;;                              _delay
+   210 ;; ---------------------------------------------------------------------------------
+   211 ;; (1) _chedo2                                               5     5      0      90
+   212 ;;                                              2 COMMON     5     5      0
+   213 ;;                              _delay
+   214 ;; ---------------------------------------------------------------------------------
+   215 ;; (1) _chedo1                                               2     2      0      60
+   216 ;;                                              2 COMMON     2     2      0
+   217 ;;                              _delay
+   218 ;; ---------------------------------------------------------------------------------
+   219 ;; (2) _delay                                                2     2      0      30
+   220 ;;                                              0 COMMON     2     2      0
+   221 ;; ---------------------------------------------------------------------------------
+   222 ;; Estimated maximum stack depth 2
+   223 ;; ---------------------------------------------------------------------------------
+   224                           
+   225 ;; Call Graph Graphs:
+   226                           
+   227 ;; _main (ROOT)
+   228 ;;   _chedo1
+   229 ;;     _delay
+   230 ;;   _chedo2
+   231 ;;     _delay
+   232 ;;   _chedo3
+   233 ;;     _delay
+   234 ;;   _chedo4
+   235 ;;     _delay
+   236 ;;   _chedo5
+   237 ;;     _delay
+   238 ;;   _chedo6
+   239 ;;     _delay
+   240 ;;
+   241                           
+   242 ;; Address spaces:
+   243                           
+   244 ;;Name               Size   Autos  Total    Cost      Usage
+   245 ;;BITCOMMON            E      0       0       0        0.0%
+   246 ;;EEDATA             100      0       0       0        0.0%
+   247 ;;NULL                 0      0       0       0        0.0%
+   248 ;;CODE                 0      0       0       0        0.0%
+   249 ;;COMMON               E      7       7       1       50.0%
+   250 ;;BITSFR0              0      0       0       1        0.0%
+   251 ;;SFR0                 0      0       0       1        0.0%
+   252 ;;BITSFR1              0      0       0       2        0.0%
+   253 ;;SFR1                 0      0       0       2        0.0%
+   254 ;;STACK                0      0       2       2        0.0%
+   255 ;;ABS                  0      0       0       3        0.0%
+   256 ;;BITBANK0            50      0       0       4        0.0%
+   257 ;;BITSFR3              0      0       0       4        0.0%
+   258 ;;SFR3                 0      0       0       4        0.0%
+   259 ;;BANK0               50      0       0       5        0.0%
+   260 ;;BITSFR2              0      0       0       5        0.0%
+   261 ;;SFR2                 0      0       0       5        0.0%
+   262 ;;BITBANK1            50      0       0       6        0.0%
+   263 ;;BANK1               50      0       0       7        0.0%
+   264 ;;BITBANK3            60      0       0       8        0.0%
+   265 ;;BANK3               60      0       0       9        0.0%
+   266 ;;BITBANK2            60      0       0      10        0.0%
+   267 ;;BANK2               60      0       0      11        0.0%
+   268 ;;DATA                 0      0       0      12        0.0%
+   269                           
+   270                           	global	_main
+   271                           psect	maintext,global,class=CODE,delta=2
+   272                           global __pmaintext
+   273  0681                     __pmaintext:
+   274                           
+   275 ;; *************** function _main *****************
+   276 ;; Defined at:
+   277 ;;		line 74 in file "newmain.c"
+   278 ;; Parameters:    Size  Location     Type
+   279 ;;		None
+   280 ;; Auto vars:     Size  Location     Type
+   281 ;;		None
+   282 ;; Return value:  Size  Location     Type
+   283 ;;		None               void
+   284 ;; Registers used:
+   285 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   286 ;; Tracked objects:
+   287 ;;		On entry : 17F/0
+   288 ;;		On exit  : 0/0
+   289 ;;		Unchanged: 0/0
+   290 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   291 ;;      Params:         0       0       0       0       0
+   292 ;;      Locals:         0       0       0       0       0
+   293 ;;      Temps:          0       0       0       0       0
+   294 ;;      Totals:         0       0       0       0       0
+   295 ;;Total ram usage:        0 bytes
+   296 ;; Hardware stack levels required when called:    2
+   297 ;; This function calls:
+   298 ;;		_chedo1
+   299 ;;		_chedo2
+   300 ;;		_chedo3
+   301 ;;		_chedo4
+   302 ;;		_chedo5
+   303 ;;		_chedo6
+   304 ;; This function is called by:
+   305 ;;		Startup code after reset
+   306 ;; This function uses a non-reentrant model
+   307 ;;
+   308                           psect	maintext
+   309                           	file	"newmain.c"
+   310                           	line	74
+   311                           	global	__size_of_main
+   312  0028                     	__size_of_main	equ	__end_of_main-_main
+   313                           	
+   314  0681                     _main:	
+   315                           	opt	stack 6
+   316                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   317                           	line	75
+   318                           	
+   319  0681                     l1980:	
+   320                           ;newmain.c: 75: TRISD = 0;
+   321  0681  1683               	bsf	status, 5	;RP0=1, select bank1
+   322  0682  1303               	bcf	status, 6	;RP1=0, select bank1
+   323  0683  0188               	clrf	(136)^080h	;volatile
+   324                           	line	76
+   325                           	
+   326  0684                     l1982:	
+   327                           ;newmain.c: 76: TRISB1=1;
+   328  0684  1486               	bsf	(1073/8)^080h,(1073)&7
+   329  0685  2E86               	goto	l1984
+   330                           	line	78
+   331                           ;newmain.c: 78: while(1){
+   332                           	
+   333  0686                     l726:	
+   334                           	line	79
+   335                           	
+   336  0686                     l1984:	
+   337                           ;newmain.c: 79: chedo1();
+   338  0686  120A  118A  270D   	fcall	_chedo1
+              120A  118A         
+   339                           	line	80
+   340                           	
+   341  068B                     l1986:	
+   342                           ;newmain.c: 80: chedo2();
+   343  068B  120A  118A  2744   	fcall	_chedo2
+              120A  118A         
+   344                           	line	81
+   345                           	
+   346  0690                     l1988:	
+   347                           ;newmain.c: 81: chedo3();
+   348  0690  120A  118A  264E   	fcall	_chedo3
+              120A  118A         
+   349                           	line	82
+   350                           	
+   351  0695                     l1990:	
+   352                           ;newmain.c: 82: chedo4();
+   353  0695  120A  118A  26A9   	fcall	_chedo4
+              120A  118A         
+   354                           	line	83
+   355                           	
+   356  069A                     l1992:	
+   357                           ;newmain.c: 83: chedo5();
+   358  069A  120A  118A  26D8   	fcall	_chedo5
+              120A  118A         
+   359                           	line	84
+   360                           	
+   361  069F                     l1994:	
+   362                           ;newmain.c: 84: chedo6();
+   363  069F  120A  118A  279E   	fcall	_chedo6
+              120A  118A         
+   364  06A4  2E86               	goto	l1984
+   365                           	line	86
+   366                           	
+   367  06A5                     l727:	
+   368                           	line	78
+   369  06A5  2E86               	goto	l1984
+   370                           	
+   371  06A6                     l728:	
+   372                           	line	87
+   373                           	
+   374  06A6                     l729:	
+   375                           	global	start
+   376  06A6  120A  118A  2800   	ljmp	start
+   377                           	opt stack 0
+   378                           GLOBAL	__end_of_main
+   379  06A9                     	__end_of_main:
+   380 ;; =============== function _main ends ============
+   381                           
+   382                           	signat	_main,88
+   383                           	global	_chedo6
+   384                           psect	text129,local,class=CODE,delta=2
+   385                           global __ptext129
+   386  079E                     __ptext129:
+   387                           
+   388 ;; *************** function _chedo6 *****************
+   389 ;; Defined at:
+   390 ;;		line 57 in file "newmain.c"
+   391 ;; Parameters:    Size  Location     Type
+   392 ;;		None
+   393 ;; Auto vars:     Size  Location     Type
+   394 ;;  i               2    5[COMMON] int 
+   395 ;;  i               2    3[COMMON] int 
+   396 ;; Return value:  Size  Location     Type
+   397 ;;		None               void
+   398 ;; Registers used:
+   399 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   400 ;; Tracked objects:
+   401 ;;		On entry : 0/0
+   402 ;;		On exit  : 0/0
+   403 ;;		Unchanged: 0/0
+   404 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   405 ;;      Params:         0       0       0       0       0
+   406 ;;      Locals:         4       0       0       0       0
+   407 ;;      Temps:          1       0       0       0       0
+   408 ;;      Totals:         5       0       0       0       0
+   409 ;;Total ram usage:        5 bytes
+   410 ;; Hardware stack levels used:    1
+   411 ;; Hardware stack levels required when called:    1
+   412 ;; This function calls:
+   413 ;;		_delay
+   414 ;; This function is called by:
+   415 ;;		_main
+   416 ;; This function uses a non-reentrant model
+   417 ;;
+   418                           psect	text129
+   419                           	file	"newmain.c"
+   420                           	line	57
+   421                           	global	__size_of_chedo6
+   422  0062                     	__size_of_chedo6	equ	__end_of_chedo6-_chedo6
+   423                           	
+   424  079E                     _chedo6:	
+   425                           	opt	stack 6
+   426                           ; Regs used in _chedo6: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   427                           	line	59
+   428                           	
+   429  079E                     l1954:	
+   430                           ;newmain.c: 59: for(int i = 8; i>0; i-- ){
+   431  079E  3008               	movlw	low(08h)
+   432  079F  00F3               	movwf	(chedo6@i)
+   433  07A0  3000               	movlw	high(08h)
+   434  07A1  00F4               	movwf	((chedo6@i))+1
+   435                           	
+   436  07A2                     l1956:	
+   437  07A2  0874               	movf	(chedo6@i+1),w
+   438  07A3  3A80               	xorlw	80h
+   439  07A4  00FF               	movwf	btemp+1
+   440  07A5  3080               	movlw	(high(01h))^80h
+   441  07A6  027F               	subwf	btemp+1,w
+   442  07A7  1D03               	skipz
+   443  07A8  2FAB               	goto	u2275
+   444  07A9  3001               	movlw	low(01h)
+   445  07AA  0273               	subwf	(chedo6@i),w
+   446  07AB                     u2275:
+   447                           
+   448  07AB  1803               	skipnc
+   449  07AC  2FAE               	goto	u2271
+   450  07AD  2FAF               	goto	u2270
+   451  07AE                     u2271:
+   452  07AE  2FB1               	goto	l1960
+   453  07AF                     u2270:
+   454  07AF  2FCD               	goto	l1966
+   455                           	
+   456  07B0                     l1958:	
+   457  07B0  2FCD               	goto	l1966
+   458                           	
+   459  07B1                     l715:	
+   460                           	line	60
+   461                           	
+   462  07B1                     l1960:	
+   463                           ;newmain.c: 60: PORTD=(PORTD>>1)|0x01;}
+   464  07B1  1283               	bcf	status, 5	;RP0=0, select bank0
+   465  07B2  1303               	bcf	status, 6	;RP1=0, select bank0
+   466  07B3  0808               	movf	(8),w	;volatile
+   467  07B4  00F2               	movwf	(??_chedo6+0)+0
+   468  07B5  1003               	clrc
+   469  07B6  0C72               	rrf	(??_chedo6+0)+0,w
+   470  07B7  3801               	iorlw	01h
+   471  07B8  0088               	movwf	(8)	;volatile
+   472                           	line	59
+   473                           	
+   474  07B9                     l1962:	
+   475  07B9  30FF               	movlw	low(-1)
+   476  07BA  07F3               	addwf	(chedo6@i),f
+   477  07BB  1803               	skipnc
+   478  07BC  0AF4               	incf	(chedo6@i+1),f
+   479  07BD  30FF               	movlw	high(-1)
+   480  07BE  07F4               	addwf	(chedo6@i+1),f
+   481                           	
+   482  07BF                     l1964:	
+   483  07BF  0874               	movf	(chedo6@i+1),w
+   484  07C0  3A80               	xorlw	80h
+   485  07C1  00FF               	movwf	btemp+1
+   486  07C2  3080               	movlw	(high(01h))^80h
+   487  07C3  027F               	subwf	btemp+1,w
+   488  07C4  1D03               	skipz
+   489  07C5  2FC8               	goto	u2285
+   490  07C6  3001               	movlw	low(01h)
+   491  07C7  0273               	subwf	(chedo6@i),w
+   492  07C8                     u2285:
+   493                           
+   494  07C8  1803               	skipnc
+   495  07C9  2FCB               	goto	u2281
+   496  07CA  2FCC               	goto	u2280
+   497  07CB                     u2281:
+   498  07CB  2FB1               	goto	l1960
+   499  07CC                     u2280:
+   500  07CC  2FCD               	goto	l1966
+   501                           	
+   502  07CD                     l716:	
+   503                           	line	61
+   504                           	
+   505  07CD                     l1966:	
+   506                           ;newmain.c: 61: for(int i = 8; i>0; i--){
+   507  07CD  3008               	movlw	low(08h)
+   508  07CE  00F5               	movwf	(chedo6@i_1240)
+   509  07CF  3000               	movlw	high(08h)
+   510  07D0  00F6               	movwf	((chedo6@i_1240))+1
+   511                           	
+   512  07D1                     l1968:	
+   513  07D1  0876               	movf	(chedo6@i_1240+1),w
+   514  07D2  3A80               	xorlw	80h
+   515  07D3  00FF               	movwf	btemp+1
+   516  07D4  3080               	movlw	(high(01h))^80h
+   517  07D5  027F               	subwf	btemp+1,w
+   518  07D6  1D03               	skipz
+   519  07D7  2FDA               	goto	u2295
+   520  07D8  3001               	movlw	low(01h)
+   521  07D9  0275               	subwf	(chedo6@i_1240),w
+   522  07DA                     u2295:
+   523                           
+   524  07DA  1803               	skipnc
+   525  07DB  2FDD               	goto	u2291
+   526  07DC  2FDE               	goto	u2290
+   527  07DD                     u2291:
+   528  07DD  2FE0               	goto	l1972
+   529  07DE                     u2290:
+   530  07DE  2FFF               	goto	l719
+   531                           	
+   532  07DF                     l1970:	
+   533  07DF  2FFF               	goto	l719
+   534                           	
+   535  07E0                     l717:	
+   536                           	line	62
+   537                           	
+   538  07E0                     l1972:	
+   539                           ;newmain.c: 62: PORTD = PORTD<<1;
+   540  07E0  1283               	bcf	status, 5	;RP0=0, select bank0
+   541  07E1  1303               	bcf	status, 6	;RP1=0, select bank0
+   542  07E2  0808               	movf	(8),w	;volatile
+   543  07E3  00F2               	movwf	(??_chedo6+0)+0
+   544  07E4  0772               	addwf	(??_chedo6+0)+0,w
+   545  07E5  0088               	movwf	(8)	;volatile
+   546                           	line	63
+   547                           	
+   548  07E6                     l1974:	
+   549                           ;newmain.c: 63: delay();
+   550  07E6  120A  118A  265B   	fcall	_delay
+              120A  118A         
+   551                           	line	61
+   552                           	
+   553  07EB                     l1976:	
+   554  07EB  30FF               	movlw	low(-1)
+   555  07EC  07F5               	addwf	(chedo6@i_1240),f
+   556  07ED  1803               	skipnc
+   557  07EE  0AF6               	incf	(chedo6@i_1240+1),f
+   558  07EF  30FF               	movlw	high(-1)
+   559  07F0  07F6               	addwf	(chedo6@i_1240+1),f
+   560                           	
+   561  07F1                     l1978:	
+   562  07F1  0876               	movf	(chedo6@i_1240+1),w
+   563  07F2  3A80               	xorlw	80h
+   564  07F3  00FF               	movwf	btemp+1
+   565  07F4  3080               	movlw	(high(01h))^80h
+   566  07F5  027F               	subwf	btemp+1,w
+   567  07F6  1D03               	skipz
+   568  07F7  2FFA               	goto	u2305
+   569  07F8  3001               	movlw	low(01h)
+   570  07F9  0275               	subwf	(chedo6@i_1240),w
+   571  07FA                     u2305:
+   572                           
+   573  07FA  1803               	skipnc
+   574  07FB  2FFD               	goto	u2301
+   575  07FC  2FFE               	goto	u2300
+   576  07FD                     u2301:
+   577  07FD  2FE0               	goto	l1972
+   578  07FE                     u2300:
+   579  07FE  2FFF               	goto	l719
+   580                           	
+   581  07FF                     l718:	
+   582                           	line	66
+   583                           	
+   584  07FF                     l719:	
+   585  07FF  0008               	return
+   586                           	opt stack 0
+   587                           GLOBAL	__end_of_chedo6
+   588  0800                     	__end_of_chedo6:
+   589 ;; =============== function _chedo6 ends ============
+   590                           
+   591                           	signat	_chedo6,88
+   592                           	global	_chedo5
+   593                           psect	text130,local,class=CODE,delta=2
+   594                           global __ptext130
+   595  06D8                     __ptext130:
+   596                           
+   597 ;; *************** function _chedo5 *****************
+   598 ;; Defined at:
+   599 ;;		line 51 in file "newmain.c"
+   600 ;; Parameters:    Size  Location     Type
+   601 ;;		None
+   602 ;; Auto vars:     Size  Location     Type
+   603 ;;  i               2    3[COMMON] int 
+   604 ;; Return value:  Size  Location     Type
+   605 ;;		None               void
+   606 ;; Registers used:
+   607 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   608 ;; Tracked objects:
+   609 ;;		On entry : 0/0
+   610 ;;		On exit  : 0/0
+   611 ;;		Unchanged: 0/0
+   612 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   613 ;;      Params:         0       0       0       0       0
+   614 ;;      Locals:         2       0       0       0       0
+   615 ;;      Temps:          1       0       0       0       0
+   616 ;;      Totals:         3       0       0       0       0
+   617 ;;Total ram usage:        3 bytes
+   618 ;; Hardware stack levels used:    1
+   619 ;; Hardware stack levels required when called:    1
+   620 ;; This function calls:
+   621 ;;		_delay
+   622 ;; This function is called by:
+   623 ;;		_main
+   624 ;; This function uses a non-reentrant model
+   625 ;;
+   626                           psect	text130
+   627                           	file	"newmain.c"
+   628                           	line	51
+   629                           	global	__size_of_chedo5
+   630  0035                     	__size_of_chedo5	equ	__end_of_chedo5-_chedo5
+   631                           	
+   632  06D8                     _chedo5:	
+   633                           	opt	stack 6
+   634                           ; Regs used in _chedo5: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   635                           	line	52
+   636                           	
+   637  06D8                     l1940:	
+   638                           ;newmain.c: 52: for(int i = 8; i>0; i--){
+   639  06D8  3008               	movlw	low(08h)
+   640  06D9  00F3               	movwf	(chedo5@i)
+   641  06DA  3000               	movlw	high(08h)
+   642  06DB  00F4               	movwf	((chedo5@i))+1
+   643                           	
+   644  06DC                     l1942:	
+   645  06DC  0874               	movf	(chedo5@i+1),w
+   646  06DD  3A80               	xorlw	80h
+   647  06DE  00FF               	movwf	btemp+1
+   648  06DF  3080               	movlw	(high(01h))^80h
+   649  06E0  027F               	subwf	btemp+1,w
+   650  06E1  1D03               	skipz
+   651  06E2  2EE5               	goto	u2255
+   652  06E3  3001               	movlw	low(01h)
+   653  06E4  0273               	subwf	(chedo5@i),w
+   654  06E5                     u2255:
+   655                           
+   656  06E5  1803               	skipnc
+   657  06E6  2EE8               	goto	u2251
+   658  06E7  2EE9               	goto	u2250
+   659  06E8                     u2251:
+   660  06E8  2EEB               	goto	l1946
+   661  06E9                     u2250:
+   662  06E9  2F0C               	goto	l712
+   663                           	
+   664  06EA                     l1944:	
+   665  06EA  2F0C               	goto	l712
+   666                           	
+   667  06EB                     l710:	
+   668                           	line	53
+   669                           	
+   670  06EB                     l1946:	
+   671                           ;newmain.c: 53: PORTD = PORTD>>1|0x01;
+   672  06EB  1283               	bcf	status, 5	;RP0=0, select bank0
+   673  06EC  1303               	bcf	status, 6	;RP1=0, select bank0
+   674  06ED  0808               	movf	(8),w	;volatile
+   675  06EE  00F2               	movwf	(??_chedo5+0)+0
+   676  06EF  1003               	clrc
+   677  06F0  0C72               	rrf	(??_chedo5+0)+0,w
+   678  06F1  3801               	iorlw	01h
+   679  06F2  0088               	movwf	(8)	;volatile
+   680                           	line	54
+   681                           	
+   682  06F3                     l1948:	
+   683                           ;newmain.c: 54: delay();
+   684  06F3  120A  118A  265B   	fcall	_delay
+              120A  118A         
+   685                           	line	52
+   686                           	
+   687  06F8                     l1950:	
+   688  06F8  30FF               	movlw	low(-1)
+   689  06F9  07F3               	addwf	(chedo5@i),f
+   690  06FA  1803               	skipnc
+   691  06FB  0AF4               	incf	(chedo5@i+1),f
+   692  06FC  30FF               	movlw	high(-1)
+   693  06FD  07F4               	addwf	(chedo5@i+1),f
+   694                           	
+   695  06FE                     l1952:	
+   696  06FE  0874               	movf	(chedo5@i+1),w
+   697  06FF  3A80               	xorlw	80h
+   698  0700  00FF               	movwf	btemp+1
+   699  0701  3080               	movlw	(high(01h))^80h
+   700  0702  027F               	subwf	btemp+1,w
+   701  0703  1D03               	skipz
+   702  0704  2F07               	goto	u2265
+   703  0705  3001               	movlw	low(01h)
+   704  0706  0273               	subwf	(chedo5@i),w
+   705  0707                     u2265:
+   706                           
+   707  0707  1803               	skipnc
+   708  0708  2F0A               	goto	u2261
+   709  0709  2F0B               	goto	u2260
+   710  070A                     u2261:
+   711  070A  2EEB               	goto	l1946
+   712  070B                     u2260:
+   713  070B  2F0C               	goto	l712
+   714                           	
+   715  070C                     l711:	
+   716                           	line	56
+   717                           	
+   718  070C                     l712:	
+   719  070C  0008               	return
+   720                           	opt stack 0
+   721                           GLOBAL	__end_of_chedo5
+   722  070D                     	__end_of_chedo5:
+   723 ;; =============== function _chedo5 ends ============
+   724                           
+   725                           	signat	_chedo5,88
+   726                           	global	_chedo4
+   727                           psect	text131,local,class=CODE,delta=2
+   728                           global __ptext131
+   729  06A9                     __ptext131:
+   730                           
+   731 ;; *************** function _chedo4 *****************
+   732 ;; Defined at:
+   733 ;;		line 45 in file "newmain.c"
+   734 ;; Parameters:    Size  Location     Type
+   735 ;;		None
+   736 ;; Auto vars:     Size  Location     Type
+   737 ;;  i               2    2[COMMON] int 
+   738 ;; Return value:  Size  Location     Type
+   739 ;;		None               void
+   740 ;; Registers used:
+   741 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   742 ;; Tracked objects:
+   743 ;;		On entry : 0/0
+   744 ;;		On exit  : 0/0
+   745 ;;		Unchanged: 0/0
+   746 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   747 ;;      Params:         0       0       0       0       0
+   748 ;;      Locals:         2       0       0       0       0
+   749 ;;      Temps:          0       0       0       0       0
+   750 ;;      Totals:         2       0       0       0       0
+   751 ;;Total ram usage:        2 bytes
+   752 ;; Hardware stack levels used:    1
+   753 ;; Hardware stack levels required when called:    1
+   754 ;; This function calls:
+   755 ;;		_delay
+   756 ;; This function is called by:
+   757 ;;		_main
+   758 ;; This function uses a non-reentrant model
+   759 ;;
+   760                           psect	text131
+   761                           	file	"newmain.c"
+   762                           	line	45
+   763                           	global	__size_of_chedo4
+   764  002F                     	__size_of_chedo4	equ	__end_of_chedo4-_chedo4
+   765                           	
+   766  06A9                     _chedo4:	
+   767                           	opt	stack 6
+   768                           ; Regs used in _chedo4: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   769                           	line	46
+   770                           	
+   771  06A9                     l1928:	
+   772                           ;newmain.c: 46: for(int i = 0; i<8; i++){
+   773  06A9  01F2               	clrf	(chedo4@i)
+   774  06AA  01F3               	clrf	(chedo4@i+1)
+   775                           	
+   776  06AB                     l1930:	
+   777  06AB  0873               	movf	(chedo4@i+1),w
+   778  06AC  3A80               	xorlw	80h
+   779  06AD  00FF               	movwf	btemp+1
+   780  06AE  3080               	movlw	(high(08h))^80h
+   781  06AF  027F               	subwf	btemp+1,w
+   782  06B0  1D03               	skipz
+   783  06B1  2EB4               	goto	u2235
+   784  06B2  3008               	movlw	low(08h)
+   785  06B3  0272               	subwf	(chedo4@i),w
+   786  06B4                     u2235:
+   787                           
+   788  06B4  1C03               	skipc
+   789  06B5  2EB7               	goto	u2231
+   790  06B6  2EB8               	goto	u2230
+   791  06B7                     u2231:
+   792  06B7  2EBA               	goto	l705
+   793  06B8                     u2230:
+   794  06B8  2ED7               	goto	l707
+   795                           	
+   796  06B9                     l1932:	
+   797  06B9  2ED7               	goto	l707
+   798                           	
+   799  06BA                     l705:	
+   800                           	line	47
+   801                           ;newmain.c: 47: PORTD = PORTD<<1|0x01;
+   802  06BA  1403               	setc
+   803  06BB  1283               	bcf	status, 5	;RP0=0, select bank0
+   804  06BC  1303               	bcf	status, 6	;RP1=0, select bank0
+   805  06BD  0D88               	rlf	(8),f	;volatile
+   806                           	line	48
+   807                           	
+   808  06BE                     l1934:	
+   809                           ;newmain.c: 48: delay();
+   810  06BE  120A  118A  265B   	fcall	_delay
+              120A  118A         
+   811                           	line	46
+   812                           	
+   813  06C3                     l1936:	
+   814  06C3  3001               	movlw	low(01h)
+   815  06C4  07F2               	addwf	(chedo4@i),f
+   816  06C5  1803               	skipnc
+   817  06C6  0AF3               	incf	(chedo4@i+1),f
+   818  06C7  3000               	movlw	high(01h)
+   819  06C8  07F3               	addwf	(chedo4@i+1),f
+   820                           	
+   821  06C9                     l1938:	
+   822  06C9  0873               	movf	(chedo4@i+1),w
+   823  06CA  3A80               	xorlw	80h
+   824  06CB  00FF               	movwf	btemp+1
+   825  06CC  3080               	movlw	(high(08h))^80h
+   826  06CD  027F               	subwf	btemp+1,w
+   827  06CE  1D03               	skipz
+   828  06CF  2ED2               	goto	u2245
+   829  06D0  3008               	movlw	low(08h)
+   830  06D1  0272               	subwf	(chedo4@i),w
+   831  06D2                     u2245:
+   832                           
+   833  06D2  1C03               	skipc
+   834  06D3  2ED5               	goto	u2241
+   835  06D4  2ED6               	goto	u2240
+   836  06D5                     u2241:
+   837  06D5  2EBA               	goto	l705
+   838  06D6                     u2240:
+   839  06D6  2ED7               	goto	l707
+   840                           	
+   841  06D7                     l706:	
+   842                           	line	50
+   843                           	
+   844  06D7                     l707:	
+   845  06D7  0008               	return
+   846                           	opt stack 0
+   847                           GLOBAL	__end_of_chedo4
+   848  06D8                     	__end_of_chedo4:
+   849 ;; =============== function _chedo4 ends ============
+   850                           
+   851                           	signat	_chedo4,88
+   852                           	global	_chedo3
+   853                           psect	text132,local,class=CODE,delta=2
+   854                           global __ptext132
+   855  064E                     __ptext132:
+   856                           
+   857 ;; *************** function _chedo3 *****************
+   858 ;; Defined at:
+   859 ;;		line 38 in file "newmain.c"
+   860 ;; Parameters:    Size  Location     Type
+   861 ;;		None
+   862 ;; Auto vars:     Size  Location     Type
+   863 ;;		None
+   864 ;; Return value:  Size  Location     Type
+   865 ;;		None               void
+   866 ;; Registers used:
+   867 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   868 ;; Tracked objects:
+   869 ;;		On entry : 0/0
+   870 ;;		On exit  : 0/0
+   871 ;;		Unchanged: 0/0
+   872 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   873 ;;      Params:         0       0       0       0       0
+   874 ;;      Locals:         0       0       0       0       0
+   875 ;;      Temps:          0       0       0       0       0
+   876 ;;      Totals:         0       0       0       0       0
+   877 ;;Total ram usage:        0 bytes
+   878 ;; Hardware stack levels used:    1
+   879 ;; Hardware stack levels required when called:    1
+   880 ;; This function calls:
+   881 ;;		_delay
+   882 ;; This function is called by:
+   883 ;;		_main
+   884 ;; This function uses a non-reentrant model
+   885 ;;
+   886                           psect	text132
+   887                           	file	"newmain.c"
+   888                           	line	38
+   889                           	global	__size_of_chedo3
+   890  000D                     	__size_of_chedo3	equ	__end_of_chedo3-_chedo3
+   891                           	
+   892  064E                     _chedo3:	
+   893                           	opt	stack 6
+   894                           ; Regs used in _chedo3: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   895                           	line	39
+   896                           	
+   897  064E                     l1922:	
+   898                           ;newmain.c: 39: PORTD = 0xff;
+   899  064E  30FF               	movlw	(0FFh)
+   900  064F  1283               	bcf	status, 5	;RP0=0, select bank0
+   901  0650  1303               	bcf	status, 6	;RP1=0, select bank0
+   902  0651  0088               	movwf	(8)	;volatile
+   903                           	line	40
+   904                           	
+   905  0652                     l1924:	
+   906                           ;newmain.c: 40: delay();
+   907  0652  120A  118A  265B   	fcall	_delay
+              120A  118A         
+   908                           	line	41
+   909                           	
+   910  0657                     l1926:	
+   911                           ;newmain.c: 41: PORTD = 0x00;
+   912  0657  1283               	bcf	status, 5	;RP0=0, select bank0
+   913  0658  1303               	bcf	status, 6	;RP1=0, select bank0
+   914  0659  0188               	clrf	(8)	;volatile
+   915                           	line	44
+   916                           	
+   917  065A                     l702:	
+   918  065A  0008               	return
+   919                           	opt stack 0
+   920                           GLOBAL	__end_of_chedo3
+   921  065B                     	__end_of_chedo3:
+   922 ;; =============== function _chedo3 ends ============
+   923                           
+   924                           	signat	_chedo3,88
+   925                           	global	_chedo2
+   926                           psect	text133,local,class=CODE,delta=2
+   927                           global __ptext133
+   928  0744                     __ptext133:
+   929                           
+   930 ;; *************** function _chedo2 *****************
+   931 ;; Defined at:
+   932 ;;		line 28 in file "newmain.c"
+   933 ;; Parameters:    Size  Location     Type
+   934 ;;		None
+   935 ;; Auto vars:     Size  Location     Type
+   936 ;;  i               2    5[COMMON] int 
+   937 ;;  i               2    3[COMMON] int 
+   938 ;; Return value:  Size  Location     Type
+   939 ;;		None               void
+   940 ;; Registers used:
+   941 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   942 ;; Tracked objects:
+   943 ;;		On entry : 0/0
+   944 ;;		On exit  : 0/0
+   945 ;;		Unchanged: 0/0
+   946 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   947 ;;      Params:         0       0       0       0       0
+   948 ;;      Locals:         4       0       0       0       0
+   949 ;;      Temps:          1       0       0       0       0
+   950 ;;      Totals:         5       0       0       0       0
+   951 ;;Total ram usage:        5 bytes
+   952 ;; Hardware stack levels used:    1
+   953 ;; Hardware stack levels required when called:    1
+   954 ;; This function calls:
+   955 ;;		_delay
+   956 ;; This function is called by:
+   957 ;;		_main
+   958 ;; This function uses a non-reentrant model
+   959 ;;
+   960                           psect	text133
+   961                           	file	"newmain.c"
+   962                           	line	28
+   963                           	global	__size_of_chedo2
+   964  005A                     	__size_of_chedo2	equ	__end_of_chedo2-_chedo2
+   965                           	
+   966  0744                     _chedo2:	
+   967                           	opt	stack 6
+   968                           ; Regs used in _chedo2: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   969                           	line	29
+   970                           	
+   971  0744                     l1898:	
+   972                           ;newmain.c: 29: for(int i = 0; i<8; i++ ){
+   973  0744  01F3               	clrf	(chedo2@i)
+   974  0745  01F4               	clrf	(chedo2@i+1)
+   975                           	
+   976  0746                     l1900:	
+   977  0746  0874               	movf	(chedo2@i+1),w
+   978  0747  3A80               	xorlw	80h
+   979  0748  00FF               	movwf	btemp+1
+   980  0749  3080               	movlw	(high(08h))^80h
+   981  074A  027F               	subwf	btemp+1,w
+   982  074B  1D03               	skipz
+   983  074C  2F4F               	goto	u2195
+   984  074D  3008               	movlw	low(08h)
+   985  074E  0273               	subwf	(chedo2@i),w
+   986  074F                     u2195:
+   987                           
+   988  074F  1C03               	skipc
+   989  0750  2F52               	goto	u2191
+   990  0751  2F53               	goto	u2190
+   991  0752                     u2191:
+   992  0752  2F55               	goto	l695
+   993  0753                     u2190:
+   994  0753  2F6D               	goto	l1908
+   995                           	
+   996  0754                     l1902:	
+   997  0754  2F6D               	goto	l1908
+   998                           	
+   999  0755                     l695:	
+  1000                           	line	30
+  1001                           ;newmain.c: 30: PORTD=(PORTD<<1)|0x01;}
+  1002  0755  1403               	setc
+  1003  0756  1283               	bcf	status, 5	;RP0=0, select bank0
+  1004  0757  1303               	bcf	status, 6	;RP1=0, select bank0
+  1005  0758  0D88               	rlf	(8),f	;volatile
+  1006                           	line	29
+  1007                           	
+  1008  0759                     l1904:	
+  1009  0759  3001               	movlw	low(01h)
+  1010  075A  07F3               	addwf	(chedo2@i),f
+  1011  075B  1803               	skipnc
+  1012  075C  0AF4               	incf	(chedo2@i+1),f
+  1013  075D  3000               	movlw	high(01h)
+  1014  075E  07F4               	addwf	(chedo2@i+1),f
+  1015                           	
+  1016  075F                     l1906:	
+  1017  075F  0874               	movf	(chedo2@i+1),w
+  1018  0760  3A80               	xorlw	80h
+  1019  0761  00FF               	movwf	btemp+1
+  1020  0762  3080               	movlw	(high(08h))^80h
+  1021  0763  027F               	subwf	btemp+1,w
+  1022  0764  1D03               	skipz
+  1023  0765  2F68               	goto	u2205
+  1024  0766  3008               	movlw	low(08h)
+  1025  0767  0273               	subwf	(chedo2@i),w
+  1026  0768                     u2205:
+  1027                           
+  1028  0768  1C03               	skipc
+  1029  0769  2F6B               	goto	u2201
+  1030  076A  2F6C               	goto	u2200
+  1031  076B                     u2201:
+  1032  076B  2F55               	goto	l695
+  1033  076C                     u2200:
+  1034  076C  2F6D               	goto	l1908
+  1035                           	
+  1036  076D                     l696:	
+  1037                           	line	31
+  1038                           	
+  1039  076D                     l1908:	
+  1040                           ;newmain.c: 31: for(int i = 0; i<8; i++){
+  1041  076D  01F5               	clrf	(chedo2@i_1232)
+  1042  076E  01F6               	clrf	(chedo2@i_1232+1)
+  1043                           	
+  1044  076F                     l1910:	
+  1045  076F  0876               	movf	(chedo2@i_1232+1),w
+  1046  0770  3A80               	xorlw	80h
+  1047  0771  00FF               	movwf	btemp+1
+  1048  0772  3080               	movlw	(high(08h))^80h
+  1049  0773  027F               	subwf	btemp+1,w
+  1050  0774  1D03               	skipz
+  1051  0775  2F78               	goto	u2215
+  1052  0776  3008               	movlw	low(08h)
+  1053  0777  0275               	subwf	(chedo2@i_1232),w
+  1054  0778                     u2215:
+  1055                           
+  1056  0778  1C03               	skipc
+  1057  0779  2F7B               	goto	u2211
+  1058  077A  2F7C               	goto	u2210
+  1059  077B                     u2211:
+  1060  077B  2F7E               	goto	l1914
+  1061  077C                     u2210:
+  1062  077C  2F9D               	goto	l699
+  1063                           	
+  1064  077D                     l1912:	
+  1065  077D  2F9D               	goto	l699
+  1066                           	
+  1067  077E                     l697:	
+  1068                           	line	32
+  1069                           	
+  1070  077E                     l1914:	
+  1071                           ;newmain.c: 32: PORTD = PORTD<<1;
+  1072  077E  1283               	bcf	status, 5	;RP0=0, select bank0
+  1073  077F  1303               	bcf	status, 6	;RP1=0, select bank0
+  1074  0780  0808               	movf	(8),w	;volatile
+  1075  0781  00F2               	movwf	(??_chedo2+0)+0
+  1076  0782  0772               	addwf	(??_chedo2+0)+0,w
+  1077  0783  0088               	movwf	(8)	;volatile
+  1078                           	line	33
+  1079                           	
+  1080  0784                     l1916:	
+  1081                           ;newmain.c: 33: delay();
+  1082  0784  120A  118A  265B   	fcall	_delay
+              120A  118A         
+  1083                           	line	31
+  1084                           	
+  1085  0789                     l1918:	
+  1086  0789  3001               	movlw	low(01h)
+  1087  078A  07F5               	addwf	(chedo2@i_1232),f
+  1088  078B  1803               	skipnc
+  1089  078C  0AF6               	incf	(chedo2@i_1232+1),f
+  1090  078D  3000               	movlw	high(01h)
+  1091  078E  07F6               	addwf	(chedo2@i_1232+1),f
+  1092                           	
+  1093  078F                     l1920:	
+  1094  078F  0876               	movf	(chedo2@i_1232+1),w
+  1095  0790  3A80               	xorlw	80h
+  1096  0791  00FF               	movwf	btemp+1
+  1097  0792  3080               	movlw	(high(08h))^80h
+  1098  0793  027F               	subwf	btemp+1,w
+  1099  0794  1D03               	skipz
+  1100  0795  2F98               	goto	u2225
+  1101  0796  3008               	movlw	low(08h)
+  1102  0797  0275               	subwf	(chedo2@i_1232),w
+  1103  0798                     u2225:
+  1104                           
+  1105  0798  1C03               	skipc
+  1106  0799  2F9B               	goto	u2221
+  1107  079A  2F9C               	goto	u2220
+  1108  079B                     u2221:
+  1109  079B  2F7E               	goto	l1914
+  1110  079C                     u2220:
+  1111  079C  2F9D               	goto	l699
+  1112                           	
+  1113  079D                     l698:	
+  1114                           	line	37
+  1115                           	
+  1116  079D                     l699:	
+  1117  079D  0008               	return
+  1118                           	opt stack 0
+  1119                           GLOBAL	__end_of_chedo2
+  1120  079E                     	__end_of_chedo2:
+  1121 ;; =============== function _chedo2 ends ============
+  1122                           
+  1123                           	signat	_chedo2,88
+  1124                           	global	_chedo1
+  1125                           psect	text134,local,class=CODE,delta=2
+  1126                           global __ptext134
+  1127  070D                     __ptext134:
+  1128                           
+  1129 ;; *************** function _chedo1 *****************
+  1130 ;; Defined at:
+  1131 ;;		line 20 in file "newmain.c"
+  1132 ;; Parameters:    Size  Location     Type
+  1133 ;;		None
+  1134 ;; Auto vars:     Size  Location     Type
+  1135 ;;  i               2    2[COMMON] int 
+  1136 ;; Return value:  Size  Location     Type
+  1137 ;;		None               void
+  1138 ;; Registers used:
+  1139 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  1140 ;; Tracked objects:
+  1141 ;;		On entry : 0/0
+  1142 ;;		On exit  : 0/0
+  1143 ;;		Unchanged: 0/0
+  1144 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1145 ;;      Params:         0       0       0       0       0
+  1146 ;;      Locals:         2       0       0       0       0
+  1147 ;;      Temps:          0       0       0       0       0
+  1148 ;;      Totals:         2       0       0       0       0
+  1149 ;;Total ram usage:        2 bytes
+  1150 ;; Hardware stack levels used:    1
+  1151 ;; Hardware stack levels required when called:    1
+  1152 ;; This function calls:
+  1153 ;;		_delay
+  1154 ;; This function is called by:
+  1155 ;;		_main
+  1156 ;; This function uses a non-reentrant model
+  1157 ;;
+  1158                           psect	text134
+  1159                           	file	"newmain.c"
+  1160                           	line	20
+  1161                           	global	__size_of_chedo1
+  1162  0037                     	__size_of_chedo1	equ	__end_of_chedo1-_chedo1
+  1163                           	
+  1164  070D                     _chedo1:	
+  1165                           	opt	stack 6
+  1166                           ; Regs used in _chedo1: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  1167                           	line	21
+  1168                           	
+  1169  070D                     l1880:	
+  1170                           ;newmain.c: 21: for(int i = 0; i<3; i++){
+  1171  070D  01F2               	clrf	(chedo1@i)
+  1172  070E  01F3               	clrf	(chedo1@i+1)
+  1173                           	
+  1174  070F                     l1882:	
+  1175  070F  0873               	movf	(chedo1@i+1),w
+  1176  0710  3A80               	xorlw	80h
+  1177  0711  00FF               	movwf	btemp+1
+  1178  0712  3080               	movlw	(high(03h))^80h
+  1179  0713  027F               	subwf	btemp+1,w
+  1180  0714  1D03               	skipz
+  1181  0715  2F18               	goto	u2175
+  1182  0716  3003               	movlw	low(03h)
+  1183  0717  0272               	subwf	(chedo1@i),w
+  1184  0718                     u2175:
+  1185                           
+  1186  0718  1C03               	skipc
+  1187  0719  2F1B               	goto	u2171
+  1188  071A  2F1C               	goto	u2170
+  1189  071B                     u2171:
+  1190  071B  2F1E               	goto	l1886
+  1191  071C                     u2170:
+  1192  071C  2F43               	goto	l692
+  1193                           	
+  1194  071D                     l1884:	
+  1195  071D  2F43               	goto	l692
+  1196                           	
+  1197  071E                     l690:	
+  1198                           	line	22
+  1199                           	
+  1200  071E                     l1886:	
+  1201                           ;newmain.c: 22: PORTD = 0xff;
+  1202  071E  30FF               	movlw	(0FFh)
+  1203  071F  1283               	bcf	status, 5	;RP0=0, select bank0
+  1204  0720  1303               	bcf	status, 6	;RP1=0, select bank0
+  1205  0721  0088               	movwf	(8)	;volatile
+  1206                           	line	23
+  1207                           	
+  1208  0722                     l1888:	
+  1209                           ;newmain.c: 23: delay();
+  1210  0722  120A  118A  265B   	fcall	_delay
+              120A  118A         
+  1211                           	line	24
+  1212                           	
+  1213  0727                     l1890:	
+  1214                           ;newmain.c: 24: PORTD = 0x00;
+  1215  0727  1283               	bcf	status, 5	;RP0=0, select bank0
+  1216  0728  1303               	bcf	status, 6	;RP1=0, select bank0
+  1217  0729  0188               	clrf	(8)	;volatile
+  1218                           	line	25
+  1219                           	
+  1220  072A                     l1892:	
+  1221                           ;newmain.c: 25: delay();
+  1222  072A  120A  118A  265B   	fcall	_delay
+              120A  118A         
+  1223                           	line	21
+  1224                           	
+  1225  072F                     l1894:	
+  1226  072F  3001               	movlw	low(01h)
+  1227  0730  07F2               	addwf	(chedo1@i),f
+  1228  0731  1803               	skipnc
+  1229  0732  0AF3               	incf	(chedo1@i+1),f
+  1230  0733  3000               	movlw	high(01h)
+  1231  0734  07F3               	addwf	(chedo1@i+1),f
+  1232                           	
+  1233  0735                     l1896:	
+  1234  0735  0873               	movf	(chedo1@i+1),w
+  1235  0736  3A80               	xorlw	80h
+  1236  0737  00FF               	movwf	btemp+1
+  1237  0738  3080               	movlw	(high(03h))^80h
+  1238  0739  027F               	subwf	btemp+1,w
+  1239  073A  1D03               	skipz
+  1240  073B  2F3E               	goto	u2185
+  1241  073C  3003               	movlw	low(03h)
+  1242  073D  0272               	subwf	(chedo1@i),w
+  1243  073E                     u2185:
+  1244                           
+  1245  073E  1C03               	skipc
+  1246  073F  2F41               	goto	u2181
+  1247  0740  2F42               	goto	u2180
+  1248  0741                     u2181:
+  1249  0741  2F1E               	goto	l1886
+  1250  0742                     u2180:
+  1251  0742  2F43               	goto	l692
+  1252                           	
+  1253  0743                     l691:	
+  1254                           	line	27
+  1255                           	
+  1256  0743                     l692:	
+  1257  0743  0008               	return
+  1258                           	opt stack 0
+  1259                           GLOBAL	__end_of_chedo1
+  1260  0744                     	__end_of_chedo1:
+  1261 ;; =============== function _chedo1 ends ============
+  1262                           
+  1263                           	signat	_chedo1,88
+  1264                           	global	_delay
+  1265                           psect	text135,local,class=CODE,delta=2
+  1266                           global __ptext135
+  1267  065B                     __ptext135:
+  1268                           
+  1269 ;; *************** function _delay *****************
+  1270 ;; Defined at:
+  1271 ;;		line 16 in file "newmain.c"
+  1272 ;; Parameters:    Size  Location     Type
+  1273 ;;		None
+  1274 ;; Auto vars:     Size  Location     Type
+  1275 ;;  i               2    0[COMMON] int 
+  1276 ;; Return value:  Size  Location     Type
+  1277 ;;		None               void
+  1278 ;; Registers used:
+  1279 ;;		wreg, status,2, btemp+1
+  1280 ;; Tracked objects:
+  1281 ;;		On entry : 0/0
+  1282 ;;		On exit  : 0/0
+  1283 ;;		Unchanged: 0/0
+  1284 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1285 ;;      Params:         0       0       0       0       0
+  1286 ;;      Locals:         2       0       0       0       0
+  1287 ;;      Temps:          0       0       0       0       0
+  1288 ;;      Totals:         2       0       0       0       0
+  1289 ;;Total ram usage:        2 bytes
+  1290 ;; Hardware stack levels used:    1
+  1291 ;; This function calls:
+  1292 ;;		Nothing
+  1293 ;; This function is called by:
+  1294 ;;		_chedo1
+  1295 ;;		_chedo2
+  1296 ;;		_chedo3
+  1297 ;;		_chedo4
+  1298 ;;		_chedo5
+  1299 ;;		_chedo6
+  1300 ;;		_btn1
+  1301 ;; This function uses a non-reentrant model
+  1302 ;;
+  1303                           psect	text135
+  1304                           	file	"newmain.c"
+  1305                           	line	16
+  1306                           	global	__size_of_delay
+  1307  0026                     	__size_of_delay	equ	__end_of_delay-_delay
+  1308                           	
+  1309  065B                     _delay:	
+  1310                           	opt	stack 6
+  1311                           ; Regs used in _delay: [wreg+status,2+btemp+1]
+  1312                           	line	17
+  1313                           	
+  1314  065B                     l1098:	
+  1315                           ;newmain.c: 17: for(int i = 0; i<5000;i++);
+  1316  065B  01F0               	clrf	(delay@i)
+  1317  065C  01F1               	clrf	(delay@i+1)
+  1318                           	
+  1319  065D                     l1100:	
+  1320  065D  0871               	movf	(delay@i+1),w
+  1321  065E  3A80               	xorlw	80h
+  1322  065F  00FF               	movwf	btemp+1
+  1323  0660  3093               	movlw	(high(01388h))^80h
+  1324  0661  027F               	subwf	btemp+1,w
+  1325  0662  1D03               	skipz
+  1326  0663  2E66               	goto	u15
+  1327  0664  3088               	movlw	low(01388h)
+  1328  0665  0270               	subwf	(delay@i),w
+  1329  0666                     u15:
+  1330                           
+  1331  0666  1C03               	skipc
+  1332  0667  2E69               	goto	u11
+  1333  0668  2E6A               	goto	u10
+  1334  0669                     u11:
+  1335  0669  2E6C               	goto	l1104
+  1336  066A                     u10:
+  1337  066A  2E80               	goto	l687
+  1338                           	
+  1339  066B                     l1102:	
+  1340  066B  2E80               	goto	l687
+  1341                           	
+  1342  066C                     l685:	
+  1343                           	
+  1344  066C                     l1104:	
+  1345  066C  3001               	movlw	low(01h)
+  1346  066D  07F0               	addwf	(delay@i),f
+  1347  066E  1803               	skipnc
+  1348  066F  0AF1               	incf	(delay@i+1),f
+  1349  0670  3000               	movlw	high(01h)
+  1350  0671  07F1               	addwf	(delay@i+1),f
+  1351                           	
+  1352  0672                     l1106:	
+  1353  0672  0871               	movf	(delay@i+1),w
+  1354  0673  3A80               	xorlw	80h
+  1355  0674  00FF               	movwf	btemp+1
+  1356  0675  3093               	movlw	(high(01388h))^80h
+  1357  0676  027F               	subwf	btemp+1,w
+  1358  0677  1D03               	skipz
+  1359  0678  2E7B               	goto	u25
+  1360  0679  3088               	movlw	low(01388h)
+  1361  067A  0270               	subwf	(delay@i),w
+  1362  067B                     u25:
+  1363                           
+  1364  067B  1C03               	skipc
+  1365  067C  2E7E               	goto	u21
+  1366  067D  2E7F               	goto	u20
+  1367  067E                     u21:
+  1368  067E  2E6C               	goto	l1104
+  1369  067F                     u20:
+  1370  067F  2E80               	goto	l687
+  1371                           	
+  1372  0680                     l686:	
+  1373                           	line	18
+  1374                           	
+  1375  0680                     l687:	
+  1376  0680  0008               	return
+  1377                           	opt stack 0
+  1378                           GLOBAL	__end_of_delay
+  1379  0681                     	__end_of_delay:
+  1380 ;; =============== function _delay ends ============
+  1381                           
+  1382                           	signat	_delay,88
+  1383                           psect	text136,local,class=CODE,delta=2
+  1384                           global __ptext136
+  1385  0000                     __ptext136:
+  1386                           	global	btemp
+  1387  007E                     	btemp set 07Eh
+  1388                           
+  1389                           	DABS	1,126,2	;btemp
+  1390                           	global	wtemp0
+  1391  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Fri Dec 18 09:20:32 2020
+
+                  u10 066A                    u11 0669                    u20 067F                    u21 067E  
+                  u15 0666                    u25 067B                   l702 065A                   l710 06EB  
+                 l711 070C                   l712 070C                   l705 06BA                   l706 06D7  
+                 l707 06D7                   l715 07B1                   l716 07CD                   l717 07E0  
+                 l718 07FF                   l726 0686                   l719 07FF                   l727 06A5  
+                 l728 06A6                   l729 06A6                   l690 071E                   l691 0743  
+                 l692 0743                   l685 066C                   l686 0680                   l687 0680  
+                 l695 0755                   l696 076D                   l697 077E                   l698 079D  
+                 l699 079D                  l1100 065D                  l1102 066B                  l1104 066C  
+                l1106 0672                  l1098 065B                  l1900 0746                  l1910 076F  
+                l1902 0754                  l1920 078F                  l1912 077D                  l1904 0759  
+                l1914 077E                  l1906 075F                  l1922 064E                  l1930 06AB  
+                l1916 0784                  l1908 076D                  l1924 0652                  l1932 06B9  
+                l1940 06D8                  l1918 0789                  l1926 0657                  l1934 06BE  
+                l1950 06F8                  l1942 06DC                  l1880 070D                  l1936 06C3  
+                l1928 06A9                  l1952 06FE                  l1944 06EA                  l1960 07B1  
+                l1890 0727                  l1882 070F                  l1938 06C9                  l1946 06EB  
+                l1970 07DF                  l1962 07B9                  l1954 079E                  l1892 072A  
+                l1884 071D                  l1948 06F3                  l1972 07E0                  l1964 07BF  
+                l1956 07A2                  l1980 0681                  l1894 072F                  l1886 071E  
+                l1974 07E6                  l1958 07B0                  l1966 07CD                  l1990 0695  
+                l1982 0684                  l1896 0735                  l1888 0722                  l1976 07EB  
+                l1968 07D1                  l1992 069A                  l1984 0686                  l1898 0744  
+                l1978 07F1                  l1994 069F                  l1986 068B                  l1988 0690  
+                u2200 076C                  u2201 076B                  u2210 077C                  u2211 077B  
+                u2220 079C                  u2300 07FE                  u2221 079B                  u2205 0768  
+                u2301 07FD                  u2230 06B8                  u2215 0778                  u2231 06B7  
+                u2240 06D6                  u2225 0798                  u2241 06D5                  u2305 07FA  
+                u2170 071C                  u2250 06E9                  u2171 071B                  u2235 06B4  
+                u2251 06E8                  u2180 0742                  u2260 070B                  u2181 0741  
+                u2245 06D2                  u2261 070A                  u2190 0753                  u2270 07AF  
+                u2175 0718                  u2191 0752                  u2255 06E5                  u2271 07AE  
+                u2280 07CC                  u2185 073E                  u2265 0707                  u2281 07CB  
+                u2290 07DE                  u2195 074F                  u2291 07DD                  u2275 07AB  
+                u2285 07C8                  u2295 07DA                  _main 0681                  btemp 007E  
+                start 0000                 ?_main 0070                 _PORTD 0008                 _TRISD 0088  
+               _delay 065B                 status 0003                 wtemp0 007E          __end_of_main 06A9  
+              ??_main 0077                ?_delay 0070                _TRISB1 0431                _chedo1 070D  
+              _chedo2 0744                _chedo3 064E                _chedo4 06A9                _chedo5 06D8  
+              _chedo6 079E                delay@i 0070        __pcstackCOMMON 0070         __end_of_delay 0681  
+             ??_delay 0070            __pmaintext 0681               ?_chedo1 0070               ?_chedo2 0070  
+             ?_chedo3 0070               ?_chedo4 0070               ?_chedo5 0070               ?_chedo6 0070  
+     __size_of_chedo1 0037       __size_of_chedo2 005A       __size_of_chedo3 000D       __size_of_chedo4 002F  
+     __size_of_chedo5 0035       __size_of_chedo6 0062               chedo1@i 0072               chedo2@i 0073  
+             chedo4@i 0072               chedo5@i 0073               chedo6@i 0073  end_of_initialization 064A  
+        chedo2@i_1232 0075          chedo6@i_1240 0075        __end_of_chedo1 0744        __end_of_chedo2 079E  
+      __end_of_chedo3 065B        __end_of_chedo4 06D8        __end_of_chedo5 070D        __end_of_chedo6 0800  
+ start_initialization 064A              ??_chedo1 0072              ??_chedo2 0072              ??_chedo3 0072  
+            ??_chedo4 0072              ??_chedo5 0072              ??_chedo6 0072             __ptext130 06D8  
+           __ptext131 06A9             __ptext132 064E             __ptext133 0744             __ptext134 070D  
+           __ptext135 065B             __ptext136 0000             __ptext128 0000             __ptext129 079E  
+      __size_of_delay 0026         __size_of_main 0028  

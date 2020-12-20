@@ -1,0 +1,89 @@
+[p GLOBOPT AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"14 main.c
+[v _main main `(v  1 e 1 0 ]
+"7 UART.h
+[v _UART_init UART_init `(v  1 e 1 0 ]
+"21
+[v _UART_read UART_read `(uc  1 e 1 0 ]
+"29
+[v _UART_write UART_write `(v  1 e 1 0 ]
+"35
+[v _UART_printf UART_printf `(v  1 e 1 0 ]
+"1060 C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f877a.h
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1067
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1376
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"2081
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2417
+[v _BRGH BRGH `VEb  1 e 0 @1218 ]
+"2516
+[v _CREN CREN `VEb  1 e 0 @196 ]
+"2744
+[v _RCIF RCIF `VEb  1 e 0 @101 ]
+"2813
+[v _SPEN SPEN `VEb  1 e 0 @199 ]
+"2843
+[v _SYNC SYNC `VEb  1 e 0 @1220 ]
+"2936
+[v _TRISB0 TRISB0 `VEb  1 e 0 @1072 ]
+"2960
+[v _TRISC0 TRISC0 `VEb  1 e 0 @1080 ]
+"2963
+[v _TRISC1 TRISC1 `VEb  1 e 0 @1081 ]
+"2978
+[v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
+"2981
+[v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
+"3017
+[v _TRMT TRMT `VEb  1 e 0 @1217 ]
+"3023
+[v _TX9 TX9 `VEb  1 e 0 @1222 ]
+"3032
+[v _TXEN TXEN `VEb  1 e 0 @1221 ]
+"14 main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"32
+} 0
+"21 UART.h
+[v _UART_read UART_read `(uc  1 e 1 0 ]
+{
+"27
+} 0
+"35
+[v _UART_printf UART_printf `(v  1 e 1 0 ]
+{
+[v UART_printf@s s `*.24uc  1 a 1 wreg ]
+[v UART_printf@s s `*.24uc  1 a 1 wreg ]
+[v UART_printf@s s `*.24uc  1 a 1 2 ]
+"41
+} 0
+"29
+[v _UART_write UART_write `(v  1 e 1 0 ]
+{
+[v UART_write@data data `uc  1 a 1 wreg ]
+[v UART_write@data data `uc  1 a 1 wreg ]
+"31
+[v UART_write@data data `uc  1 a 1 0 ]
+"33
+} 0
+"7
+[v _UART_init UART_init `(v  1 e 1 0 ]
+{
+"19
+} 0

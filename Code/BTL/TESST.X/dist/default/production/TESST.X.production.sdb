@@ -1,0 +1,61 @@
+[p GLOBOPT AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"13 E:\PIC16F877A\Code\BTL\TESST.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+"30
+[v _ser_int ser_int `(v  1 e 1 0 ]
+"41
+[v _tx tx `(v  1 e 1 0 ]
+"52
+[v _rx rx `(uc  1 e 1 0 ]
+"1060 C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f877a.h
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1067
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"2000
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2081
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2744
+[v _RCIF RCIF `VEb  1 e 0 @101 ]
+"2978
+[v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
+"2981
+[v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
+"3038
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"13 E:\PIC16F877A\Code\BTL\TESST.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+"28
+} 0
+"41
+[v _tx tx `(v  1 e 1 0 ]
+{
+[v tx@a a `uc  1 a 1 wreg ]
+[v tx@a a `uc  1 a 1 wreg ]
+"44
+[v tx@a a `uc  1 a 1 0 ]
+"50
+} 0
+"30
+[v _ser_int ser_int `(v  1 e 1 0 ]
+{
+"39
+} 0
+"52
+[v _rx rx `(uc  1 e 1 0 ]
+{
+"61
+} 0

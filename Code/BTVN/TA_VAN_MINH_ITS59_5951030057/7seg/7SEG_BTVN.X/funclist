@@ -1,0 +1,10 @@
+___awdiv: CODE, 21 0 118
+_ISR: CODE, 620 0 32
+_SEG7_OUT: CODE, 448 0 93
+_SEG7_OUT2: CODE, 355 0 93
+___awmod: CODE, 251 0 104
+_delay_us: CODE, 652 0 23
+_main: CODE, 139 0 112
+_t0delay: CODE, 541 0 44
+_delay_ms: CODE, 585 0 35
+Total: 654

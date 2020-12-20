@@ -1,0 +1,12 @@
+# Writing all output to: E:\PIC16F877A\Code\BTVN\led_duoi_nhau.X\led_duoi.log
+set pad_wire_necking on
+bus diagonal
+fanout 5
+route 50
+clean 2
+route 50 16
+clean 2
+filter 5
+recorner diagonal
+status_file
+

@@ -1,0 +1,13 @@
+_uart_write: CODE, 1385 0 52
+_lcd_delay: CODE, 1291 0 30
+___aldiv: CODE, 1637 0 168
+_UART_read: CODE, 1277 0 14
+_dat: CODE, 1499 0 62
+_main: CODE, 1561 0 76
+_uart_init: CODE, 1805 0 243
+_show: CODE, 1352 0 33
+_cmd: CODE, 1437 0 62
+_setup: CODE, 1254 0 9
+_UART_Write: CODE, 1263 0 14
+_lcd_init: CODE, 1321 0 31
+Total: 794

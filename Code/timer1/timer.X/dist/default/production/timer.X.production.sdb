@@ -1,0 +1,37 @@
+[p GLOBOPT AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip MCP19110 ]
+[d frameptr 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"14 E:\PIC16F877A\Code\timer1\timer.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+"35
+[v _t1delay t1delay `(v  1 e 1 0 ]
+"494 C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\mcp19110.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"785
+[v _TMR1L TMR1L `VEuc  1 e 1 @12 ]
+"792
+[v _TMR1H TMR1H `VEuc  1 e 1 @13 ]
+"799
+[v _T1CON T1CON `VEuc  1 e 1 @14 ]
+"1496
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"4713
+[v _TMR1IF TMR1IF `VEb  1 e 0 @56 ]
+"14 E:\PIC16F877A\Code\timer1\timer.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+"33
+} 0
+"35
+[v _t1delay t1delay `(v  1 e 1 0 ]
+{
+"38
+[v t1delay@i i `i  1 a 2 0 ]
+"50
+} 0

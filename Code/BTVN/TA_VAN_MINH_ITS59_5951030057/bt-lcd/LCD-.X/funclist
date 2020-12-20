@@ -1,0 +1,12 @@
+_lcd_delay: CODE, 1463 0 30
+_delay: CODE, 1436 0 27
+_len: CODE, 1866 0 91
+_dat: CODE, 1658 0 62
+_main: CODE, 1557 0 39
+___lwdiv: CODE, 1788 0 78
+_show: CODE, 1524 0 33
+___lwmod: CODE, 1720 0 68
+_cmd: CODE, 1596 0 62
+_xuong: CODE, 1957 0 91
+_lcd_init: CODE, 1493 0 31
+Total: 612
