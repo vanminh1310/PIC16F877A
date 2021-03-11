@@ -1,0 +1,13 @@
+#include <16f877A.h>
+#fuses NOWDT,HS,PUT,NOPROTECT
+#use delay(clock=20000000)
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

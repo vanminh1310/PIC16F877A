@@ -1,0 +1,86 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 dem
+022     @TRIS_C
+023     main.a
+024     main.b
+025-026 hienthi.uivalue
+025     hienthisl.value
+025     ledblynk.i
+026     @delay_ms1.P1
+026     hienthisl.chuc1
+026     ledblynk.@SCRATCH1
+027     hienthi.ngan
+027     hienthisl.dv1
+027     ledblynk.@SCRATCH2
+028     hienthi.tram
+028     hienthisl.@SCRATCH1
+029     hienthi.chuc
+029     hienthisl.@SCRATCH2
+02A     hienthi.dvi
+02B     hienthi.@SCRATCH1
+02C     hienthi.@SCRATCH2
+02D-02E @DIV1616.P1
+02F-030 @DIV1616.P1
+031     @DIV1616.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  mang.call
+000008  mang.data
+000012  @DIV1616
+000037  hienthi
+0000A8  hienthisl
+000117  @delay_ms1
+00012B  ledblynk
+00012C  hienthiall
+00018C  main
+00018C  @cinit1
+000198  @cinit2
+
+Project Directory:
+    E:\PIC16F877A\CCS\couter\
+
+Project Files:
+    main.c                                                  [05-Thg3-21 10:59  CRC=97CF7F5E]
+    D:\Program File\PICC\Devices\16f877a.h                  [12-Thg11-13 14:35  CRC=81334808]
+
+Source signature=9A360F6E
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

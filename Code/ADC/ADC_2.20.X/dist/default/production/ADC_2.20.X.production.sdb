@@ -541,7 +541,7 @@
 [v _setup `(v  1 e 0 0 ]
 "16
 [v _adc `(v  1 e 0 0 ]
-"40
+"42
 [v _main `(v  1 e 0 0 ]
 "82 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic16f877a.h
 [v _INDF `Vuc  1 e 1 @0 ]
@@ -1225,17 +1225,17 @@
 [v _EECON1bits `VS1215  1 e 1 @396 ]
 "1167
 [v _EECON2 `Vuc  1 e 1 @397 ]
-"40 newmain.c
+"42 newmain.c
 [v _main `(v  1 e 0 0 ]
 {
-"54
+"61
 } 0
 "16
 [v _adc `(v  1 e 0 0 ]
 {
 "18
-[v adc@adcval `ui  1 a 2 4 ]
-"38
+[v adc@adcval `ui  1 a 2 49 ]
+"40
 } 0
 "114 lcd4.h
 [v _show `(v  1 e 0 0 ]
@@ -1249,7 +1249,41 @@
 {
 "50
 } 0
-"83
+"29 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\lwtoft.c
+[v ___lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c `ui  1 p 2 10 ]
+"31
+} 0
+"52 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\ftmul.c
+[v ___ftmul `(f  1 e 3 0 ]
+{
+"54
+[v ___ftmul@f3_as_product `um  1 a 3 24 ]
+"53
+[v ___ftmul@sign `uc  1 a 1 28 ]
+[v ___ftmul@cntr `uc  1 a 1 27 ]
+[v ___ftmul@exp `uc  1 a 1 23 ]
+"52
+[v ___ftmul@f1 `f  1 p 3 13 ]
+[v ___ftmul@f2 `f  1 p 3 16 ]
+"84
+} 0
+"50 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\ftdiv.c
+[v ___ftdiv `(f  1 e 3 0 ]
+{
+"52
+[v ___ftdiv@f3 `f  1 a 3 40 ]
+"51
+[v ___ftdiv@sign `uc  1 a 1 44 ]
+[v ___ftdiv@exp `uc  1 a 1 43 ]
+[v ___ftdiv@cntr `uc  1 a 1 39 ]
+"50
+[v ___ftdiv@f2 `f  1 p 3 29 ]
+[v ___ftdiv@f1 `f  1 p 3 32 ]
+"78
+} 0
+"83 lcd4.h
 [v _dat `(v  1 e 0 0 ]
 {
 [v dat@b `uc  1 a 1 wreg ]
@@ -1262,6 +1296,26 @@
 [v cmd@a `uc  1 a 1 wreg ]
 [v cmd@a `uc  1 a 1 wreg ]
 "80
+} 0
+"45 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\fttol.c
+[v ___fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval `ul  1 a 4 5 ]
+"46
+[v ___fttol@exp1 `uc  1 a 1 9 ]
+[v ___fttol@sign1 `uc  1 a 1 4 ]
+"45
+[v ___fttol@f1 `f  1 p 3 8 ]
+"73
+} 0
+"63 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\float.c
+[v ___ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg `um  1 p 3 0 ]
+[v ___ftpack@exp `uc  1 p 1 3 ]
+[v ___ftpack@sign `uc  1 p 1 4 ]
+"86
 } 0
 "5 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\lwmod.c
 [v ___lwmod `(ui  1 e 2 0 ]

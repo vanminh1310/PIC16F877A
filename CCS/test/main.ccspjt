@@ -1,0 +1,33 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.015
+Compiler=PCM
+CCSVersion=5.015
+[Target Data]
+FileList=main.c
+[Directories]
+Include=D:\Program File\PICC\Devices\;D:\Program File\PICC\Drivers\
+[E:\PIC16F877A\CCS\test\main]
+Type=4
+[mru-list]
+1=main.c
+[Documentation]
+1=E:\PIC16F877A\CCS\test\main Notes.txt
+1T=main Notes.txt
+1E=
+1W=0
+Count=1
+[Opened Files]
+1=main.c
+2=main Notes.txt
+3=D:\Program File\PICC\Devices\16F877A.h
+4=main.h
+5=..\..\Code\BTVN\ledduoinhau\led_duoi_nhau.X\newmain.c
+6=..\ngat\main.c
+7=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

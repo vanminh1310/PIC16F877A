@@ -1,0 +1,29 @@
+#include <16f877A.h>
+#fuses NOWDT,HS,PUT,NOPROTECT
+#use delay(clock=20000000)
+#define SH PIN_B0 // khai baos chan
+#define DS PIN_B1
+#define ST PIN_B2
+
+int8 nData;
+void setup();
+void thaydoi(int8 nData);
+void writebye(int8 nData);
+void OnLow2High(void);
+
+void main()
+{
+set_tris_b(0x00); // set port b la ouput 
+   while(TRUE)
+   {
+      
+   }
+
+}
+void setup(){
+   output_low(SH);
+   output_low(DS);
+   output_low(ST);
+   // set cacs chan deu la muc low
+}
+

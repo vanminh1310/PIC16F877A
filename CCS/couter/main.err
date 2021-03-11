@@ -1,0 +1,9 @@
+>>> Warning 203 "main.c" Line 29(1,1): Condition always TRUE
+>>> Warning 203 "main.c" Line 135(1,1): Condition always TRUE
+>>> Warning 202 "main.c" Line 9(12,17): Variable never used:   mang2
+>>> Warning 202 "main.c" Line 35(13,14): Variable never used:   b
+>>> Warning 202 "main.c" Line 105(17,21): Variable never used:   ngan
+>>> Warning 202 "main.c" Line 105(23,27): Variable never used:   tram
+      Memory usage:   ROM=6%      RAM=2% - 6%
+      0 Errors,  6 Warnings.
+Build Successful.

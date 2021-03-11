@@ -1173,34 +1173,34 @@ cmd(0x80);
 }
 
 void cmd(unsigned char a) {
-RD2 = 0;
+RC0 = 0;
 PORTD &= 0x0F;
 PORTD |= (a & 0xf0);
-RD3 = 1;
+RC1 = 1;
 lcd_delay();
-RD3 = 0;
+RC1 = 0;
 lcd_delay();
 PORTD &= 0x0f;
 PORTD |= (a << 4 & 0xf0);
-RD3 = 1;
+RC1 = 1;
 lcd_delay();
-RD3 = 0;
+RC1 = 0;
 lcd_delay();
 }
 
 void dat(unsigned char b) {
-RD2 = 1;
+RC0 = 1;
 PORTD &= 0x0F;
 PORTD |= (b & 0xf0);
-RD3 = 1;
+RC1 = 1;
 lcd_delay();
-RD3 = 0;
+RC1 = 0;
 lcd_delay();
 PORTD &= 0x0f;
 PORTD |= (b << 4 & 0xf0);
-RD3 = 1;
+RC1 = 1;
 lcd_delay();
-RD3 = 0;
+RC1 = 0;
 lcd_delay();
 }
 
@@ -1222,6 +1222,7 @@ asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFE & 0xFFFB & 0xFFFF
 void main() {
 unsigned int i;
 TRISD = 0;
+TRISC0=TRISC1 = 0;
 TRISC5 = 0;
 lcd_init();
 keyinit();
@@ -1232,7 +1233,7 @@ while (1) {
 cmd(0xc7);
 b = key();
 
-# 37
+# 38
 dat(b);
 
 

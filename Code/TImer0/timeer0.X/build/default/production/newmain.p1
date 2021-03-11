@@ -1845,31 +1845,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 "61
 [e :UE 117 ]
 }
-"13 newmain.c
+"11 newmain.c
+[; ;newmain.c: 11: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0x377A");
+[; 	psect config,class=CONFIG,delta=2 ;#
+[; 	dw 0x377A ;#
+"13
 [v _main `(v 1 ef ]
 {
 [; ;newmain.c: 13: void main() {
 [e :U _main ]
 [f ]
-[; ;newmain.c: 14: TRISB = 0;
+[; ;newmain.c: 14: TRISD = 0;
 "14
-[e = _TRISB -> -> 0 `i `uc ]
+[e = _TRISD -> -> 0 `i `uc ]
 [; ;newmain.c: 17: while (1) {
 "17
 [e :U 127 ]
 {
-[; ;newmain.c: 19: PORTB = 0xff;
+[; ;newmain.c: 19: PORTD = 0xff;
 "19
-[e = _PORTB -> -> 255 `i `uc ]
-[; ;newmain.c: 20: timer1(84);
+[e = _PORTD -> -> 255 `i `uc ]
+[; ;newmain.c: 20: timer0(42);
 "20
-[e ( _timer1 (1 -> 84 `i ]
-[; ;newmain.c: 21: PORTB = 0x00;
+[e ( _timer0 (1 -> 42 `i ]
+[; ;newmain.c: 21: PORTD = 0x00;
 "21
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;newmain.c: 22: timer1(84);
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;newmain.c: 22: timer0(42);
 "22
-[e ( _timer1 (1 -> 84 `i ]
+[e ( _timer0 (1 -> 42 `i ]
 "23
 }
 [e :U 126 ]

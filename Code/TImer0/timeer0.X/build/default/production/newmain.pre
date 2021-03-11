@@ -1128,17 +1128,19 @@ TMR2IF = 0;
 
 }
 
-# 13 "newmain.c"
+# 11 "newmain.c"
+asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0x377A");
+
 void main() {
-TRISB = 0;
+TRISD = 0;
 
 
 while (1) {
 
-PORTB = 0xff;
-timer1(84);
-PORTB = 0x00;
-timer1(84);
+PORTD = 0xff;
+timer0(42);
+PORTD = 0x00;
+timer0(42);
 }
 }
 

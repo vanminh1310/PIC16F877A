@@ -1,0 +1,41 @@
+#include <16f877A.h>
+#fuses NOWDT,HS,PUT,NOPROTECT
+#use delay(clock=20000000)
+#define SH PIN_B0 // khai baos chan 11
+#define DS PIN_B1 // 14
+#define ST PIN_B2 // 12
+
+int8 nData;
+void setup();
+void thaydoi(int8 nData);
+void writebye(int8 nData);
+void OnLow2High(void);
+
+void main()
+{
+set_tris_b(0x00); // set port b la ouput 
+   while(TRUE)
+   {
+   
+      
+   }
+
+}
+void setup(){
+   output_low(SH);
+   output_low(DS);
+   output_low(ST);
+   // set cacs chan deu la muc low
+}
+void thaydoi(int8 nData){
+int8 i, nMask;
+   nMask = 0x01;
+   for (i = 0; i<8; i++){
+   output_low(SH); // chan 11 o muc thap
+   if(nData & nMask){
+   
+   }
+}
+}
+
+

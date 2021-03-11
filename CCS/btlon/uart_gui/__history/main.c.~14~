@@ -1,0 +1,23 @@
+#include <16F877a.h>
+
+
+#use delay (clock=11059200)
+#use rs232(BAUD=9600,PARITY=N,XMIT=PIN_C6,RCV=PIN_C7,BITS=8)
+#define BTN_ON RA0
+#define BTN_OFF RA1
+
+
+
+void main()
+{
+   set_tris_a(0xff);// doc du lieu 
+
+
+   while(TRUE)
+   {
+      if(BTN_ON ==0){
+      putc('A');
+      }
+   }
+
+}

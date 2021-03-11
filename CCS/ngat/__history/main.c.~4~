@@ -1,0 +1,35 @@
+//Ng?t 1s trên Timer0
+#include <16F877A.h>
+
+#fuses NOWDT,PUT,XT,NOPROTECT
+#use delay(clock=4000000)
+#use fast_io(c)
+#byte portd=0x08
+int16 count;
+int8 a;
+#int_timer0 //Chuong trinh ngat TMR0
+void timer0()
+{set_timer0(56); // T = 2*(256 - 56)*1us = 400us
+//(n?u dùng th?ch anh 20M thi thay 1us thành 0,2us)
+++count;
+if(count == 2500)
+// 2500*400us = 1000000us = 1s
+{count=0;
+rotate_left(&a,1);
+}
+}
+
+//Chuong trinh dich led
+void main()
+{ set_tris_d(0);
+enable_interrupts(int_timer0);
+setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);
+enable_interrupts(global);
+a = 0x01;
+while(true)
+{
+portd = a;
+}
+}
+
+

@@ -1,0 +1,107 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"24 D:\PROJECT_BLOG_XC8\877A\Counter_T1.X\Counter_T1.c
+[v _main main `(v  1 e 0 0 ]
+"47
+[v _display display `(v  1 e 0 0 ]
+"209 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"331
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"619
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+[s S19 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+]
+"662
+[s S25 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S31 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1INSYNC 1 0 :1:2 
+]
+[u S34 . 1 `S19 1 . 1 0 `S25 1 . 1 0 `S31 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES34  1 e 1 @16 ]
+"1337
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S56 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"1476
+[u S65 . 1 `S56 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES65  1 e 1 @136 ]
+"2563
+[v _RD0 RD0 `VEb  1 e 0 @64 ]
+"2565
+[v _RD1 RD1 `VEb  1 e 0 @65 ]
+"2567
+[v _RD2 RD2 `VEb  1 e 0 @66 ]
+"2569
+[v _RD3 RD3 `VEb  1 e 0 @67 ]
+"21 D:\PROJECT_BLOG_XC8\877A\Counter_T1.X\Counter_T1.c
+[v _dem dem `ui  1 e 2 0 ]
+[v _nghin nghin `ui  1 e 2 0 ]
+[v _tram tram `ui  1 e 2 0 ]
+[v _chuc chuc `ui  1 e 2 0 ]
+[v _donvi donvi `ui  1 e 2 0 ]
+"22
+[v _maled maled `DCC[10]uc  1 e 10 0 ]
+"24
+[v _main main `(v  1 e 0 0 ]
+{
+"46
+} 0
+"47
+[v _display display `(v  1 e 0 0 ]
+{
+"73
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 11 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 6 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 8 ]
+"31
+} 0

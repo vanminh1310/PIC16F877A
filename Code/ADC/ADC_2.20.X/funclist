@@ -1,11 +1,16 @@
-_lcd_delay: CODE, 1468 0 30
-_dat: CODE, 1657 0 62
-_main: CODE, 1562 0 33
-___lwdiv: CODE, 1787 0 78
-_adc: CODE, 1865 0 183
-_show: CODE, 1529 0 33
-___lwmod: CODE, 1719 0 68
-_cmd: CODE, 1595 0 62
-_setup: CODE, 1458 0 10
-_lcd_init: CODE, 1498 0 31
-Total: 590
+_lcd_delay: CODE, 705 0 30
+_dat: CODE, 894 0 62
+___ftpack: CODE, 1102 0 123
+_main: CODE, 799 0 33
+___lwtoft: CODE, 678 0 27
+___lwdiv: CODE, 1024 0 78
+_adc: CODE, 1591 0 219
+_show: CODE, 766 0 33
+___lwmod: CODE, 956 0 68
+_cmd: CODE, 832 0 62
+_setup: CODE, 668 0 10
+___ftmul: CODE, 1810 0 238
+___fttol: CODE, 1225 0 166
+_lcd_init: CODE, 735 0 31
+___ftdiv: CODE, 1391 0 200
+Total: 1380

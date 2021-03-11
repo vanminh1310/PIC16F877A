@@ -539,11 +539,11 @@
 [v _lcd_delay `(v  1 e 0 0 ]
 "12 newmain.c
 [v _delay `(v  1 e 0 0 ]
-"26
+"21
 [v _len `(v  1 e 0 0 ]
-"36
+"31
 [v _xuong `(v  1 e 0 0 ]
-"48
+"42
 [v _main `(v  1 e 0 0 ]
 "82 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic16f877a.h
 [v _INDF `Vuc  1 e 1 @0 ]
@@ -1229,31 +1229,24 @@
 [v _EECON2 `Vuc  1 e 1 @397 ]
 "11 newmain.c
 [v _a `i  1 e 2 0 ]
-"24
+"19
 [v _i `ui  1 e 2 0 ]
-"48
+"42
 [v _main `(v  1 e 0 0 ]
 {
-"63
+"56
 } 0
-"36
+"31
 [v _xuong `(v  1 e 0 0 ]
 {
-"46
+"41
 } 0
-"26
+"21
 [v _len `(v  1 e 0 0 ]
 {
-"34
+"29
 } 0
-"114 lcd4.h
-[v _show `(v  1 e 0 0 ]
-{
-[v show@s `*.cuc  1 a 1 wreg ]
-[v show@s `*.cuc  1 a 1 wreg ]
-"122
-} 0
-"38
+"38 lcd4.h
 [v _lcd_init `(v  1 e 0 0 ]
 {
 "50

@@ -1,0 +1,29 @@
+
+#include <main.h>
+#fuses NOWDT,HS,PUT,NOPROTECT
+
+void sangdan(){
+int8 i,temp;
+temp = 0x00;
+for(i=0;i<=8;i++){
+   output_d(temp);
+   temp>>=1;
+   temp = temp|0x01;
+   
+}
+}
+
+void main()
+{
+INT8 i;
+output_d (0xff) ;
+
+//Example blinking LED program
+WHILE (true)
+{
+
+sangdan();
+//chedo3();
+}
+}
+

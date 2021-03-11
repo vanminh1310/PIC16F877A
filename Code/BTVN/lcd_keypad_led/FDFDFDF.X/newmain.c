@@ -19,6 +19,7 @@ __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_OFF & CP_OFF & BOREN_ON & LVP_OFF & CPD_OFF 
 void main() {
     unsigned int i;
     TRISD = 0;
+    TRISC0=TRISC1 = 0;
     TRISC5 = 0;
     lcd_init();
     keyinit();

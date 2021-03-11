@@ -887,7 +887,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_delay `(v 0 ef ]
 "11 newmain.c
 [v _a `i 1 e ]
-"24 newmain.c
+"19 newmain.c
 [v _i `ui 1 e ]
 [p mainexit ]
 [; ;pic16f877a.h: 82: volatile unsigned char INDF @ 0x000;
@@ -1950,129 +1950,124 @@ Version 3.2 HI-TECH Software Intermediate Code
 "18
 [e :UE 112 ]
 }
-[; ;newmain.c: 24: unsigned int i;
-"26
+[; ;newmain.c: 19: unsigned int i;
+"21
 [v _len `(v 1 ef ]
 {
-[; ;newmain.c: 26: void len() {
+[; ;newmain.c: 21: void len() {
 [e :U _len ]
 [f ]
-[; ;newmain.c: 27: for (i = 50; i < 71; i++) {
-"27
+[; ;newmain.c: 22: for (i = 0; i < 100; i++) {
+"22
 {
-[e = _i -> -> 50 `i `ui ]
-[e $ < _i -> -> 71 `i `ui 121  ]
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 100 `i `ui 121  ]
 [e $U 122  ]
 [e :U 121 ]
 {
-[; ;newmain.c: 29: cmd(0xc8);
-"29
+[; ;newmain.c: 24: cmd(0xc8);
+"24
 [e ( _cmd (1 -> -> 200 `i `uc ]
-[; ;newmain.c: 30: dat((i / 10) + 48);
-"30
+[; ;newmain.c: 25: dat((i / 10) + 48);
+"25
 [e ( _dat (1 -> + / _i -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 31: dat((i % 10) + 48);
-"31
+[; ;newmain.c: 26: dat((i % 10) + 48);
+"26
 [e ( _dat (1 -> + % _i -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 32: delay(21);
-"32
-[e ( _delay (1 -> -> 21 `i `ui ]
-"33
-}
+[; ;newmain.c: 27: delay(8);
 "27
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 71 `i `ui 121  ]
-[e :U 122 ]
-"33
+[e ( _delay (1 -> -> 8 `i `ui ]
+"28
 }
-[; ;newmain.c: 33: }
-[; ;newmain.c: 34: }
-"34
+"22
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 100 `i `ui 121  ]
+[e :U 122 ]
+"28
+}
+[; ;newmain.c: 28: }
+[; ;newmain.c: 29: }
+"29
 [e :UE 120 ]
 }
-"36
+"31
 [v _xuong `(v 1 ef ]
 {
-[; ;newmain.c: 36: void xuong() {
+[; ;newmain.c: 31: void xuong() {
 [e :U _xuong ]
 [f ]
-[; ;newmain.c: 37: for (i = 70; i > 50; i--) {
-"37
+[; ;newmain.c: 32: for (i = 99; i > 0; i--) {
+"32
 {
-[e = _i -> -> 70 `i `ui ]
-[e $ > _i -> -> 50 `i `ui 125  ]
+[e = _i -> -> 99 `i `ui ]
+[e $ > _i -> -> 0 `i `ui 125  ]
 [e $U 126  ]
 [e :U 125 ]
 {
-[; ;newmain.c: 38: cmd(0xc8);
-"38
+[; ;newmain.c: 33: cmd(0xc8);
+"33
 [e ( _cmd (1 -> -> 200 `i `uc ]
-[; ;newmain.c: 40: dat((i / 10) + 48);
-"40
+[; ;newmain.c: 35: dat((i / 10) + 48);
+"35
 [e ( _dat (1 -> + / _i -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 41: dat((i % 10) + 48);
-"41
+[; ;newmain.c: 36: dat((i % 10) + 48);
+"36
 [e ( _dat (1 -> + % _i -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 42: delay(42);
-"42
-[e ( _delay (1 -> -> 42 `i `ui ]
-"44
-}
+[; ;newmain.c: 37: delay(42);
 "37
-[e -- _i -> -> 1 `i `ui ]
-[e $ > _i -> -> 50 `i `ui 125  ]
-[e :U 126 ]
-"44
+[e ( _delay (1 -> -> 42 `i `ui ]
+"39
 }
-[; ;newmain.c: 44: }
-[; ;newmain.c: 46: }
-"46
+"32
+[e -- _i -> -> 1 `i `ui ]
+[e $ > _i -> -> 0 `i `ui 125  ]
+[e :U 126 ]
+"39
+}
+[; ;newmain.c: 39: }
+[; ;newmain.c: 41: }
+"41
 [e :UE 124 ]
 }
-"48
+"42
 [v _main `(v 1 ef ]
 {
-[; ;newmain.c: 48: void main() {
+[; ;newmain.c: 42: void main() {
 [e :U _main ]
 [f ]
-"49
+"43
 [v _i `ui 1 a ]
-[; ;newmain.c: 49: unsigned int i;
-[; ;newmain.c: 50: TRISB = TRISC0 = TRISC1 = 0;
-"50
+[; ;newmain.c: 43: unsigned int i;
+[; ;newmain.c: 44: TRISB = TRISC0 = TRISC1 = 0;
+"44
 [e = _TRISB -> -> = _TRISC0 = _TRISC1 -> -> 0 `i `b `i `uc ]
-[; ;newmain.c: 51: OPTION_REG=0X07;
-"51
+[; ;newmain.c: 45: OPTION_REG=0X07;
+"45
 [e = _OPTION_REG -> -> 7 `i `uc ]
-[; ;newmain.c: 52: INTCON = 0X0E;
-"52
+[; ;newmain.c: 46: INTCON = 0X0E;
+"46
 [e = _INTCON -> -> 14 `i `uc ]
-[; ;newmain.c: 53: lcd_init();
-"53
+[; ;newmain.c: 47: lcd_init();
+"47
 [e ( _lcd_init ..  ]
-[; ;newmain.c: 55: show("Dem 50-70");
-"55
-[e ( _show (1 -> :s 1C `*uc ]
-[; ;newmain.c: 56: while (1) {
-"56
+[; ;newmain.c: 50: while (1) {
+"50
 [e :U 130 ]
 {
-[; ;newmain.c: 57: len();
-"57
+[; ;newmain.c: 51: len();
+"51
 [e ( _len ..  ]
-[; ;newmain.c: 58: xuong();
-"58
+[; ;newmain.c: 52: xuong();
+"52
 [e ( _xuong ..  ]
-"61
+"54
 }
 [e :U 129 ]
-"56
+"50
 [e $U 130  ]
 [e :U 131 ]
-[; ;newmain.c: 61: }
-[; ;newmain.c: 63: }
-"63
+[; ;newmain.c: 54: }
+[; ;newmain.c: 56: }
+"56
 [e :UE 128 ]
 }
-[a 1C 68 101 109 32 53 48 45 55 48 0 ]
-

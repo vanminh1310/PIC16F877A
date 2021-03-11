@@ -21,8 +21,8 @@ extern "C" {
 
 #endif	/* LCD4_H */
 
-#define rs RD2
-#define en RD3
+#define rs RC0
+#define en RC1
 
 
 

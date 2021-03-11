@@ -1,0 +1,20 @@
+#include <16f877.h>
+#use delay(clock=20000000)
+#device PIC16F877*=16 ADC = 10
+
+#byte portb=0x06
+#byte portd=0x08
+#INT_RB
+rb_isr();
+{portd=portb;}
+
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

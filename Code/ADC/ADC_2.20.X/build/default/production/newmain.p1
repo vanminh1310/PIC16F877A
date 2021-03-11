@@ -1945,60 +1945,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 26: adcval = ((ADRESH << 8) | (ADRESL));
 "26
 [e = _adcval -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-[; ;newmain.c: 28: adcval = (adcval / 3) - 1;
+[; ;newmain.c: 28: adcval = (adcval / 2);
 "28
-[e = _adcval - / _adcval -> -> 3 `i `ui -> -> 1 `i `ui ]
-[; ;newmain.c: 30: dat((adcval / 1000) + 48);
-"30
-[e ( _dat (1 -> + / _adcval -> -> 1000 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 32: dat(((adcval / 100) % 10) + 48);
-"32
-[e ( _dat (1 -> + % / _adcval -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 34: dat(((adcval / 10) % 10) + 48);
+[e = _adcval / _adcval -> -> 2 `i `ui ]
+[; ;newmain.c: 29: dat(((5000.0f/1023*adcval)/10));
+"29
+[e ( _dat (1 -> / * / -> .5000.0 `f -> -> 1023 `i `f -> _adcval `f -> -> 10 `i `f `uc ]
+[; ;newmain.c: 34: dat(((adcval / 100) % 10) + 48);
 "34
-[e ( _dat (1 -> + % / _adcval -> -> 10 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 36: dat((adcval % 10) + 48);
+[e ( _dat (1 -> + % / _adcval -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;newmain.c: 36: dat(((adcval / 10) % 10) + 48);
 "36
-[e ( _dat (1 -> + % _adcval -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;newmain.c: 38: }
+[e ( _dat (1 -> + % / _adcval -> -> 10 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;newmain.c: 38: dat((adcval % 10) + 48);
 "38
+[e ( _dat (1 -> + % _adcval -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;newmain.c: 40: }
+"40
 [e :UE 113 ]
 }
-"40
+"42
 [v _main `(v 1 ef ]
 {
-[; ;newmain.c: 40: void main() {
+[; ;newmain.c: 42: void main() {
 [e :U _main ]
 [f ]
-[; ;newmain.c: 41: setup();
-"41
+[; ;newmain.c: 45: setup();
+"45
 [e ( _setup ..  ]
-[; ;newmain.c: 42: lcd_init();
-"42
-[e ( _lcd_init ..  ]
-[; ;newmain.c: 44: show("ADC : ");
-"44
-[e ( _show (1 -> :s 1C `*uc ]
-[; ;newmain.c: 46: while (1) {
+[; ;newmain.c: 46: lcd_init();
 "46
+[e ( _lcd_init ..  ]
+[; ;newmain.c: 49: show("Nhiet do  : ");
+"49
+[e ( _show (1 -> :s 1C `*uc ]
+[; ;newmain.c: 51: while (1) {
+"51
 [e :U 119 ]
 {
-[; ;newmain.c: 49: cmd(0x8c);
-"49
+[; ;newmain.c: 55: cmd(0x8c);
+"55
 [e ( _cmd (1 -> -> 140 `i `uc ]
-[; ;newmain.c: 50: adc();
-"50
+[; ;newmain.c: 56: adc();
+"56
 [e ( _adc ..  ]
-"52
+"59
 }
 [e :U 118 ]
-"46
+"51
 [e $U 119  ]
 [e :U 120 ]
-[; ;newmain.c: 52: }
-[; ;newmain.c: 54: }
-"54
+[; ;newmain.c: 59: }
+[; ;newmain.c: 61: }
+"61
 [e :UE 117 ]
 }
-[a 1C 65 68 67 32 58 32 0 ]
+[a 1C 78 104 105 101 116 32 100 111 32 32 58 32 0 ]
 

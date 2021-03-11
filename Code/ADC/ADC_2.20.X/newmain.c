@@ -25,29 +25,36 @@ void adc() {
 
     adcval = ((ADRESH << 8) | (ADRESL)); //store the result
 
-    adcval = (adcval / 3) - 1;
+   adcval = (adcval / 2);
+    dat(((5000.0f/1023*adcval)/10));
+   // dat(adcval/2.049);
 
-    dat((adcval / 1000) + 48);
+ //dat((adcval / 1000) + 48);
 
     dat(((adcval / 100) % 10) + 48);
 
-    dat(((adcval / 10) % 10) + 48);
+   dat(((adcval / 10) % 10) + 48);
 
     dat((adcval % 10) + 48);
 
 }
 
 void main() {
+   
+    
     setup();
     lcd_init();
+    
     //cmd(0x90);
-    show("ADC : ");
+    show("Nhiet do  : ");
 
     while (1) {
+    
 
         //cmd(0x18);
         cmd(0x8c);
         adc();
+      
 
     }
 

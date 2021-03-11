@@ -1788,39 +1788,30 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 5 "newmain.c"
+# 10 "newmain.c"
+void interrupt ISR(void);
+void main (void)
+{
+
+
+RD0 = 0;
+TRISB0 = 1;
+PORTB = 0X00;
+GIE = 1;
+INTE = 1;
+INTEDG = 1;
+while(1)
+{
+
+}
+}
 void interrupt ISR(void)
 {
-
-unsigned int i, j;
-
-PORTD = 0X55;
-
-for (i = 0; i < 600; i++)
-
-for (j = 0; j < 200; j++);
-
-INTF = 0;
-
-}
-
-void main(void)
+if(INTF==1)
 {
-
-PORTD = 0;
-
-TRISB0 = 1;
-
-TRISD = 0;
-
-OPTION_REG = 0X00;
-
-INTCON |= 0Xd0;
-
-while (1) {
-
-PORTD = 0x00;
-
+{
+RD0=!RD0;
+INTF=0;
 }
-
+}
 }

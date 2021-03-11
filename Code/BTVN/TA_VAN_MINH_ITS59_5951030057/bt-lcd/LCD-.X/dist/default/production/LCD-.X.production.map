@@ -15,7 +15,7 @@ Linker command line:
   -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
   -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
   -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\tamin\AppData\Local\Temp\sefs.obj \
+  C:\Users\tamin\AppData\Local\Temp\sc30.obj \
   dist/default/production\LCD-.X.production.obj 
 
 Object code version is 3.10
@@ -25,49 +25,45 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\tamin\AppData\Local\Temp\sefs.obj
+C:\Users\tamin\AppData\Local\Temp\sc30.obj
                 end_init                              0        0        3        0       0
 dist/default/production\LCD-.X.production.obj
-                text128                             5B7      5B7       1E      B6E       0
-                text127                             59C      59C       1B      B38       0
-                text126                             6FC      6FC       4E      DF8       0
-                text125                             6B8      6B8       44      D70       0
-                text124                             63C      63C       3E      C78       0
-                text123                             67A      67A       3E      CF4       0
-                text122                             5D5      5D5       1F      BAA       0
-                text121                             5F4      5F4       21      BE8       0
-                text120                             74A      74A       5B      E94       0
-                text119                             7A5      7A5       5B      F4A       0
-                maintext                            615      615       27      C2A       0
+                text123                             5E6      5E6       1E      BCC       0
+                text122                             5CB      5CB       1B      B96       0
+                text121                             704      704       4E      E08       0
+                text120                             6C0      6C0       44      D80       0
+                text119                             644      644       3E      C88       0
+                text118                             682      682       3E      D04       0
+                text117                             604      604       1F      C08       0
+                text116                             7A7      7A7       59      F4E       0
+                text115                             752      752       55      EA4       0
+                maintext                            623      623       21      C46       0
                 cstackCOMMON                         70       70        8       70       1
                 bssCOMMON                            78       78        4       70       1
-                cinit                               594      594        8      B28       0
-                strings                               3        3       10        6       0
+                cinit                               5C3      5C3        8      B86       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CONST          
 
         CLASS   CODE           
                 end_init                              0        0        3         0
-                text128                             5B7      5B7       1E         0
-                text127                             59C      59C       1B         0
-                text126                             6FC      6FC       4E         0
-                text125                             6B8      6B8       44         0
-                text124                             63C      63C       3E         0
-                text123                             67A      67A       3E         0
-                text122                             5D5      5D5       1F         0
-                text121                             5F4      5F4       21         0
-                text120                             74A      74A       5B         0
-                text119                             7A5      7A5       5B         0
-                maintext                            615      615       27         0
-                cinit                               594      594        8         0
+                text123                             5E6      5E6       1E         0
+                text122                             5CB      5CB       1B         0
+                text121                             704      704       4E         0
+                text120                             6C0      6C0       44         0
+                text119                             644      644       3E         0
+                text118                             682      682       3E         0
+                text117                             604      604       1F         0
+                text116                             7A7      7A7       59         0
+                text115                             752      752       55         0
+                maintext                            623      623       21         0
+                cinit                               5C3      5C3        8         0
 
         CLASS   STRCODE        
 
         CLASS   ENTRY          
 
         CLASS   STRING         
-                strings                               3        3       10         0
 
         CLASS   BANK0          
 
@@ -105,20 +101,18 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                strings                        000003  000010  000013         6       0  STRING      2
                 cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
-                cinit                          000594  000008  00059C       B28       0  CODE        2
-                text127                        00059C  00001B  0005B7       B38       0  CODE        2
-                text128                        0005B7  00001E  0005D5       B6E       0  CODE        2
-                text122                        0005D5  00001F  0005F4       BAA       0  CODE        2
-                text121                        0005F4  000021  000615       BE8       0  CODE        2
-                maintext                       000615  000027  00063C       C2A       0  CODE        2
-                text124                        00063C  00003E  00067A       C78       0  CODE        2
-                text123                        00067A  00003E  0006B8       CF4       0  CODE        2
-                text125                        0006B8  000044  0006FC       D70       0  CODE        2
-                text126                        0006FC  00004E  00074A       DF8       0  CODE        2
-                text120                        00074A  00005B  0007A5       E94       0  CODE        2
-                text119                        0007A5  00005B  000800       F4A       0  CODE        2
+                cinit                          0005C3  000008  0005CB       B86       0  CODE        2
+                text122                        0005CB  00001B  0005E6       B96       0  CODE        2
+                text123                        0005E6  00001E  000604       BCC       0  CODE        2
+                text117                        000604  00001F  000623       C08       0  CODE        2
+                maintext                       000623  000021  000644       C46       0  CODE        2
+                text119                        000644  00003E  000682       C88       0  CODE        2
+                text118                        000682  00003E  0006C0       D04       0  CODE        2
+                text120                        0006C0  000044  000704       D80       0  CODE        2
+                text121                        000704  00004E  000752       E08       0  CODE        2
+                text115                        000752  000055  0007A7       EA4       0  CODE        2
+                text116                        0007A7  000059  000800       F4E       0  CODE        2
 
 
 UNUSED ADDRESS RANGES
@@ -128,14 +122,14 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0013-0593            581           2
+        CODE             0003-05C2            5C0           2
                          0800-1FFF            800
         COMMON           007C-007D              2           1
         CONFIG           2007-2007              1           2
-        CONST            0013-0593            100           2
+        CONST            0003-05C2            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0013-0593            100           2
+        ENTRY            0003-05C2            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -146,9 +140,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0013-0593            581           2
+        STRCODE          0003-05C2            5C0           2
                          0800-1FFF           1800
-        STRING           0013-0593            100           2
+        STRING           0003-05C2            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -162,7 +156,6 @@ UNUSED ADDRESS RANGES
 ??_lcd_init           cstackCOMMON 0075
 ??_len                cstackCOMMON 0078
 ??_main               cstackCOMMON 0078
-??_show               cstackCOMMON 0075
 ??_xuong              cstackCOMMON 0078
 ?___lwdiv             cstackCOMMON 0070
 ?___lwmod             cstackCOMMON 0070
@@ -173,7 +166,6 @@ UNUSED ADDRESS RANGES
 ?_lcd_init            cstackCOMMON 0070
 ?_len                 cstackCOMMON 0070
 ?_main                cstackCOMMON 0070
-?_show                cstackCOMMON 0070
 ?_xuong               cstackCOMMON 0070
 _INTCON               (abs)        000B
 _OPTION_REG           (abs)        0081
@@ -243,42 +235,39 @@ __Ltext               text         0000
 __S0                  (abs)        0800
 __S1                  (abs)        007C
 __S2                  (abs)        0000
-___lwdiv              text126      06FC
+___lwdiv              text121      0704
 ___lwdiv@counter      cstackCOMMON 0077
 ___lwdiv@dividend     cstackCOMMON 0072
 ___lwdiv@divisor      cstackCOMMON 0070
 ___lwdiv@quotient     cstackCOMMON 0075
-___lwmod              text125      06B8
+___lwmod              text120      06C0
 ___lwmod@counter      cstackCOMMON 0075
 ___lwmod@dividend     cstackCOMMON 0072
 ___lwmod@divisor      cstackCOMMON 0070
-__end_of___lwdiv      text126      074A
-__end_of___lwmod      text125      06FC
-__end_of_cmd          text124      067A
-__end_of_dat          text123      06B8
-__end_of_delay        text127      05B7
-__end_of_lcd_delay    text128      05D5
-__end_of_lcd_init     text122      05F4
-__end_of_len          text120      07A5
-__end_of_main         maintext     063C
-__end_of_show         text121      0615
-__end_of_xuong        text119      0800
+__end_of___lwdiv      text121      0752
+__end_of___lwmod      text120      0704
+__end_of_cmd          text119      0682
+__end_of_dat          text118      06C0
+__end_of_delay        text122      05E6
+__end_of_lcd_delay    text123      0604
+__end_of_lcd_init     text117      0623
+__end_of_len          text116      0800
+__end_of_main         maintext     0644
+__end_of_xuong        text115      07A7
 __pbssCOMMON          bssCOMMON    0078
 __pcstackCOMMON       cstackCOMMON 0070
-__pmaintext           maintext     0615
-__pstrings            strings      0003
-__ptext118            text118      0000
-__ptext119            text119      07A5
-__ptext120            text120      074A
-__ptext121            text121      05F4
-__ptext122            text122      05D5
-__ptext123            text123      067A
-__ptext124            text124      063C
-__ptext125            text125      06B8
-__ptext126            text126      06FC
-__ptext127            text127      059C
-__ptext128            text128      05B7
-__ptext129            text129      0000
+__pmaintext           maintext     0623
+__ptext114            text114      0000
+__ptext115            text115      0752
+__ptext116            text116      07A7
+__ptext117            text117      0604
+__ptext118            text118      0682
+__ptext119            text119      0644
+__ptext120            text120      06C0
+__ptext121            text121      0704
+__ptext122            text122      05CB
+__ptext123            text123      05E6
+__ptext124            text124      0000
 __size_of___lwdiv     (abs)        0000
 __size_of___lwmod     (abs)        0000
 __size_of_cmd         (abs)        0000
@@ -288,26 +277,24 @@ __size_of_lcd_delay   (abs)        0000
 __size_of_lcd_init    (abs)        0000
 __size_of_len         (abs)        0000
 __size_of_main        (abs)        0000
-__size_of_show        (abs)        0000
 __size_of_xuong       (abs)        0000
 _a                    bssCOMMON    0078
-_cmd                  text124      063C
-_dat                  text123      067A
-_delay                text127      059C
+_cmd                  text119      0644
+_dat                  text118      0682
+_delay                text122      05CB
 _exit                 init         0000
 _i                    bssCOMMON    007A
-_lcd_delay            text128      05B7
-_lcd_init             text122      05D5
-_len                  text120      074A
-_main                 maintext     0615
-_show                 text121      05F4
-_xuong                text119      07A5
+_lcd_delay            text123      05E6
+_lcd_init             text117      0604
+_len                  text116      07A7
+_main                 maintext     0623
+_xuong                text115      0752
 btemp                 (abs)        007E
 cmd@a                 cstackCOMMON 0074
 dat@b                 cstackCOMMON 0074
 delay@a               cstackCOMMON 0070
 delay@i               cstackCOMMON 0072
-end_of_initialization cinit        0598
+end_of_initialization cinit        05C7
 intlevel0             functab      0000
 intlevel1             functab      0000
 intlevel2             functab      0000
@@ -316,7 +303,6 @@ intlevel4             functab      0000
 intlevel5             functab      0000
 lcd_delay@lcd_delay   cstackCOMMON 0070
 reset_vec             reset_vec    0000
-show@s                cstackCOMMON 0076
 start                 init         0000
-start_initialization  cinit        0594
+start_initialization  cinit        05C3
 wtemp0                (abs)        007E

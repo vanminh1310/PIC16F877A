@@ -2056,24 +2056,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _cmd ]
 [v _a `uc 1 r1 ]
 [f ]
-[; ;lcd4.h: 44: RD2 = 0;
+[; ;lcd4.h: 44: RC0 = 0;
 "44
-[e = _RD2 -> -> 0 `i `b ]
+[e = _RC0 -> -> 0 `i `b ]
 [; ;lcd4.h: 45: PORTD &= 0x0F;
 "45
 [e =& _PORTD -> -> 15 `i `uc ]
 [; ;lcd4.h: 46: PORTD |= (a & 0xf0);
 "46
 [e =| _PORTD -> & -> _a `i -> 240 `i `uc ]
-[; ;lcd4.h: 47: RD3 = 1;
+[; ;lcd4.h: 47: RC1 = 1;
 "47
-[e = _RD3 -> -> 1 `i `b ]
+[e = _RC1 -> -> 1 `i `b ]
 [; ;lcd4.h: 48: lcd_delay();
 "48
 [e ( _lcd_delay ..  ]
-[; ;lcd4.h: 49: RD3 = 0;
+[; ;lcd4.h: 49: RC1 = 0;
 "49
-[e = _RD3 -> -> 0 `i `b ]
+[e = _RC1 -> -> 0 `i `b ]
 [; ;lcd4.h: 50: lcd_delay();
 "50
 [e ( _lcd_delay ..  ]
@@ -2083,15 +2083,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd4.h: 52: PORTD |= (a << 4 & 0xf0);
 "52
 [e =| _PORTD -> & << -> _a `i -> 4 `i -> 240 `i `uc ]
-[; ;lcd4.h: 53: RD3 = 1;
+[; ;lcd4.h: 53: RC1 = 1;
 "53
-[e = _RD3 -> -> 1 `i `b ]
+[e = _RC1 -> -> 1 `i `b ]
 [; ;lcd4.h: 54: lcd_delay();
 "54
 [e ( _lcd_delay ..  ]
-[; ;lcd4.h: 55: RD3 = 0;
+[; ;lcd4.h: 55: RC1 = 0;
 "55
-[e = _RD3 -> -> 0 `i `b ]
+[e = _RC1 -> -> 0 `i `b ]
 [; ;lcd4.h: 56: lcd_delay();
 "56
 [e ( _lcd_delay ..  ]
@@ -2106,24 +2106,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _dat ]
 [v _b `uc 1 r1 ]
 [f ]
-[; ;lcd4.h: 60: RD2 = 1;
+[; ;lcd4.h: 60: RC0 = 1;
 "60
-[e = _RD2 -> -> 1 `i `b ]
+[e = _RC0 -> -> 1 `i `b ]
 [; ;lcd4.h: 61: PORTD &= 0x0F;
 "61
 [e =& _PORTD -> -> 15 `i `uc ]
 [; ;lcd4.h: 62: PORTD |= (b & 0xf0);
 "62
 [e =| _PORTD -> & -> _b `i -> 240 `i `uc ]
-[; ;lcd4.h: 63: RD3 = 1;
+[; ;lcd4.h: 63: RC1 = 1;
 "63
-[e = _RD3 -> -> 1 `i `b ]
+[e = _RC1 -> -> 1 `i `b ]
 [; ;lcd4.h: 64: lcd_delay();
 "64
 [e ( _lcd_delay ..  ]
-[; ;lcd4.h: 65: RD3 = 0;
+[; ;lcd4.h: 65: RC1 = 0;
 "65
-[e = _RD3 -> -> 0 `i `b ]
+[e = _RC1 -> -> 0 `i `b ]
 [; ;lcd4.h: 66: lcd_delay();
 "66
 [e ( _lcd_delay ..  ]
@@ -2133,15 +2133,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd4.h: 68: PORTD |= (b << 4 & 0xf0);
 "68
 [e =| _PORTD -> & << -> _b `i -> 4 `i -> 240 `i `uc ]
-[; ;lcd4.h: 69: RD3 = 1;
+[; ;lcd4.h: 69: RC1 = 1;
 "69
-[e = _RD3 -> -> 1 `i `b ]
+[e = _RC1 -> -> 1 `i `b ]
 [; ;lcd4.h: 70: lcd_delay();
 "70
 [e ( _lcd_delay ..  ]
-[; ;lcd4.h: 71: RD3 = 0;
+[; ;lcd4.h: 71: RC1 = 0;
 "71
-[e = _RD3 -> -> 0 `i `b ]
+[e = _RC1 -> -> 0 `i `b ]
 [; ;lcd4.h: 72: lcd_delay();
 "72
 [e ( _lcd_delay ..  ]
@@ -2215,46 +2215,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;newmain.c: 21: TRISD = 0;
 "21
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;newmain.c: 22: TRISC5 = 0;
+[; ;newmain.c: 22: TRISC0=TRISC1 = 0;
 "22
-[e = _TRISC5 -> -> 0 `i `b ]
-[; ;newmain.c: 23: lcd_init();
+[e = _TRISC0 = _TRISC1 -> -> 0 `i `b ]
+[; ;newmain.c: 23: TRISC5 = 0;
 "23
-[e ( _lcd_init ..  ]
-[; ;newmain.c: 24: keyinit();
+[e = _TRISC5 -> -> 0 `i `b ]
+[; ;newmain.c: 24: lcd_init();
 "24
-[e ( _keyinit ..  ]
+[e ( _lcd_init ..  ]
+[; ;newmain.c: 25: keyinit();
 "25
-[v _b `uc 1 a ]
-[; ;newmain.c: 25: unsigned char b;
-[; ;newmain.c: 26: cmd(0x80);
+[e ( _keyinit ..  ]
 "26
-[e ( _cmd (1 -> -> 128 `i `uc ]
-[; ;newmain.c: 27: show("  Enter the Key ");
+[v _b `uc 1 a ]
+[; ;newmain.c: 26: unsigned char b;
+[; ;newmain.c: 27: cmd(0x80);
 "27
-[e ( _show (1 -> :s 1C `*uc ]
-[; ;newmain.c: 28: while (1) {
+[e ( _cmd (1 -> -> 128 `i `uc ]
+[; ;newmain.c: 28: show("  Enter the Key ");
 "28
+[e ( _show (1 -> :s 1C `*uc ]
+[; ;newmain.c: 29: while (1) {
+"29
 [e :U 148 ]
 {
-[; ;newmain.c: 29: cmd(0xc7);
-"29
-[e ( _cmd (1 -> -> 199 `i `uc ]
-[; ;newmain.c: 30: b = key();
+[; ;newmain.c: 30: cmd(0xc7);
 "30
+[e ( _cmd (1 -> -> 199 `i `uc ]
+[; ;newmain.c: 31: b = key();
+"31
 [e = _b ( _key ..  ]
-[; ;newmain.c: 37: dat(b);
-"37
+[; ;newmain.c: 38: dat(b);
+"38
 [e ( _dat (1 _b ]
-"40
+"41
 }
 [e :U 147 ]
-"28
+"29
 [e $U 148  ]
 [e :U 149 ]
-[; ;newmain.c: 40: }
 [; ;newmain.c: 41: }
-"41
+[; ;newmain.c: 42: }
+"42
 [e :UE 146 ]
 }
 [a 1C 32 32 69 110 116 101 114 32 116 104 101 32 75 101 121 32 0 ]

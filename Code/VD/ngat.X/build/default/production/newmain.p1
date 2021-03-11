@@ -1,17 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"341 C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f877a.h
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"2606
-[v _INTF `Vb ~T0 @X0 0 e@89 ]
 [p mainexit ]
+"2750 C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f877a.h
+[v _RD0 `Vb ~T0 @X0 0 e@64 ]
 "2936
 [v _TRISB0 `Vb ~T0 @X0 0 e@1072 ]
-"1500
-[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
-"1256
-[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
-"455
-[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"217
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"2570
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"2600
+[v _INTE `Vb ~T0 @X0 0 e@92 ]
+"2603
+[v _INTEDG `Vb ~T0 @X0 0 e@1038 ]
+"2606
+[v _INTF `Vb ~T0 @X0 0 e@89 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1056,93 +1058,84 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 127: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 128: extern __bank0 __bit __powerdown;
 [; ;pic.h: 129: extern __bank0 __bit __timeout;
-[v $root$_ISR `(v ~T0 @X0 0 e ]
-[v F881 `(v ~T0 @X0 1 tf ]
-"5 newmain.c
-[v _ISR `IF881 ~T0 @X0 1 e ]
-"6
-{
-[; ;newmain.c: 5: void interrupt ISR(void)
-[; ;newmain.c: 6: {
-[e :U _ISR ]
-[f ]
-"8
-[v _i `ui ~T0 @X0 1 a ]
-[v _j `ui ~T0 @X0 1 a ]
-[; ;newmain.c: 8: unsigned int i, j;
-[; ;newmain.c: 10: PORTD = 0X55;
-"10
-[e = _PORTD -> -> 85 `i `uc ]
-[; ;newmain.c: 12: for (i = 0; i < 600; i++)
-"12
-{
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 600 `i `ui 96  ]
-[e $U 97  ]
-"14
-[e :U 96 ]
-[; ;newmain.c: 14: for (j = 0; j < 200; j++);
-{
-[e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 200 `i `ui 99  ]
-[e $U 100  ]
-[e :U 99 ]
-[e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 200 `i `ui 99  ]
-[e :U 100 ]
-}
-"12
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 600 `i `ui 96  ]
-[e :U 97 ]
-"14
-}
-[; ;newmain.c: 16: INTF = 0;
-"16
-[e = _INTF -> -> 0 `i `b ]
-[; ;newmain.c: 18: }
-"18
-[e :UE 95 ]
-}
+[; ;newmain.c: 10: void interrupt ISR(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"20
+"11 newmain.c
 [v _main `(v ~T0 @X0 1 ef ]
-"21
+"12
 {
-[; ;newmain.c: 20: void main(void)
-[; ;newmain.c: 21: {
+[; ;newmain.c: 11: void main (void)
+[; ;newmain.c: 12: {
 [e :U _main ]
 [f ]
-[; ;newmain.c: 23: PORTD = 0;
-"23
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;newmain.c: 25: TRISB0 = 1;
-"25
+[; ;newmain.c: 15: RD0 = 0;
+"15
+[e = _RD0 -> -> 0 `i `b ]
+[; ;newmain.c: 16: TRISB0 = 1;
+"16
 [e = _TRISB0 -> -> 1 `i `b ]
-[; ;newmain.c: 27: TRISD = 0;
-"27
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;newmain.c: 29: OPTION_REG = 0X00;
-"29
-[e = _OPTION_REG -> -> 0 `i `uc ]
-[; ;newmain.c: 31: INTCON |= 0Xd0;
-"31
-[e =| _INTCON -> -> 208 `i `uc ]
-[; ;newmain.c: 33: while (1) {
-"33
-[e :U 104 ]
+[; ;newmain.c: 17: PORTB = 0X00;
+"17
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;newmain.c: 18: GIE = 1;
+"18
+[e = _GIE -> -> 1 `i `b ]
+[; ;newmain.c: 19: INTE = 1;
+"19
+[e = _INTE -> -> 1 `i `b ]
+[; ;newmain.c: 20: INTEDG = 1;
+"20
+[e = _INTEDG -> -> 1 `i `b ]
+[; ;newmain.c: 21: while(1)
+"21
+[e :U 97 ]
+[; ;newmain.c: 22: {
+"22
 {
-[; ;newmain.c: 35: PORTD = 0x00;
-"35
-[e = _PORTD -> -> 0 `i `uc ]
-"37
+"24
 }
-[e :U 103 ]
+[e :U 96 ]
+"21
+[e $U 97  ]
+[e :U 98 ]
+[; ;newmain.c: 24: }
+[; ;newmain.c: 25: }
+"25
+[e :UE 95 ]
+}
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+[v F881 `(v ~T0 @X0 1 tf ]
+"26
+[v _ISR `IF881 ~T0 @X0 1 e ]
+"27
+{
+[; ;newmain.c: 26: void interrupt ISR(void)
+[; ;newmain.c: 27: {
+[e :U _ISR ]
+[f ]
+[; ;newmain.c: 28: if(INTF==1)
+"28
+[e $ ! == -> _INTF `i -> 1 `i 100  ]
+[; ;newmain.c: 29: {
+"29
+{
+[; ;newmain.c: 30: {
+"30
+{
+[; ;newmain.c: 31: RD0=!RD0;
+"31
+[e = _RD0 ! _RD0 ]
+[; ;newmain.c: 32: INTF=0;
+"32
+[e = _INTF -> -> 0 `i `b ]
 "33
-[e $U 104  ]
-[e :U 105 ]
-[; ;newmain.c: 37: }
-[; ;newmain.c: 39: }
-"39
-[e :UE 102 ]
+}
+"34
+}
+[e :U 100 ]
+[; ;newmain.c: 33: }
+[; ;newmain.c: 34: }
+[; ;newmain.c: 35: }
+"35
+[e :UE 99 ]
 }

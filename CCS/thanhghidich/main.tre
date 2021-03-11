@@ -1,0 +1,14 @@
+ÀÄmain
+   ÀÄmain  0/33  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄsetup  0/15  Ram=0
+      ÃÄwritebye  0/50  Ram=1
+      ³  ÀÄthaydoi  (Inline)  Ram=3
+      ÃÄ@delay_ms1  0/20  Ram=1
+      ÃÄwritebye  0/50  Ram=1
+      ³  ÀÄ*
+      ÃÄ@delay_ms1  0/20  Ram=1
+      ÃÄOnLow2High  0/13  Ram=0
+      ³  ÀÄwritebye  0/50  Ram=1
+      ³     ÀÄ*
+      ÀÄ@delay_ms1  0/20  Ram=1
