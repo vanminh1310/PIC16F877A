@@ -1,0 +1,2 @@
+>>> Warning 203 "main.c" Line 105(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 111(1,2): Interrupts disabled during call to prevent re-entrancy:  (ngatadc)

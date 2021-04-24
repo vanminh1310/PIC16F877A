@@ -7,9 +7,8 @@
 01B     CCP_2
 01B     CCP_2_LOW
 01C     CCP_2_HIGH
-021     MAIN.i
-022     test.@SCRATCH1
-023     @delay_ms1.P1
+021     main.@SCRATCH1
+022     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -17,25 +16,23 @@
 07A     @SCRATCH
 09C.6   C1OUT
 09C.7   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
 000004  @delay_ms1
-000018  test
-000032  MAIN
-000032  @cinit1
-00003C  @cinit2
+000018  @cinit1
+000018  main
+000022  @cinit2
 
 Project Directory:
     E:\PIC16F877A\CCS\test\
 
 Project Files:
-    main.c                                                  [26-Thg2-21 10:58  CRC=EBF33CC9]
-    main.h                                                  [26-Thg2-21 08:20  CRC=CF12E969]
+    main.c                                                  [02-Thg4-21 07:29  CRC=D872A938]
     D:\Program File\PICC\Devices\16F877A.h                  [12-Thg11-13 14:35  CRC=81334808]
 
-Source signature=BD6CB642
+Source signature=DAD93948
 
 Units:
     main (main)
@@ -43,7 +40,7 @@ Units:
 Compiler Settings:
     Processor:      PIC16F877A
     Pointer Size:   16
-    ADC Range:      0-65535
+    ADC Range:      0-255
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32

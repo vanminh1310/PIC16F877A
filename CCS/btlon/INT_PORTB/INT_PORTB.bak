@@ -1,0 +1,67 @@
+#include <16F877A.h>
+#fuses NOWDT,PUT,XT,NOPROTECT
+#use delay(clock=4000000)
+#use fast_io(b)
+#byte portb=0x06 
+#byte intcon=0x000B
+#bit RB4=portb.4
+#bit RB5=portb.5
+#bit RB6=portb.6
+#bit RB7=portb.7
+#bit RBIF=intcon.0 //dinh nghia co ngat RB
+#bit RBIE=intcon.3 //dinh nghia bit cho phep ngat RB
+int led=0,speed;
+// Chuong trinh ngat
+#int_RB
+void ngat_RB()
+{
+if((RBIF)&&(RBIE)) 
+{ 
+//Kiem tra sw1
+{
+if(RB4==0)
+{
+led=0b00000001; //led1 sang
+speed=250;
+} 
+}
+//Kiem tra sw2 
+{
+if(RB5==0)
+{
+led=0b00000011; //led1,2 sang
+speed=200;
+} 
+}
+//Kiem tra sw3
+{
+if(RB6==0)
+{
+led=0b00000111; //led1,2,3 sang
+speed=150;
+} 
+}
+//Kiem tra sw4
+{
+if(RB7==0)
+{
+led=0b00001111; //led1,2,3,4 sang
+speed=100;
+} 
+}
+RBIF=0; //Xoa co ngat RB 
+}
+}
+
+void main()
+{
+set_tris_b(0b11110000);
+portb=0b00001111;
+enable_interrupts(global);
+enable_interrupts(int_RB);
+ext_int_edge(H_to_L);
+while(true)
+{
+
+}
+}

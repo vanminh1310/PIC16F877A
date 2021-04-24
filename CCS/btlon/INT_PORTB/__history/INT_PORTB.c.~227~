@@ -1,0 +1,69 @@
+#include <16F877a.h>
+#FUSES NOWDT, HS, PUT, NOPROTECT,
+#use DELAY(clock=20000000)
+#use rs232(baud=9600,xmit=pin_c6,rcv=pin_c7) 
+#use fast_io(b)
+#byte portb=0x06 
+#byte intcon=0x000B
+
+#define tb1 PIN_B0
+#define tb2 PIN_B1
+#define tb3 PIN_B2
+#define tb4 PIN_B3
+
+#define btn1 PIN_B7
+#define btn2 PIN_B6
+#define btn3 PIN_B5
+#define btn4 PIN_B4
+
+char data;
+#bit RBIF=intcon.0 //dinh nghia co ngat RB
+#bit RBIE=intcon.3 //dinh nghia bit cho phep ngat RB
+#int_RB
+void ngat_RB()
+{
+if((RBIF)&&(RBIE)) 
+{ 
+//Kiem tra sw1
+{
+if(input(btn1)==0)
+{
+putc('a');
+} 
+}
+//Kiem tra sw2 
+{
+if(input(btn2)==0)
+{
+putc('b');
+} 
+}
+//Kiem tra sw3
+{
+if(input(btn3)==0)
+{
+putc('c');
+} 
+}
+//Kiem tra sw4
+{
+if(input(btn4)==0)
+{
+putc('d');
+} 
+}
+RBIF=0; //Xoa co ngat RB 
+}
+}
+
+void main()
+{
+SET_TRIS_B(0b00001111);
+enable_interrupts(global);
+enable_interrupts(int_RB);
+ext_int_edge(H_to_L);
+while(true)
+{ 
+
+}
+}

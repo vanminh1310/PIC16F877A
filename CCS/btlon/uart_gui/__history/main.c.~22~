@@ -1,0 +1,16 @@
+#include <16F877a.h>
+#FUSES NOWDT, HS, PUT, NOPROTECT,
+#use DELAY(clock=11059200)
+#use rs232(baud=9600,xmit=pin_c6,rcv=pin_c7) 
+int8 TDATA;
+void main()
+{
+SET_TRIS_D(0x00);  TDATA = 0X0; 
+while(true)
+{ 
+PUTC(TDATA);   
+OUTPUT_D(TDATA);
+DELAY_MS(100);
+TDATA++;    
+}
+}

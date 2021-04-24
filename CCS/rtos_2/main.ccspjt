@@ -1,0 +1,19 @@
+[PROJECT]
+Target=E:\PIC16F877A\CCS\rtos_2\main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.015
+Compiler=PCM
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[E:\PIC16F877A\CCS\rtos_2\main]
+Type=4
+[mru-list]
+1=main.c
+[Units]
+Count=1
+1=main (main)
+[Opened Files]
+1=main.c
+2=

@@ -1,0 +1,13 @@
+#include <16F877A.h>
+#fuses NOWDT, PUT, XT, NOPROTECT
+#use delay(clock = 20000000)
+void main(){
+set_tris_b(0);
+while(1){
+output_b(0x00);
+delay_ms(1000);
+output_b(0xff);
+delay(1000);
+}
+
+}

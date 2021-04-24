@@ -1,0 +1,6 @@
+>>> Warning 203 "main.c" Line 94(1,1): Condition always TRUE
+>>> Warning 202 "main.c" Line 15(7,17): Variable never used:   duty_cycle
+>>> Warning 202 "main.c" Line 93(15,16): Variable never used:   y
+      Memory usage:   ROM=2%      RAM=4% - 5%
+      0 Errors,  3 Warnings.
+Build Successful.

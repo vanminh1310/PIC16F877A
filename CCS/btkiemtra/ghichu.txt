@@ -1,0 +1,7 @@
+Điều khiển động cơ với caccs trường hợp sau 
+	- nút nhấn 1: Strart
+	-nút nhấn 2: Stop
+	- nút nhấn 3 Tăng tốc 
+	- giảm tốc 
+	- đảo chiều 
+sử dụng l298n 

@@ -1,0 +1,33 @@
+[PROJECT]
+Target=INT_PORTB.hex
+Development_Mode=
+Processor_Text=PIC16F877A
+ToolSuite=CCS
+Processor=0x877A
+CCSVersion=5.015
+Compiler=PCM
+[INT_PORTB]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=INT_PORTB.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Opened Files]
+1=INT_PORTB.c
+2=
+3=
+4=
+[Target Data]
+FileList=INT_PORTB.c
+[Directories]
+Include=D:\Program File\PICC\Devices\;D:\Program File\PICC\Drivers\
+[INT_PORTB.c]
+Type=4
+[Units]
+Count=1
+1=INT_PORTB (main)

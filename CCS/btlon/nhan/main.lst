@@ -1,0 +1,88 @@
+CCS PCM C Compiler, Version 5.015, 5967               12-Thg3-21 09:13
+
+               Filename:   E:\PIC16F877A\CCS\btlon\nhan\main.lst
+
+               ROM used:   41 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           6 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16F877a.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #FUSES NOWDT, HS, PUT, NOPROTECT, 
+.................... #use DELAY(clock=16000000) 
+.................... #use rs232(baud=9600,xmit=pin_c6,rcv=pin_c7) 
+.................... int8 RDATA; 
+.................... void main() 
+0004:  MOVF   03,W
+0005:  ANDLW  1F
+0006:  MOVWF  03
+0007:  MOVLW  19
+0008:  BSF    03.5
+0009:  MOVWF  19
+000A:  MOVLW  A2
+000B:  MOVWF  18
+000C:  MOVLW  90
+000D:  BCF    03.5
+000E:  MOVWF  18
+000F:  BSF    03.5
+0010:  BSF    1F.0
+0011:  BSF    1F.1
+0012:  BSF    1F.2
+0013:  BCF    1F.3
+0014:  MOVLW  07
+0015:  MOVWF  1C
+0016:  BCF    03.7
+.................... { 
+.................... SET_TRIS_D(0x00); 
+0017:  MOVLW  00
+0018:  MOVWF  08
+.................... output_d(0); 
+0019:  CLRF   08
+001A:  BCF    03.5
+001B:  CLRF   08
+.................... while(1) 
+.................... { 
+.................... if(kbhit()) // Hàm kbhit() tr? v? 1 n?u có k? t? ð? nh?n và 0 n?u không có k? t? 
+001C:  BTFSS  0C.5
+001D:  GOTO   027
+.................... { 
+.................... RDATA=getch(); //nh?n k? t? g?i ð?n 
+001E:  BTFSS  0C.5
+001F:  GOTO   01E
+0020:  MOVF   1A,W
+0021:  MOVWF  20
+.................... OUTPUT_D(RDATA); 
+0022:  BSF    03.5
+0023:  CLRF   08
+0024:  BCF    03.5
+0025:  MOVF   20,W
+0026:  MOVWF  08
+.................... } 
+0027:  GOTO   01C
+.................... } 
+.................... } 
+0028:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

@@ -1088,104 +1088,126 @@ extern unsigned char eeprom_read(unsigned char addr);
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 10 "newmain.c"
-int i, j;
-void GPIO_init(void) {
-TRISB = 0X00;
-TRISC = 0X00;
-PORTC = 0X00;
+# 3 "newmain.c"
+asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFFFF & 0xFF7F & 0xFFFF & 0xFFFF & 0xFFFF");
 
-}
-
-void sanghet() {
-PORTB = 0xFF;
-PORTC = 0XFF;
-_delay((unsigned long)((2000)*(12000000/4000.0)));
-
-}
-
-void chayled() {
-
-PORTB = 0Xff;
-PORTC = 0Xff;
-
-
-
-for (i = 0; i < 8; i++) {
-_delay((unsigned long)((1000)*(12000000/4000.0)));
-PORTB = PORTB << 1;
-}
-
-for (i = 0; i < 8; i++) {
-_delay((unsigned long)((1000)*(12000000/4000.0)));
-PORTC = PORTC << 1;
-}
-
-
-
-}
-
-void test2() {
-
-_delay((unsigned long)((500)*(12000000/4000.0)));
-PORTB = 0X00;
-PORTC = 0X00;
-for (i = 0; i < 9; i++) {
-_delay((unsigned long)((500)*(12000000/4000.0)));
-PORTB = (PORTB << 1) | 0X01;
-PORTC = PORTC >> 1;
-PORTC = PORTC | 0X80;
-}
-
-
-}
-
-void lusang() {
-int i, j;
-PORTC = 0X00;
-PORTB = 0X00;
-_delay((unsigned long)((300)*(12000000/4000.0)));
-for (i = 0; i < 9; i++) {
-_delay((unsigned long)((300)*(12000000/4000.0)));
-PORTB = PORTB << 1;
-PORTB = PORTB | 1;
-_delay((unsigned long)((300)*(12000000/4000.0)));
-PORTC = PORTC >> 1;
-PORTC = PORTC | 0X80;
-PORTB = PORTB << 1;
-PORTC = PORTC >> 1;
-}
-
-
-
-}
-
-void lusang2() {
-PORTB = 0X01;
-for(i=0;i<3;i++)
+# 9
+void USART_Init()
 {
-_delay((unsigned long)((300)*(12000000/4000.0)));
-PORTB = PORTB<<1;
+
+TRISC6=1;
+TRISC7=1;
+
+
+BRGH=1;
+SPBRG =129;
+
+
+SYNC=0;
+SPEN=1;
+
+
+RX9=0;
+TX9=0;
+
+
+TXEN=1;
+CREN=1;
+
+
+GIE = 1;
+PEIE= 1;
+
+
+RCIE=1;
+TXIE=1;
 }
 
-_delay((unsigned long)((300)*(12000000/4000.0)));
-PORTB = 0X04;
-for(i=0;i<3;i++)
+
+
+void USART_char(char byte)
 {
-_delay((unsigned long)((300)*(12000000/4000.0)));
-PORTB = PORTB>>1;
+TXREG = byte;
+while(!TXIF);
+while(!TRMT);
 }
 
+
+
+void USART_string(char* string)
+{
+while(*string)
+USART_char(*string++);
 }
 
-void main() {
-
-GPIO_init();
 
 
+void send_data()
+{
+TXREG = 13;
+_delay((unsigned long)((500)*(20000000/4000.0)));
+}
 
 
-lusang2();
+
+char USART_get_char(void)
+{
+if(OERR)
+{
+CREN = 0;
+CREN = 1;
+}
+
+if(RCIF==1)
+{
+while(!RCIF);
+return RCREG;
+}
+else
+return 0;
+}
 
 
+void main(void)
+{
+
+int get_value;
+
+
+
+TRISD4=0;
+
+
+USART_Init();
+
+
+USART_string("Bluetooth iS Ready");
+send_data();
+USART_string("Press 1 to turn ON LED");
+send_data();
+USART_string("Press 0 to turn OFF LED");
+send_data();
+
+
+while(1)
+{
+
+get_value = USART_get_char();
+
+
+if (get_value=='1')
+{
+RD4=0;
+USART_string("LED turned OFF");
+send_data();
+}
+
+
+if (get_value=='h')
+{
+RD4=1;
+USART_string("LED turned ON");
+send_data();
+}
+}
 }

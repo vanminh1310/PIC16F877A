@@ -1,0 +1,19 @@
+[PROJECT]
+Target=TA_VAN_MINH_ITS.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=TA_VAN_MINH_ITS.c
+[Directories]
+Include=D:\Program File\PICC\Devices\;D:\Program File\PICC\Drivers\
+[TA_VAN_MINH_ITS.c]
+Type=4
+[mru-list]
+1=TA_VAN_MINH_ITS.c
+[Opened Files]
+1=TA_VAN_MINH_ITS.c
+2=
+[Units]
+Count=1
+1=TA_VAN_MINH_ITS (main)

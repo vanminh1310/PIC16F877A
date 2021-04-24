@@ -1,0 +1,245 @@
+CCS PCM C Compiler, Version 4.038, 15176               10-Jan-16 10:53
+
+               Filename: D:\PROJECT_BLOG_CCS\pwm_motor\pwm_motor.lst
+
+               ROM used: 175 words (2%)
+                         Largest free fragment is 2048
+               RAM used: 10 (3%) at main() level
+                         11 (3%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   01B
+0003:  NOP
+.................... #include <16f877a.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+.................... #list 
+....................  
+.................... #fuses XT,NOLVP,NOWDT,NOPROTECT 
+.................... #use delay(clock=4000000) 
+0004:  MOVLW  24
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  BCF    0A.3
+0019:  BCF    0A.4
+001A:  GOTO   0AB (RETURN)
+....................  
+.................... #define  Wire1 PIN_B6 
+.................... #define  Wire2 PIN_B7 
+.................... #define  Up    PIN_A0 
+.................... #define  Down  PIN_A1 
+.................... #define  Dir   PIN_A2 
+....................  
+.................... int16 duty_cycle=512; 
+*
+0026:  BCF    03.5
+0027:  CLRF   20
+0028:  MOVLW  02
+0029:  MOVWF  21
+....................  
+.................... void main() 
+.................... { 
+*
+001B:  CLRF   04
+001C:  BCF    03.7
+001D:  MOVLW  1F
+001E:  ANDWF  03,F
+001F:  BSF    03.5
+0020:  BSF    1F.0
+0021:  BSF    1F.1
+0022:  BSF    1F.2
+0023:  BCF    1F.3
+0024:  MOVLW  07
+0025:  MOVWF  1C
+....................    setup_adc(ADC_OFF);           // Turn ADC OFF 
+*
+002C:  BCF    1F.0
+....................    setup_adc_ports(NO_ANALOGS);  // All Ports are digital I/O 
+002D:  BSF    03.5
+002E:  BSF    1F.0
+002F:  BSF    1F.1
+0030:  BSF    1F.2
+0031:  BCF    1F.3
+....................    output_high(Wire1);            
+0032:  BCF    06.6
+0033:  BCF    03.5
+0034:  BSF    06.6
+....................    output_low(Wire2);            // Set the motor to CW direction 
+0035:  BSF    03.5
+0036:  BCF    06.7
+0037:  BCF    03.5
+0038:  BCF    06.7
+....................     
+....................    /* PWM Configurations */ 
+....................    setup_timer_2(T2_DIV_BY_1,255,1);   // Set PWM frequency 
+0039:  MOVLW  00
+003A:  MOVWF  78
+003B:  IORLW  04
+003C:  MOVWF  12
+003D:  MOVLW  FF
+003E:  BSF    03.5
+003F:  MOVWF  12
+....................    setup_ccp1(CCP_PWM);          // Configure CCP1 to PWM mode 
+*
+002A:  MOVLW  FF
+002B:  MOVWF  22
+*
+0040:  BCF    03.5
+0041:  BCF    22.2
+0042:  MOVF   22,W
+0043:  BSF    03.5
+0044:  MOVWF  07
+0045:  BCF    03.5
+0046:  BCF    07.2
+0047:  MOVLW  0C
+0048:  MOVWF  17
+....................    set_pwm1_duty(512L);          // default duty cycle = 50% (Half Speed) 
+0049:  MOVLW  80
+004A:  MOVWF  15
+004B:  MOVF   17,W
+004C:  ANDLW  CF
+004D:  MOVWF  17
+....................  
+....................    while(1) 
+....................    { 
+....................       while(input(Up) && input(Down) && input(Dir)); // Hold until a button is pressed 
+004E:  BSF    03.5
+004F:  BSF    05.0
+0050:  BCF    03.5
+0051:  BTFSS  05.0
+0052:  GOTO   05D
+0053:  BSF    03.5
+0054:  BSF    05.1
+0055:  BCF    03.5
+0056:  BTFSS  05.1
+0057:  GOTO   05D
+0058:  BSF    03.5
+0059:  BSF    05.2
+005A:  BCF    03.5
+005B:  BTFSC  05.2
+005C:  GOTO   04E
+....................        
+....................       if(!input(Up))    // Button (Up) Selected? 
+005D:  BSF    03.5
+005E:  BSF    05.0
+005F:  BCF    03.5
+0060:  BTFSC  05.0
+0061:  GOTO   079
+....................       { 
+....................          duty_cycle+=64;   // increase the duty cycle by some percentage (+6.25%) 
+0062:  MOVLW  40
+0063:  ADDWF  20,F
+0064:  BTFSC  03.0
+0065:  INCF   21,F
+....................          set_pwm1_duty(duty_cycle); // set the duty cycle 
+0066:  MOVF   21,W
+0067:  MOVWF  79
+0068:  MOVF   20,W
+0069:  MOVWF  78
+006A:  RRF    79,F
+006B:  RRF    78,F
+006C:  RRF    79,F
+006D:  RRF    78,F
+006E:  RRF    79,F
+006F:  MOVF   78,W
+0070:  MOVWF  15
+0071:  RRF    79,F
+0072:  RRF    79,W
+0073:  ANDLW  30
+0074:  MOVWF  77
+0075:  MOVF   17,W
+0076:  ANDLW  CF
+0077:  IORWF  77,W
+0078:  MOVWF  17
+....................       } 
+....................       if(!input(Down))  // Button (Down) Selected? 
+0079:  BSF    03.5
+007A:  BSF    05.1
+007B:  BCF    03.5
+007C:  BTFSC  05.1
+007D:  GOTO   097
+....................       { 
+....................          duty_cycle-=64;   // decrease the duty cycle 
+007E:  MOVLW  40
+007F:  SUBWF  20,F
+0080:  MOVLW  00
+0081:  BTFSS  03.0
+0082:  MOVLW  01
+0083:  SUBWF  21,F
+....................          set_pwm1_duty(duty_cycle); // set the duty cycle 
+0084:  MOVF   21,W
+0085:  MOVWF  79
+0086:  MOVF   20,W
+0087:  MOVWF  78
+0088:  RRF    79,F
+0089:  RRF    78,F
+008A:  RRF    79,F
+008B:  RRF    78,F
+008C:  RRF    79,F
+008D:  MOVF   78,W
+008E:  MOVWF  15
+008F:  RRF    79,F
+0090:  RRF    79,W
+0091:  ANDLW  30
+0092:  MOVWF  77
+0093:  MOVF   17,W
+0094:  ANDLW  CF
+0095:  IORWF  77,W
+0096:  MOVWF  17
+....................       } 
+....................       if(!input(Dir))   // Button (Direction) Selected? 
+0097:  BSF    03.5
+0098:  BSF    05.2
+0099:  BCF    03.5
+009A:  BTFSC  05.2
+009B:  GOTO   0A6
+....................       { 
+....................          output_toggle(Wire1);   // Toggle the polarity of IN1 IN2 
+009C:  BSF    03.5
+009D:  BCF    06.6
+009E:  MOVLW  40
+009F:  BCF    03.5
+00A0:  XORWF  06,F
+....................          output_toggle(Wire2);   // 0 becomes 1 , 1 becomes 0 
+00A1:  BSF    03.5
+00A2:  BCF    06.7
+00A3:  MOVLW  80
+00A4:  BCF    03.5
+00A5:  XORWF  06,F
+....................       } 
+....................        
+....................       delay_ms(500); // 0.5 second delay to release the selected button 
+00A6:  MOVLW  02
+00A7:  MOVWF  23
+00A8:  MOVLW  FA
+00A9:  MOVWF  24
+00AA:  GOTO   004
+00AB:  DECFSZ 23,F
+00AC:  GOTO   0A8
+....................    } 
+00AD:  GOTO   04E
+.................... } 
+00AE:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT NODEBUG NOPROTECT BROWNOUT NOLVP NOCPD NOWRT

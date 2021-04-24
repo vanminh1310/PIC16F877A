@@ -1,0 +1,98 @@
+#include <16f877a.h>
+#device ADC=8 // ADC 8bit
+
+#fuses XT,NOLVP,NOWDT,NOPROTECT
+#use delay(clock=20000000) // chinh lai thach abg 
+
+
+#define  Wire1 PIN_B6
+#define  Wire2 PIN_B7
+#define  Up    PIN_A0
+#define  Down  PIN_A1
+#define  Dir   PIN_A2
+#define start PIN_A3
+#define stop   PIN_A5
+#define led_st PIN_D0
+#define led_sp PIN_D1
+#define led_up PIN_D2
+#define led_dow PIN_D3
+#define led_dao PIN_D4
+
+int16 duty_cycle;//
+void ngatadc(){
+ while(input(Up) && input(Down) && input(Dir)&& input(start)&&input(stop)); // kiem tra khi nao co nut dc nhan 
+      
+      if(input(start)==0){
+         output_high(Wire1);   // chon chieu quay cua dong co         
+         output_low (Wire2);  
+         output_high(led_st); 
+          output_low (led_sp);
+      
+      }
+       if(!input(stop)){
+         output_low(Wire1);   // chon chieu quay cua dong co         
+         output_low (Wire2); 
+          output_high(led_sp); 
+           output_low (led_st); 
+             output_low (led_up); 
+               output_low (led_dow); 
+                 output_low (led_dao); 
+      
+      }
+      
+      if(!input(Up))    
+      {
+         duty_cycle=500;  
+         set_pwm1_duty(duty_cycle);
+          output_high(led_up); 
+           output_low (led_dow); 
+      }
+      if(!input(Down)) 
+      {
+         duty_cycle=100;   
+         set_pwm1_duty(duty_cycle); 
+          output_high(led_dow); 
+           output_low (led_up); 
+      }
+      if(!input(Dir))   
+      {
+         output_toggle(Wire1);  
+         output_toggle(Wire2);   
+          output_high(led_dao); 
+      }      
+
+}
+#INT_AD
+void intad()
+{  //Làm chuong trình nào dó
+ngatadc();
+
+}
+
+
+void main()
+{
+   setup_adc(ADC_CLOCK_DIV_2);
+  set_adc_channel(0);   //analog input to pin A0
+   enable_interrupts(GLOBAL);
+     enable_interrupts(INT_AD);
+  // setup_adc(ADC_OFF);           // Tat adc 
+   
+   
+  // setup_adc_ports(NO_ANALOGS);
+   setup_timer_2(T2_DIV_BY_4, 124,1);
+   setup_ccp1(CCP_PWM);
+
+
+   set_pwm1_duty(300);          // 20% (Half Speed)
+   set_tris_d(0x00);
+    output_d(0x00);
+    set_tris_a(0xff);
+
+   while(1)
+   {
+  
+     ngatadc();
+    
+   }
+}

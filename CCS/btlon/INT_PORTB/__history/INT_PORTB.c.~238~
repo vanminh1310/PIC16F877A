@@ -1,0 +1,42 @@
+#include <16F877a.h>
+#FUSES NOWDT, HS, PUT, NOPROTECT,
+#use DELAY(clock=20000000)
+#use rs232(baud=9600,xmit=pin_c6,rcv=pin_c7) 
+
+#define tb1 PIN_B0
+#define tb2 PIN_B1
+#define tb3 PIN_B2
+#define tb4 PIN_B3
+
+#define btn1 PIN_B7
+#define btn2 PIN_B6
+#define btn3 PIN_B5
+#define btn4 PIN_B4
+char data;
+
+
+
+void main()
+{
+SET_TRIS_B(0b00001111);
+output_b(0b11110000);
+while(true)
+{ 
+   if(input(btn1)==0){
+    putc('a');
+    while(input(btn1)==0);
+   }
+   if(input(btn2)==0){
+    putc('b');
+    while(input(btn2)==0);
+   }
+   if(input(btn3)==0){
+    putc('c');
+    while(input(btn3)==0);
+   }
+   if(input(btn4)==0){
+    putc('4');
+    while(input(btn4)==0);
+   }
+}
+}

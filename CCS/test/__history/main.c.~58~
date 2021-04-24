@@ -1,0 +1,27 @@
+
+#include <main.h>
+#fuses NOWDT,HS,PUT,NOPROTECT
+
+
+void test(){
+//output_d (0xff) ;
+output_b(0xff);
+delay_ms(1000);
+output_b(0x00);
+delay_ms(1000);
+}
+
+void main()
+{
+INT8 i;
+set_tris_b(0x00);
+        
+//Example blinking LED program
+WHILE (true)
+{
+test();
+//sangdan();
+//chedo3();
+}
+}
+

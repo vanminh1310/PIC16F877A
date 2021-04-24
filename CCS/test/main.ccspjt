@@ -20,8 +20,8 @@ Type=4
 Count=1
 [Opened Files]
 1=main.c
-2=main Notes.txt
-3=D:\Program File\PICC\Devices\16F877A.h
+2=..\btlon\INT_PORTB\INT_PORTB.c
+3=
 4=main.h
 5=..\..\Code\BTVN\ledduoinhau\led_duoi_nhau.X\newmain.c
 6=..\ngat\main.c

@@ -881,10 +881,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EECON1bits `VS99 1 e@396 ]
 "1167 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic16f877a.h
 [v _EECON2 `Vuc 1 e@397 ]
-"10 newmain.c
-[v _i `i 1 e ]
-"10 newmain.c
-[v _j `i 1 e ]
 "148 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic.h
 [v __delay `(v 0 ef1`ul ]
 [p i __delay ]
@@ -1718,301 +1714,282 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 41: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 42: extern unsigned char eeprom_read(unsigned char addr);
 [; ;pic.h: 148: extern void _delay(unsigned long);
-[; ;newmain.c: 10: int i, j;
-"11 newmain.c
-[v _GPIO_init `(v 1 ef ]
+"3 newmain.c
+[; ;newmain.c: 3: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFFFF & 0xFF7F & 0xFFFF & 0xFFFF & 0xFFFF");
+[; 	psect config,class=CONFIG,delta=2 ;#
+[; 	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFFFF & 0xFF7F & 0xFFFF & 0xFFFF & 0xFFFF ;#
+"10
+[v _USART_Init `(v 1 ef ]
 {
-[; ;newmain.c: 11: void GPIO_init(void) {
-[e :U _GPIO_init ]
+[; ;newmain.c: 9: void USART_Init()
+[; ;newmain.c: 10: {
+[e :U _USART_Init ]
 [f ]
-[; ;newmain.c: 12: TRISB = 0X00;
+[; ;newmain.c: 12: TRISC6=1;
 "12
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;newmain.c: 13: TRISC = 0X00;
+[e = _TRISC6 -> -> 1 `i `b ]
+[; ;newmain.c: 13: TRISC7=1;
 "13
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;newmain.c: 14: PORTC = 0X00;
-"14
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;newmain.c: 16: }
+[e = _TRISC7 -> -> 1 `i `b ]
+[; ;newmain.c: 16: BRGH=1;
 "16
+[e = _BRGH -> -> 1 `i `b ]
+[; ;newmain.c: 17: SPBRG =129;
+"17
+[e = _SPBRG -> -> 129 `i `uc ]
+[; ;newmain.c: 20: SYNC=0;
+"20
+[e = _SYNC -> -> 0 `i `b ]
+[; ;newmain.c: 21: SPEN=1;
+"21
+[e = _SPEN -> -> 1 `i `b ]
+[; ;newmain.c: 24: RX9=0;
+"24
+[e = _RX9 -> -> 0 `i `b ]
+[; ;newmain.c: 25: TX9=0;
+"25
+[e = _TX9 -> -> 0 `i `b ]
+[; ;newmain.c: 28: TXEN=1;
+"28
+[e = _TXEN -> -> 1 `i `b ]
+[; ;newmain.c: 29: CREN=1;
+"29
+[e = _CREN -> -> 1 `i `b ]
+[; ;newmain.c: 32: GIE = 1;
+"32
+[e = _GIE -> -> 1 `i `b ]
+[; ;newmain.c: 33: PEIE= 1;
+"33
+[e = _PEIE -> -> 1 `i `b ]
+[; ;newmain.c: 36: RCIE=1;
+"36
+[e = _RCIE -> -> 1 `i `b ]
+[; ;newmain.c: 37: TXIE=1;
+"37
+[e = _TXIE -> -> 1 `i `b ]
+[; ;newmain.c: 38: }
+"38
 [e :UE 101 ]
 }
-"18
-[v _sanghet `(v 1 ef ]
+"43
+[v _USART_char `(v 1 ef1`uc ]
 {
-[; ;newmain.c: 18: void sanghet() {
-[e :U _sanghet ]
+[; ;newmain.c: 42: void USART_char(char byte)
+[; ;newmain.c: 43: {
+[e :U _USART_char ]
+[v _byte `uc 1 r1 ]
 [f ]
-[; ;newmain.c: 19: PORTB = 0xFF;
-"19
-[e = _PORTB -> -> 255 `i `uc ]
-[; ;newmain.c: 20: PORTC = 0XFF;
-"20
-[e = _PORTC -> -> 255 `i `uc ]
-[; ;newmain.c: 21: _delay((unsigned long)((2000)*(12000000/4000.0)));
-"21
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 23: }
-"23
+[; ;newmain.c: 44: TXREG = byte;
+"44
+[e = _TXREG _byte ]
+[; ;newmain.c: 45: while(!TXIF);
+"45
+[e $U 103  ]
+[e :U 104 ]
+[e :U 103 ]
+[e $ ! _TXIF 104  ]
+[e :U 105 ]
+[; ;newmain.c: 46: while(!TRMT);
+"46
+[e $U 106  ]
+[e :U 107 ]
+[e :U 106 ]
+[e $ ! _TRMT 107  ]
+[e :U 108 ]
+[; ;newmain.c: 47: }
+"47
 [e :UE 102 ]
 }
-"25
-[v _chayled `(v 1 ef ]
-{
-[; ;newmain.c: 25: void chayled() {
-[e :U _chayled ]
-[f ]
-[; ;newmain.c: 27: PORTB = 0Xff;
-"27
-[e = _PORTB -> -> 255 `i `uc ]
-[; ;newmain.c: 28: PORTC = 0Xff;
-"28
-[e = _PORTC -> -> 255 `i `uc ]
-[; ;newmain.c: 32: for (i = 0; i < 8; i++) {
-"32
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 8 `i 104  ]
-[e $U 105  ]
-[e :U 104 ]
-{
-[; ;newmain.c: 33: _delay((unsigned long)((1000)*(12000000/4000.0)));
-"33
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 34: PORTB = PORTB << 1;
-"34
-[e = _PORTB -> << -> _PORTB `i -> 1 `i `uc ]
-"35
-}
-"32
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 8 `i 104  ]
-[e :U 105 ]
-"35
-}
-[; ;newmain.c: 35: }
-[; ;newmain.c: 37: for (i = 0; i < 8; i++) {
-"37
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 8 `i 107  ]
-[e $U 108  ]
-[e :U 107 ]
-{
-[; ;newmain.c: 38: _delay((unsigned long)((1000)*(12000000/4000.0)));
-"38
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 39: PORTC = PORTC << 1;
-"39
-[e = _PORTC -> << -> _PORTC `i -> 1 `i `uc ]
-"40
-}
-"37
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 8 `i 107  ]
-[e :U 108 ]
-"40
-}
-[; ;newmain.c: 40: }
-[; ;newmain.c: 44: }
-"44
-[e :UE 103 ]
-}
-"46
-[v _test2 `(v 1 ef ]
-{
-[; ;newmain.c: 46: void test2() {
-[e :U _test2 ]
-[f ]
-[; ;newmain.c: 48: _delay((unsigned long)((500)*(12000000/4000.0)));
-"48
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 49: PORTB = 0X00;
-"49
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;newmain.c: 50: PORTC = 0X00;
-"50
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;newmain.c: 51: for (i = 0; i < 9; i++) {
-"51
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 9 `i 111  ]
-[e $U 112  ]
-[e :U 111 ]
-{
-[; ;newmain.c: 52: _delay((unsigned long)((500)*(12000000/4000.0)));
 "52
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 53: PORTB = (PORTB << 1) | 0X01;
-"53
-[e = _PORTB -> | << -> _PORTB `i -> 1 `i -> 1 `i `uc ]
-[; ;newmain.c: 54: PORTC = PORTC >> 1;
-"54
-[e = _PORTC -> >> -> _PORTC `i -> 1 `i `uc ]
-[; ;newmain.c: 55: PORTC = PORTC | 0X80;
-"55
-[e = _PORTC -> | -> _PORTC `i -> 128 `i `uc ]
-"56
-}
-"51
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 9 `i 111  ]
-[e :U 112 ]
-"56
-}
-[; ;newmain.c: 56: }
-[; ;newmain.c: 59: }
-"59
-[e :UE 110 ]
-}
-"61
-[v _lusang `(v 1 ef ]
+[v _USART_string `(v 1 ef1`*uc ]
 {
-[; ;newmain.c: 61: void lusang() {
-[e :U _lusang ]
+[; ;newmain.c: 51: void USART_string(char* string)
+[; ;newmain.c: 52: {
+[e :U _USART_string ]
+[v _string `*uc 1 r1 ]
 [f ]
+[; ;newmain.c: 53: while(*string)
+"53
+[e $U 110  ]
+[e :U 111 ]
+[; ;newmain.c: 54: USART_char(*string++);
+"54
+[e ( _USART_char (1 *U ++ _string * -> -> 1 `i `x -> -> # *U _string `i `x ]
+[e :U 110 ]
+"53
+[e $ != -> *U _string `i -> -> -> 0 `i `uc `i 111  ]
+[e :U 112 ]
+[; ;newmain.c: 55: }
+"55
+[e :UE 109 ]
+}
+"60
+[v _send_data `(v 1 ef ]
+{
+[; ;newmain.c: 59: void send_data()
+[; ;newmain.c: 60: {
+[e :U _send_data ]
+[f ]
+[; ;newmain.c: 61: TXREG = 13;
+"61
+[e = _TXREG -> -> 13 `i `uc ]
+[; ;newmain.c: 62: _delay((unsigned long)((500)*(20000000/4000.0)));
 "62
-[v _i `i 1 a ]
-[v _j `i 1 a ]
-[; ;newmain.c: 62: int i, j;
-[; ;newmain.c: 63: PORTC = 0X00;
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 63: }
 "63
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;newmain.c: 64: PORTB = 0X00;
-"64
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;newmain.c: 65: _delay((unsigned long)((300)*(12000000/4000.0)));
-"65
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 66: for (i = 0; i < 9; i++) {
-"66
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 9 `i 115  ]
-[e $U 116  ]
-[e :U 115 ]
-{
-[; ;newmain.c: 67: _delay((unsigned long)((300)*(12000000/4000.0)));
-"67
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 68: PORTB = PORTB << 1;
+[e :UE 113 ]
+}
 "68
-[e = _PORTB -> << -> _PORTB `i -> 1 `i `uc ]
-[; ;newmain.c: 69: PORTB = PORTB | 1;
+[v _USART_get_char `(uc 1 ef ]
+{
+[; ;newmain.c: 67: char USART_get_char(void)
+[; ;newmain.c: 68: {
+[e :U _USART_get_char ]
+[f ]
+[; ;newmain.c: 69: if(OERR)
 "69
-[e = _PORTB -> | -> _PORTB `i -> 1 `i `uc ]
-[; ;newmain.c: 70: _delay((unsigned long)((300)*(12000000/4000.0)));
+[e $ ! _OERR 115  ]
+[; ;newmain.c: 70: {
 "70
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 71: PORTC = PORTC >> 1;
+{
+[; ;newmain.c: 71: CREN = 0;
 "71
-[e = _PORTC -> >> -> _PORTC `i -> 1 `i `uc ]
-[; ;newmain.c: 72: PORTC = PORTC | 0X80;
+[e = _CREN -> -> 0 `i `b ]
+[; ;newmain.c: 72: CREN = 1;
 "72
-[e = _PORTC -> | -> _PORTC `i -> 128 `i `uc ]
-[; ;newmain.c: 73: PORTB = PORTB << 1;
+[e = _CREN -> -> 1 `i `b ]
 "73
-[e = _PORTB -> << -> _PORTB `i -> 1 `i `uc ]
-[; ;newmain.c: 74: PORTC = PORTC >> 1;
-"74
-[e = _PORTC -> >> -> _PORTC `i -> 1 `i `uc ]
-"75
 }
-"66
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 9 `i 115  ]
-[e :U 116 ]
+[e :U 115 ]
+[; ;newmain.c: 73: }
+[; ;newmain.c: 75: if(RCIF==1)
 "75
-}
-[; ;newmain.c: 75: }
-[; ;newmain.c: 79: }
+[e $ ! == -> _RCIF `i -> 1 `i 116  ]
+[; ;newmain.c: 76: {
+"76
+{
+[; ;newmain.c: 77: while(!RCIF);
+"77
+[e $U 117  ]
+[e :U 118 ]
+[e :U 117 ]
+[e $ ! _RCIF 118  ]
+[e :U 119 ]
+[; ;newmain.c: 78: return RCREG;
+"78
+[e ) _RCREG ]
+[e $UE 114  ]
 "79
+}
+[; ;newmain.c: 79: }
+[e $U 120  ]
+"80
+[e :U 116 ]
+[; ;newmain.c: 80: else
+[; ;newmain.c: 81: return 0;
+"81
+[e ) -> -> 0 `i `uc ]
+[e $UE 114  ]
+[e :U 120 ]
+[; ;newmain.c: 82: }
+"82
 [e :UE 114 ]
 }
-"81
-[v _lusang2 `(v 1 ef ]
-{
-[; ;newmain.c: 81: void lusang2() {
-[e :U _lusang2 ]
-[f ]
-[; ;newmain.c: 82: PORTB = 0X01;
-"82
-[e = _PORTB -> -> 1 `i `uc ]
-[; ;newmain.c: 83: for(i=0;i<3;i++)
-"83
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 119  ]
-[e $U 120  ]
-"84
-[e :U 119 ]
-[; ;newmain.c: 84: {
-{
-[; ;newmain.c: 85: _delay((unsigned long)((300)*(12000000/4000.0)));
-"85
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 86: PORTB = PORTB<<1;
 "86
-[e = _PORTB -> << -> _PORTB `i -> 1 `i `uc ]
-"87
-}
-"83
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 119  ]
-[e :U 120 ]
-"87
-}
-[; ;newmain.c: 87: }
-[; ;newmain.c: 89: _delay((unsigned long)((300)*(12000000/4000.0)));
-"89
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 90: PORTB = 0X04;
-"90
-[e = _PORTB -> -> 4 `i `uc ]
-[; ;newmain.c: 91: for(i=0;i<3;i++)
-"91
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 122  ]
-[e $U 123  ]
-"92
-[e :U 122 ]
-[; ;newmain.c: 92: {
-{
-[; ;newmain.c: 93: _delay((unsigned long)((300)*(12000000/4000.0)));
-"93
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;newmain.c: 94: PORTB = PORTB>>1;
-"94
-[e = _PORTB -> >> -> _PORTB `i -> 1 `i `uc ]
-"95
-}
-"91
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 122  ]
-[e :U 123 ]
-"95
-}
-[; ;newmain.c: 95: }
-[; ;newmain.c: 97: }
-"97
-[e :UE 118 ]
-}
-"99
 [v _main `(v 1 ef ]
 {
-[; ;newmain.c: 99: void main() {
+[; ;newmain.c: 85: void main(void)
+[; ;newmain.c: 86: {
 [e :U _main ]
 [f ]
-[; ;newmain.c: 101: GPIO_init();
+"88
+[v _get_value `i 1 a ]
+[; ;newmain.c: 88: int get_value;
+[; ;newmain.c: 92: TRISD4=0;
+"92
+[e = _TRISD4 -> -> 0 `i `b ]
+[; ;newmain.c: 95: USART_Init();
+"95
+[e ( _USART_Init ..  ]
+[; ;newmain.c: 98: USART_string("Bluetooth iS Ready");
+"98
+[e ( _USART_string (1 -> :s 1C `*uc ]
+[; ;newmain.c: 99: send_data();
+"99
+[e ( _send_data ..  ]
+[; ;newmain.c: 100: USART_string("Press 1 to turn ON LED");
+"100
+[e ( _USART_string (1 -> :s 2C `*uc ]
+[; ;newmain.c: 101: send_data();
 "101
-[e ( _GPIO_init ..  ]
-[; ;newmain.c: 106: lusang2();
+[e ( _send_data ..  ]
+[; ;newmain.c: 102: USART_string("Press 0 to turn OFF LED");
+"102
+[e ( _USART_string (1 -> :s 3C `*uc ]
+[; ;newmain.c: 103: send_data();
+"103
+[e ( _send_data ..  ]
+[; ;newmain.c: 106: while(1)
 "106
-[e ( _lusang2 ..  ]
-[; ;newmain.c: 109: }
+[e :U 123 ]
+[; ;newmain.c: 107: {
+"107
+{
+[; ;newmain.c: 109: get_value = USART_get_char();
 "109
-[e :UE 125 ]
+[e = _get_value -> ( _USART_get_char ..  `i ]
+[; ;newmain.c: 112: if (get_value=='1')
+"112
+[e $ ! == -> _get_value `ui -> 49 `ui 125  ]
+[; ;newmain.c: 113: {
+"113
+{
+[; ;newmain.c: 114: RD4=0;
+"114
+[e = _RD4 -> -> 0 `i `b ]
+[; ;newmain.c: 115: USART_string("LED turned OFF");
+"115
+[e ( _USART_string (1 -> :s 4C `*uc ]
+[; ;newmain.c: 116: send_data();
+"116
+[e ( _send_data ..  ]
+"117
 }
+[e :U 125 ]
+[; ;newmain.c: 117: }
+[; ;newmain.c: 120: if (get_value=='h')
+"120
+[e $ ! == -> _get_value `ui -> 104 `ui 126  ]
+[; ;newmain.c: 121: {
+"121
+{
+[; ;newmain.c: 122: RD4=1;
+"122
+[e = _RD4 -> -> 1 `i `b ]
+[; ;newmain.c: 123: USART_string("LED turned ON");
+"123
+[e ( _USART_string (1 -> :s 5C `*uc ]
+[; ;newmain.c: 124: send_data();
+"124
+[e ( _send_data ..  ]
+"125
+}
+[e :U 126 ]
+"126
+}
+[e :U 122 ]
+"106
+[e $U 123  ]
+[e :U 124 ]
+[; ;newmain.c: 125: }
+[; ;newmain.c: 126: }
+[; ;newmain.c: 127: }
+"127
+[e :UE 121 ]
+}
+[a 1C 66 108 117 101 116 111 111 116 104 32 105 83 32 82 101 97 100 121 0 ]
+[a 5C 76 69 68 32 116 117 114 110 101 100 32 79 78 0 ]
+[a 4C 76 69 68 32 116 117 114 110 101 100 32 79 70 70 0 ]
+[a 2C 80 114 101 115 115 32 49 32 116 111 32 116 117 114 110 32 79 78 32 76 69 68 0 ]
+[a 3C 80 114 101 115 115 32 48 32 116 111 32 116 117 114 110 32 79 70 70 32 76 69 68 0 ]

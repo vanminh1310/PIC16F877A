@@ -1,0 +1,102 @@
+#include <16f877a.h>
+#fuses XT,NOLVP,NOWDT,NOPROTECT
+#use delay(clock=4000000)
+#define  Wire1 PIN_C0
+#define  Wire2 PIN_C1
+#define  Up    PIN_B0
+#define  Down  PIN_B1
+#define  Dir   PIN_B2
+#define  open   PIN_B3
+#define  start  PIN_B4
+#define  led1  PIN_D0
+#define  led2  PIN_D1
+#define  led3  PIN_D2
+#define  led4  PIN_D3
+#define  led5  PIN_D4
+
+int16 duty_cycle=512;
+void chuongtrinh();
+
+void chuongtrinh(){
+while(input(Up) && input(Down) && input(Dir) && input(open) && input(start));
+
+      
+      if(!input(Up))    // Button (Up) Selected?
+      {
+         duty_cycle+=120;   // increase the duty cycle by some percentage (+6.25%)
+         set_pwm1_duty(duty_cycle); // set the duty cycle
+          output_high(led1); 
+          output_low(led2);  
+          output_low(led3);  
+          output_low(led5); 
+          output_low(led4); 
+      }
+      if(!input(Down))  // Button (Down) Selected?
+      {
+         duty_cycle-=700;   // decrease the duty cycle
+         set_pwm1_duty(duty_cycle); // set the duty cycle
+          output_high(led2);  
+           output_low(led1);   
+          output_low(led3);  
+          output_low(led5); 
+          output_low(led4); 
+      }
+      if(!input(Dir))   // Button (Direction) Selected?
+      {
+         output_toggle(Wire1);   // Toggle the polarity of IN1 IN2
+         output_toggle(Wire2);   // 0 becomes 1 , 1 becomes 0
+          output_high(led3); 
+           output_low(led1);  
+          output_low(led2);  
+          output_low(led4);  
+          output_low(led5); 
+          
+      }      
+      // 0.5 second delay to release the selected button
+   
+if(!input(open))   // Button (Direction) Selected?
+      {
+         output_low(Wire1);           
+         output_low (Wire2); 
+          output_low(led1);  
+          output_low(led2);  
+          output_low(led3);  
+          output_low(led5); 
+          output_high(led4);  
+      }      
+if(!input(start))   // Button (Direction) Selected?
+      {
+         output_high(Wire1);           
+         output_low (Wire2); 
+          output_low(led1);  
+          output_low(led2);  
+          output_low(led3);      
+          output_low(led4); 
+          output_high(led5);  
+      }            }
+      #INT_EXT
+ VOID ngat_ngoai()
+ {
+    chuongtrinh();
+ }
+
+void main()
+{
+   setup_adc(ADC_OFF);           // Turn ADC OFF
+   setup_adc_ports(NO_ANALOGS);  // All Ports are digital I/O
+   output_low(Wire1);           
+   output_low (Wire2);            // Set the motor to CW direction
+  enable_interrupts (INT_EXT); //Cho phep ngat ngoai
+    enable_interrupts (INT_EXT_L2H); //Ngat xay ra khi co xung tu cao xuong thap
+    enable_interrupts (GLOBAL); //Cho phep ngat
+
+   
+   /* PWM Configurations */
+   setup_timer_2(T2_DIV_BY_1,255,1);   // Set PWM frequency
+   setup_ccp1(CCP_PWM);          // Configure CCP1 to PWM mode
+   set_pwm1_duty(512L);          // default duty cycle = 50% (Half Speed)
+
+   while(true)
+    chuongtrinh();
+ 
+}

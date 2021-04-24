@@ -1,0 +1,5 @@
+>>> Warning 203 "TA_VAN_MINH_ITS.c" Line 97(1,1): Condition always TRUE
+>>> Warning 202 "TA_VAN_MINH_ITS.c" Line 15(7,17): Variable never used:   duty_cycle
+      Memory usage:   ROM=3%      RAM=4% - 5%
+      0 Errors,  2 Warnings.
+Build Successful.

@@ -1,0 +1,268 @@
+CCS PCM C Compiler, Version 5.015, 5967               09-Thg4-21 08:11
+
+               Filename:   E:\PIC16F877A\CCS\rtos\main.lst
+
+               ROM used:   203 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   34 (9%) at main() level
+                           34 (9%) worst case
+               Stack used: 2 locations (1 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   044
+0003:  NOP
+.................... #include <16F877A.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+0004:  BCF    0A.0
+0005:  BCF    0A.1
+0006:  BCF    0A.2
+0007:  ADDWF  02,F
+0008:  RETLW  21
+0009:  RETLW  00
+000A:  RETLW  28
+000B:  RETLW  00
+000C:  RETLW  2F
+000D:  RETLW  00
+000E:  RETLW  36
+000F:  RETLW  00
+....................  
+.................... #list 
+....................  
+.................... #fuses NOWDT, PUT, XT, NOPROTECT 
+.................... #use delay (clock=4000000) 
+.................... // Define which timer to use and minor_cycle for RTOS 
+.................... #use rtos(timer=1, minor_cycle=10ms) 
+.................... // Declare TASK 1 - called every 250ms 
+.................... #task(rate=250ms, max=10ms) 
+.................... void task_B0() 
+.................... { 
+.................... output_toggle(PIN_D4); // Toggle RB0 
+0010:  BSF    03.5
+0011:  BCF    08.4
+0012:  MOVLW  10
+0013:  BCF    03.5
+0014:  XORWF  08,F
+0015:  MOVLW  10
+0016:  MOVWF  26
+0017:  MOVLW  00
+0018:  MOVWF  27
+0019:  BCF    0A.3
+001A:  BCF    0A.4
+001B:  GOTO   0BD
+001C:  RETURN
+.................... } 
+.................... // Declare TASK 2 - called every 500ms 
+.................... #task(rate=500ms, max=10ms) 
+.................... void task_B1() 
+.................... { 
+.................... output_toggle(PIN_D5); // Toggle RB1 
+001D:  BSF    03.5
+001E:  BCF    08.5
+001F:  MOVLW  20
+0020:  BCF    03.5
+0021:  XORWF  08,F
+0022:  MOVLW  1D
+0023:  MOVWF  2D
+0024:  MOVLW  00
+0025:  MOVWF  2E
+0026:  BCF    0A.3
+0027:  BCF    0A.4
+0028:  GOTO   0BD
+0029:  RETURN
+.................... } 
+.................... // Declare TASK 3 - called every second 
+.................... #task(rate=1s, max=10ms) 
+.................... void task_B2() 
+.................... { 
+.................... output_toggle(PIN_D6); // Toggle RB2 
+002A:  BSF    03.5
+002B:  BCF    08.6
+002C:  MOVLW  40
+002D:  BCF    03.5
+002E:  XORWF  08,F
+002F:  MOVLW  2A
+0030:  MOVWF  34
+0031:  MOVLW  00
+0032:  MOVWF  35
+0033:  BCF    0A.3
+0034:  BCF    0A.4
+0035:  GOTO   0BD
+0036:  RETURN
+.................... } 
+.................... // Declare TASK 4 - called every 2 seconds 
+.................... #task(rate=2s, max=10ms) 
+.................... void task_B3() 
+.................... { 
+.................... output_toggle(PIN_D7); // Toggle RB3 
+0037:  BSF    03.5
+0038:  BCF    08.7
+0039:  MOVLW  80
+003A:  BCF    03.5
+003B:  XORWF  08,F
+003C:  MOVLW  37
+003D:  MOVWF  3B
+003E:  MOVLW  00
+003F:  MOVWF  3C
+0040:  BCF    0A.3
+0041:  BCF    0A.4
+0042:  GOTO   0BD
+0043:  RETURN
+.................... } 
+.................... // Start of MAIN program 
+.................... void main() 
+0044:  MOVF   03,W
+0045:  ANDLW  1F
+0046:  MOVWF  03
+0047:  BSF    03.5
+0048:  BSF    1F.0
+0049:  BSF    1F.1
+004A:  BSF    1F.2
+004B:  BCF    1F.3
+004C:  MOVLW  07
+004D:  MOVWF  1C
+004E:  BCF    03.7
+.................... { 
+.................... set_tris_b(0); // PORTB as outputs 
+004F:  MOVLW  00
+0050:  MOVWF  06
+.................... setup_timer_1 (T1_EXTERNAL); 
+0051:  MOVLW  87
+0052:  BCF    03.5
+0053:  MOVWF  10
+.................... rtos_run(); // Start RTOS 
+0054:  CLRF   21
+0055:  CLRF   23
+0056:  MOVLW  19
+0057:  MOVWF  22
+0058:  CLRF   25
+0059:  CLRF   24
+005A:  MOVLW  10
+005B:  MOVWF  26
+005C:  MOVLW  00
+005D:  MOVWF  27
+005E:  CLRF   28
+005F:  CLRF   2A
+0060:  MOVLW  32
+0061:  MOVWF  29
+0062:  CLRF   2C
+0063:  MOVLW  01
+0064:  MOVWF  2B
+0065:  MOVLW  1D
+0066:  MOVWF  2D
+0067:  MOVLW  00
+0068:  MOVWF  2E
+0069:  CLRF   2F
+006A:  CLRF   31
+006B:  MOVLW  64
+006C:  MOVWF  30
+006D:  CLRF   33
+006E:  MOVLW  02
+006F:  MOVWF  32
+0070:  MOVLW  2A
+0071:  MOVWF  34
+0072:  MOVLW  00
+0073:  MOVWF  35
+0074:  CLRF   36
+0075:  CLRF   38
+0076:  MOVLW  C8
+0077:  MOVWF  37
+0078:  CLRF   3A
+0079:  MOVLW  03
+007A:  MOVWF  39
+007B:  MOVLW  37
+007C:  MOVWF  3B
+007D:  MOVLW  00
+007E:  MOVWF  3C
+007F:  CLRF   20
+0080:  MOVLW  85
+0081:  MOVWF  10
+0082:  CLRF   0E
+0083:  MOVLW  D8
+0084:  MOVWF  0F
+0085:  MOVLW  F0
+0086:  MOVWF  0E
+0087:  BCF    0C.0
+0088:  BCF    03.0
+0089:  RLF    20,W
+008A:  MOVWF  77
+008B:  CALL   004
+008C:  MOVWF  79
+008D:  MOVLW  01
+008E:  ADDWF  77,W
+008F:  CALL   004
+0090:  MOVWF  7A
+0091:  MOVF   79,W
+0092:  MOVWF  04
+0093:  BCF    03.7
+0094:  BTFSC  7A.0
+0095:  BSF    03.7
+0096:  MOVF   00,W
+0097:  MOVWF  79
+0098:  INCF   04,F
+0099:  MOVF   00,W
+009A:  MOVWF  77
+009B:  INCF   04,F
+009C:  MOVF   00,W
+009D:  MOVWF  78
+009E:  INCF   04,F
+009F:  INCF   00,F
+00A0:  MOVF   00,W
+00A1:  MOVWF  7A
+00A2:  BTFSS  03.2
+00A3:  GOTO   0A7
+00A4:  INCF   04,F
+00A5:  INCF   00,F
+00A6:  DECF   04,F
+00A7:  INCF   04,F
+00A8:  MOVF   00,W
+00A9:  SUBWF  78,W
+00AA:  BTFSS  03.2
+00AB:  GOTO   0BF
+00AC:  MOVF   77,W
+00AD:  SUBWF  7A,W
+00AE:  BTFSS  03.2
+00AF:  GOTO   0BF
+00B0:  DECF   04,F
+00B1:  CLRF   00
+00B2:  INCF   04,F
+00B3:  CLRF   00
+00B4:  INCF   04,F
+00B5:  BTFSC  79.7
+00B6:  GOTO   0BF
+00B7:  INCF   04,F
+00B8:  MOVF   00,W
+00B9:  MOVWF  0A
+00BA:  DECF   04,F
+00BB:  MOVF   00,W
+00BC:  MOVWF  02
+00BD:  BCF    03.5
+00BE:  BCF    03.6
+00BF:  INCF   20,F
+00C0:  MOVLW  04
+00C1:  SUBWF  20,W
+00C2:  BTFSS  03.2
+00C3:  GOTO   088
+00C4:  CLRF   20
+00C5:  BTFSC  0C.0
+00C6:  GOTO   082
+00C7:  GOTO   0C5
+00C8:  MOVLW  FF
+00C9:  MOVWF  20
+.................... } 
+00CA:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

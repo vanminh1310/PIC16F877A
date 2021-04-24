@@ -1,0 +1,25 @@
+#include <16F877A.h>
+#fuses NOWDT,HS,PUT,NOPROTECT
+#use delay(clock=20000000)
+
+void test(){
+//output_d (0xff) ;
+output_b(0xff);
+delay_ms(1000);
+output_b(0x00);
+delay_ms(1000);
+}
+
+void main()
+{
+
+set_tris_b(0x00);
+        
+//Example blinking LED program
+WHILE (true)
+{
+test();
+
+}
+}
+

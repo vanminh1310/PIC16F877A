@@ -1,0 +1,321 @@
+CCS PCM C Compiler, Version 5.015, 5967               23-Thg3-21 17:16
+
+               Filename:   E:\PIC16F877A\CCS\btkt2\main.lst
+
+               ROM used:   187 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   15 (4%) at main() level
+                           18 (5%) worst case
+               Stack used: 2 locations (1 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   07D
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  BTFSS  0B.3
+0018:  GOTO   01B
+0019:  BTFSC  0B.0
+001A:  GOTO   02C
+001B:  MOVF   22,W
+001C:  MOVWF  04
+001D:  MOVF   23,W
+001E:  MOVWF  77
+001F:  MOVF   24,W
+0020:  MOVWF  78
+0021:  MOVF   25,W
+0022:  MOVWF  79
+0023:  MOVF   26,W
+0024:  MOVWF  7A
+0025:  MOVF   20,W
+0026:  MOVWF  0A
+0027:  SWAPF  21,W
+0028:  MOVWF  03
+0029:  SWAPF  7F,F
+002A:  SWAPF  7F,W
+002B:  RETFIE
+002C:  BCF    0A.3
+002D:  BCF    0A.4
+002E:  GOTO   02F
+.................... #include <16F877A.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #device 16f877a*16ADC=10 
+.................... #fuses NOWDT, PUT, XT, NOPROTECT 
+.................... #use delay(clock = 20000000) 
+.................... #use fast_io(b) 
+....................       
+.................... #byte intcon = 0x000B 
+.................... #define RB4 PIN_B4 
+.................... #define RB5 PIN_B5 
+.................... #define RB6 PIN_B6 
+.................... #define RB7 PIN_B7 
+....................  
+.................... #define  Wire1 PIN_D0 
+.................... #define  Wire2 PIN_D1 
+.................... int16 duty_cycle = 0;// 
+....................  
+.................... #bit RBIF = intcon .0 //dinh nghia co ngat RB 
+.................... #bit RBIE = intcon .3 //dinh nghia bit cho phep ngat RB 
+.................... #int_RB 
+.................... void ngat_RB() 
+.................... { 
+....................    
+....................     if ((RBIF) && (RBIE)) 
+002F:  BTFSS  0B.0
+0030:  GOTO   05C
+0031:  BTFSS  0B.3
+0032:  GOTO   05C
+....................     { 
+....................         //Kiem tra sw1 
+....................           
+....................         { 
+....................             if (input(RB4) == 0)//start thuan 
+0033:  BTFSC  06.4
+0034:  GOTO   03D
+....................             {  
+....................                 output_high(Wire1);   // chon chieu quay cua dong co          
+0035:  BSF    03.5
+0036:  BCF    08.0
+0037:  BCF    03.5
+0038:  BSF    08.0
+....................                 output_low (Wire2);   
+0039:  BSF    03.5
+003A:  BCF    08.1
+003B:  BCF    03.5
+003C:  BCF    08.1
+....................           
+....................             } 
+....................         } 
+....................         //Kiem tra sw2 
+....................         { 
+....................             if (input(RB5) == 0) // stop 
+003D:  BTFSC  06.5
+003E:  GOTO   047
+....................             { 
+....................                  output_low(Wire1);       
+003F:  BSF    03.5
+0040:  BCF    08.0
+0041:  BCF    03.5
+0042:  BCF    08.0
+....................                   output_low (Wire2);   
+0043:  BSF    03.5
+0044:  BCF    08.1
+0045:  BCF    03.5
+0046:  BCF    08.1
+....................             } 
+....................             
+....................         } 
+....................         //Kiem tra sw3 
+....................         { 
+....................             if (input(RB6) == 0)// thuan 
+0047:  BTFSC  06.6
+0048:  GOTO   051
+....................             { 
+....................               output_high(Wire1);   // chon chieu quay cua dong co          
+0049:  BSF    03.5
+004A:  BCF    08.0
+004B:  BCF    03.5
+004C:  BSF    08.0
+....................                 output_low (Wire2);   
+004D:  BSF    03.5
+004E:  BCF    08.1
+004F:  BCF    03.5
+0050:  BCF    08.1
+....................         
+....................                
+....................             } 
+....................             
+....................         } 
+....................         //Kiem tra sw4 
+....................         { 
+....................             if (input(RB7) == 0) // nghich 
+0051:  BTFSC  06.7
+0052:  GOTO   05B
+....................             { 
+....................                  output_low(Wire1);   // chon chieu quay cua dong co          
+0053:  BSF    03.5
+0054:  BCF    08.0
+0055:  BCF    03.5
+0056:  BCF    08.0
+....................                 output_high(Wire2);   
+0057:  BSF    03.5
+0058:  BCF    08.1
+0059:  BCF    03.5
+005A:  BSF    08.1
+....................             } 
+....................             
+....................         } 
+....................         RBIF = 0; //Xoa co ngat RB 
+005B:  BCF    0B.0
+....................         
+....................     } 
+005C:  BCF    0B.0
+005D:  BCF    0A.3
+005E:  BCF    0A.4
+005F:  GOTO   01B
+.................... } 
+....................  
+.................... void docADC() // khai bao adc  
+.................... { 
+.................... setup_ADC(ADC_clock_internal); 
+0060:  BSF    03.5
+0061:  BCF    1F.6
+0062:  BCF    03.5
+0063:  BSF    1F.6
+0064:  BSF    1F.7
+0065:  BSF    03.5
+0066:  BSF    1F.7
+0067:  BCF    03.5
+0068:  BSF    1F.0
+.................... setup_ADC_ports(AN0); 
+0069:  BSF    03.5
+006A:  BCF    1F.0
+006B:  BSF    1F.1
+006C:  BSF    1F.2
+006D:  BSF    1F.3
+.................... set_ADC_channel(0); 
+006E:  MOVLW  00
+006F:  MOVWF  78
+0070:  BCF    03.5
+0071:  MOVF   1F,W
+0072:  ANDLW  C7
+0073:  IORWF  78,W
+0074:  MOVWF  1F
+.................... delay_us(100); 
+0075:  MOVLW  A6
+0076:  MOVWF  77
+0077:  DECFSZ 77,F
+0078:  GOTO   077
+0079:  NOP
+007A:  BCF    0A.3
+007B:  BCF    0A.4
+007C:  GOTO   0B0 (RETURN)
+.................... } 
+....................  
+.................... void main() 
+007D:  MOVF   03,W
+007E:  ANDLW  1F
+007F:  MOVWF  03
+0080:  CLRF   28
+0081:  CLRF   27
+0082:  MOVLW  FF
+0083:  MOVWF  29
+0084:  BSF    03.5
+0085:  BSF    1F.0
+0086:  BSF    1F.1
+0087:  BSF    1F.2
+0088:  BCF    1F.3
+0089:  MOVLW  07
+008A:  MOVWF  1C
+008B:  BCF    03.7
+.................... { 
+....................   
+....................   
+....................     PORT_B_PULLUPS(0XFF); 
+008C:  BCF    01.7
+....................     set_tris_b(0b11110000); // rb_4-rb7 input 
+008D:  MOVLW  F0
+008E:  MOVWF  06
+....................     enable_interrupts(global); 
+008F:  MOVLW  C0
+0090:  BCF    03.5
+0091:  IORWF  0B,F
+....................     enable_interrupts(int_RB); 
+0092:  BSF    0B.3
+....................     ext_int_edge(H_to_L); 
+0093:  BSF    03.5
+0094:  BCF    01.6
+....................     //pwm 
+....................       setup_timer_2(T2_DIV_BY_4, 124,1);  // f=fosc/[4*mode*(period+1)]? 
+0095:  MOVLW  00
+0096:  MOVWF  78
+0097:  IORLW  05
+0098:  BCF    03.5
+0099:  MOVWF  12
+009A:  MOVLW  7C
+009B:  BSF    03.5
+009C:  MOVWF  12
+....................      setup_ccp2(CCP_PWM);// chon che do pwm  
+009D:  BCF    03.5
+009E:  BCF    29.1
+009F:  MOVF   29,W
+00A0:  BSF    03.5
+00A1:  MOVWF  07
+00A2:  BCF    03.5
+00A3:  BCF    07.1
+00A4:  MOVLW  0C
+00A5:  MOVWF  1D
+....................      set_pwm2_duty(500);          // 100% (Half Speed) 
+00A6:  MOVLW  7D
+00A7:  MOVWF  1B
+00A8:  MOVF   1D,W
+00A9:  ANDLW  CF
+00AA:  MOVWF  1D
+....................       set_tris_d(0x00); 
+00AB:  MOVLW  00
+00AC:  BSF    03.5
+00AD:  MOVWF  08
+....................         
+....................       
+....................       int8 x, y; 
+....................       while(1){ 
+....................      docADC(); 
+00AE:  BCF    03.5
+00AF:  GOTO   060
+....................       x=read_ADC(); 
+00B0:  BSF    1F.2
+00B1:  BTFSC  1F.2
+00B2:  GOTO   0B1
+00B3:  MOVF   1E,W
+00B4:  MOVWF  7A
+00B5:  BSF    03.5
+00B6:  MOVF   1E,W
+00B7:  BCF    03.5
+00B8:  MOVWF  2A
+00B9:  GOTO   0AF
+....................        
+....................       
+....................        
+....................        
+....................        
+....................       } 
+....................    
+....................     } 
+....................  
+00BA:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT
