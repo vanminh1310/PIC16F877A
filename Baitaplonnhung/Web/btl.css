@@ -1,0 +1,111 @@
+.from-a{
+    margin-top: 100px;
+    /* padding: 80px 60px; */
+    margin:80px 60px ;
+    background-color:white;
+    border-radius: 30px;
+    width: 50%;
+    height: 90vh;
+    place-items: center;
+    text-align: center;
+    margin-left: 25%;
+    
+    justify-content: center;
+    align-items: center;
+ 
+}
+body{
+    background-color: #f2f3f5;
+    font-family: monaco,Consolas,Lucida Console,monospace; 
+}
+.btn_all {
+    
+	box-shadow: 0px 0px 0px 0px #f0f7fa;
+	background-color:transparent;
+	border-radius:10px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color: #057fd0;
+	font-family:Arial;
+	font-size:22px;
+	/* font-weight:bold; */
+	padding:11px 27px;
+	text-decoration:none;
+	/* text-shadow:-1px 2px 0px  #f0f7fa; */
+    margin-top: 10px;
+  
+}
+.btn_all:hover {
+	background-color:#4391f0;
+  color: white;
+}
+.btn_all:active {
+	position:relative;
+	top:1px;
+}
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  
+    
+  }
+
+@media screen and (max-width: 767px) {
+    .from-a {
+        width: 90%;
+        height: 90vh;
+        margin-left: 6%;
+        
+    }
+    .nd{
+        margin-left: 25vw;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .from-a {
+        width: 90%;
+        height: 125vh;
+        margin-left: 6%;
+        
+    }
+    .nd{
+        margin-left: 10vw;
+    }
+  }
+  .from-b{
+    
+    /* padding: 80px 60px; */
+   
+    background-color: #f2f3f5;
+    border-radius: 30px;
+    width: 50%;
+    height: 10vh;
+    place-items: center;
+    text-align: center;
+    margin-left: 25%;
+  }
+  .from-c{
+    
+    /* padding: 80px 60px; */
+   margin-top: 1vh;
+    background-color:#f2f3f5;
+    border-radius: 25px;
+    width: 20%;
+    height: 7vh;
+    place-items: center;
+    text-align: center;
+    margin-left: 40%;
+  }
+  .dot1{
+      margin-top: 1.5vh;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color:green;
+  }

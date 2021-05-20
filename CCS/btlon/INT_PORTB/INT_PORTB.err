@@ -1,0 +1,9 @@
+>>> Warning 207 "INT_PORTB.c" Line 179(1,1): Code has no effect
+>>> Warning 203 "INT_PORTB.c" Line 179(1,1): Condition always TRUE
+>>> Warning 207 "INT_PORTB.c" Line 190(1,1): Code has no effect
+>>> Warning 203 "INT_PORTB.c" Line 190(1,1): Condition always TRUE
+>>> Warning 207 "INT_PORTB.c" Line 201(1,1): Code has no effect
+>>> Warning 203 "INT_PORTB.c" Line 201(1,1): Condition always TRUE
+      Memory usage:   ROM=7%      RAM=6% - 7%
+      0 Errors,  6 Warnings.
+Build Successful.

@@ -20,7 +20,7 @@ Type=4
 Count=1
 [Opened Files]
 1=main.c
-2=..\btlon\INT_PORTB\INT_PORTB.c
+2=
 3=
 4=main.h
 5=..\..\Code\BTVN\ledduoinhau\led_duoi_nhau.X\newmain.c

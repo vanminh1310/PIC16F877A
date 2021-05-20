@@ -1,4 +1,5 @@
 #include <16F877a.h>
+
 #FUSES NOWDT, HS, PUT, NOPROTECT,
 #use DELAY(clock=20000000)
 #use rs232(baud=9600,xmit=pin_c6,rcv=pin_c7) 
@@ -12,55 +13,74 @@
 #define btn2 PIN_B5
 #define btn3 PIN_B6
 #define btn4 PIN_B7  
-char data;
 
+// traffic light 
+#define red PIN_D0
+#define yl PIN_D1
+#define gr PIN_D2
+
+char d1;
 int8 a,b,c,d = 0;
+
+
+
 #INT_RDA
 void ngat_uart(){
-char d;
+d1 = getc();
 if(kbhit()){
-d = getc();
-   if(d=='5'){
-    output_high(tb1);
-    output_high(tb2);
-    output_high(tb3);
-    output_high(tb4);
-   }
-     if(d=='1'){
-    output_high(tb1);
-   }
-     if(d=='2'){
-    output_high(tb2);
-   }
-     if(d=='3'){
-    output_high(tb3);
+ if(d1=='p'){
+    putc('w');
+   }  
 
+   switch(d1){
+   case '1':
+     output_high(tb1);
+     break;
+   case '2':
+     output_high(tb2);
+     break;
+   case '3':
+     output_high(tb3);
+     break;
+   case '4':
+     output_high(tb4);
+     break;
+   case '0':
+     output_low(tb1);
+     break;
+   case '7':
+     output_low(tb2);
+     break;
+   case '8':
+     output_low(tb3);
+     break;
+   case '9':
+     output_low(tb4);
+     break;
+     
    }
-     if(d=='4'){
-    output_high(tb4);
-   }
+
 //
-if(d=='6'){
-    output_low(tb1);
-    output_low(tb2);
-    output_low(tb3);
-    output_low(tb4);
-   }
-     if(d=='j'){
-    output_low(tb1);
-   }
-     if(d=='k'){
-    output_low(tb2);
-   }
-     if(d=='l'){
-    output_low(tb3);
 
-   }
-     if(d=='m'){
-    output_low(tb4);
-   }
+    
+    
+   
+} 
+
 }
-}
+
+
+void red1();
+void yl1();
+void gr1();
+void uart_test();
+void traffic();
+void delay_r(int8 a);
+void delay_g(int8 b);
+void delay_y(int8 c);
+
+
+
 void main()
 {
 enable_interrupts(GLOBAL);
@@ -68,11 +88,40 @@ enable_interrupts(GLOBAL);
 enable_interrupts(INT_RDA);
 
 SET_TRIS_B(0b00001111);
+
+SET_TRIS_D(0x00);
+
 output_b(0b11110000);
+output_d(0x00);
 while(true)
 { 
-   if(input(btn1)==0){
+  uart_test();
+  while(d1=='f'){
+ traffic();
+  }
+}
+}
+
+void red1(){
+      output_high(red);
+       output_low(yl);
+        output_low(gr);
+}
+void yl1(){
+      output_high(yl);
+       output_low(red);
+        output_low(gr);
+}
+void gr1(){
+      output_high(gr);
+       output_low(yl);
+        output_low(red);
+}
+
+void uart_test(){
+ if(input(btn1)==0){
     putc('a');
+   
     output_high(tb1);
     a++;
     while(input(btn1)==0);
@@ -124,6 +173,54 @@ while(true)
     d=0;
   
    }
-   
 }
+
+void delay_r(int8 a){
+for(a ;a>=0;a--){
+putc('r');
+putc(a+48);
+delay_ms(1000);
+if(a==0){
+break;
+}
+}
+}
+
+void delay_g(int8 b){
+for(b ;b>=0;b--){
+	
+putc(b+48);
+delay_ms(1000);
+if(b==0){
+break;
+}
+}
+}
+
+void delay_y(int8 c){
+for(c ;c>=0;c--){
+putc('y');
+putc(c+48);
+delay_ms(1000);
+if(c==0){
+break;
+}
+}
+}
+
+void traffic(){
+
+         red1();
+            delay_r(8);
+        
+        gr1();
+       
+           delay_g(9);
+        
+        yl1();
+        
+           delay_y(9);
+        
+
+
 }

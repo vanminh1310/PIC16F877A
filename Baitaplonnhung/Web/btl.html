@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/jQuery-2.1.3.js"></script>
+    <title>Bài tập lớn hệ thống nhúng</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="/btl.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+    <div class="from-a">
+        <br>
+        <div>
+            <h1 style="color:dodgerblue;">Bài tập lớn hệ thống nhúng </h1>
+        </div>
+        <div>
+            <h4 style="color: dodgerblue;">Trạng thái:<strong style="color: red;" id="status"> Không kết nối</strong>
+            </h4>
+        </div>
+        <div class="clock-date"><iframe
+                src="https://freesecure.timeanddate.com/clock/i7pzdjcn/n218/tlvn42/fn12/fc1e90ff/tt0/tw0/tm2/td2/th1/ta1/tb4"
+                frameborder="0" width="104" height="31"></iframe></div>
+        <div class="nd" >
+
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button  type="button" onclick="click12()" class="btn btn-outline-primary">Traffic</button>
+                    <button id="btnau" type="button"onclick="au()" class="btn btn-outline-primary">Auto</button>
+                    <button id="btnman" type="button"onclick="manual()" class="btn btn-outline-primary">Manual</button>
+                  </div>
+        </div>
+        <div style="margin-top: 2vh;" class="tt_tb">
+            <span id="tb_1" class="dot"></span>
+            <span id="tb_2" class="dot"></span>
+            <span id="tb_3" class="dot"></span>
+            <span id="tb_4" class="dot"></span>
+        </div>
+        <div class="btn" style="display: inline-grid;">
+            <button onclick="btn_all()" id="btn_all1" class="btn_all"><strong id="all">ON_ALL</strong></button>
+            <button onclick="btn_tb1()" id="btn_tb1" class="btn_all"><strong id="tb1">ON_TB1</strong></button>
+            <button onclick="btn_tb2()" id="btn_tb2" class="btn_all"><strong id="tb2">ON_TB2</strong></button>
+            <button onclick="btn_tb3()" id="btn_tb3" class="btn_all"><strong id="tb3">ON_TB3</strong></button>
+            <button onclick="btn_tb4()" id="btn_tb4" class="btn_all"><strong id="tb4">ON_TB4</strong></button>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Traffic Light</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="from-b">
+                        <span id="red" style="background-color:white;" class="dot1"></span>
+                        <span id="yeloow" style="background-color: white;" class="dot1"></span>
+                        <span id="green" style="background-color: white;" class="dot1"></span>
+
+                    </div>
+                    <div class="from-c">
+                        <h1 id="couter">11</h1>
+
+                    </div>
+                    <div id="gr_input" style="display: none;" >
+                        <div style=" margin-left: 13vw;  margin-top:1vh ;">
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" onclick="red1()" class="btn btn-danger">Red</button>
+                                <button type="button" onclick="yl1()" class="btn btn-warning">Yellow</button>
+                                <button type="button" onclick="gr1()" class="btn btn-success">Green</button>
+                              </div>
+                        </div>
+                    </div>
+                
+                    <div style="margin-left: 10vw; margin-top: 5vh;">
+                        <button type="button" onclick="btn_auto()" class="btn btn-outline-primary">Auto</button>
+                        <button type="button" onclick="btn_man()" class="btn btn-outline-primary">Manual</button>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script src="/btl.js"></script>
+</body>
+
+</html>

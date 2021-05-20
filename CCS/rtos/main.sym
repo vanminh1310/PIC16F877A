@@ -7,11 +7,19 @@
 01B     CCP_2_LOW
 01B     CCP_2
 01C     CCP_2_HIGH
-020     @CURRENT_TASK
-021-027 @TASKINFO1_2_2_0_0
-028-02E @TASKINFO2_2_2_0_0
-02F-035 @TASKINFO3_2_2_0_0
-036-03C @TASKINFO4_2_2_0_0
+020     data
+021     a
+022     b
+023     c
+024     d
+025     @CURRENT_TASK
+026-02C @TASKINFO1_2_2_0_0
+02D-033 @TASKINFO2_2_2_0_0
+034-03A @TASKINFO3_2_2_0_0
+03F     task_B0.d
+03F     task_B1.@SCRATCH1
+03F     task_B2.@SCRATCH1
+040     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -23,23 +31,27 @@
 10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  @const633.call
-000010  task_B0
-00001D  task_B1
-00002A  task_B2
-000037  task_B3
-000044  MAIN
-000044  @cinit1
-00004E  @cinit2
+000004  @const644.call
+00000E  task_B0
+000050  @goto10585
+00005E  task_B1
+0000E6  @delay_ms1
+0000FA  red1
+0000FA  task_B2
+00010D  yl1
+000120  gr1
+00013B  MAIN
+00013B  @cinit1
+00014E  @cinit2
 
 Project Directory:
     E:\PIC16F877A\CCS\rtos\
 
 Project Files:
-    main.c                                                  [09-Thg4-21 08:11  CRC=FF0026F6]
+    main.c                                                  [25-Thg4-21 15:35  CRC=BA3C24F0]
     D:\Program File\PICC\Devices\16F877A.h                  [12-Thg11-13 14:35  CRC=81334808]
 
-Source signature=0166B706
+Source signature=BCA2B500
 
 Units:
     main (main)
@@ -60,45 +72,24 @@ Tasks:
     task_B0
     task_B1
     task_B2
-    task_B3
 
 Task Schedule:
-     10, ms  623:task_B0
+     10, ms  634:task_B0
     Sync to next 10, ms
-     10, ms  625:task_B1
+     10, ms  638:task_B1
     Sync to next 10, ms
-     10, ms  627:task_B2
-    Sync to next 10, ms
-     10, ms  629:task_B3
-    Sync to next 10, ms
-    Wait 210, ms
-     10, ms  623:task_B0
-    Sync to next 10, ms
-    Wait 240, ms
-     10, ms  623:task_B0
-    Sync to next 10, ms
-     10, ms  625:task_B1
-    Sync to next 10, ms
-    Wait 230, ms
-     10, ms  623:task_B0
-    Sync to next 10, ms
-    Wait 240, ms
-     10, ms  623:task_B0
-    Sync to next 10, ms
-     10, ms  625:task_B1
-    Sync to next 10, ms
-     10, ms  627:task_B2
+     10, ms  640:task_B2
     Sync to next 10, ms
     Wait 220, ms
-     10, ms  623:task_B0
+     10, ms  634:task_B0
     Sync to next 10, ms
     Wait 240, ms
-     10, ms  623:task_B0
+     10, ms  634:task_B0
     Sync to next 10, ms
-     10, ms  625:task_B1
+     10, ms  638:task_B1
     Sync to next 10, ms
     Wait 230, ms
-     10, ms  623:task_B0
+     10, ms  634:task_B0
     Sync to next 10, ms
     Wait 240, ms
 

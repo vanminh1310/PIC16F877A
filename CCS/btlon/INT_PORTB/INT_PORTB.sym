@@ -1,11 +1,11 @@
 004-005 @READ_PROGRAM_MEMORY8.P1
 004-005 @WRITE_PROGRAM_MEMORY8.P2
 008     PSP_DATA
-015     CCP_1_LOW
 015     CCP_1
+015     CCP_1_LOW
 016     CCP_1_HIGH
-01B     CCP_2
 01B     CCP_2_LOW
+01B     CCP_2
 01C     CCP_2_HIGH
 020     @INTERRUPT_AREA
 021     @INTERRUPT_AREA
@@ -14,13 +14,30 @@
 024     @INTERRUPT_AREA
 025     @INTERRUPT_AREA
 026     @INTERRUPT_AREA
-027     data
-028     a
-029     b
-02A     c
-02B     d
-02C     MAIN.@SCRATCH1
-02D     ngat_uart.d
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     d1
+02C     a
+02D     b
+02E     c
+02F     d
+030     delay_r.a
+030     delay_y.c
+030     delay_g.b
+030     uart_test.@SCRATCH1
+031     @PRINTF_X_9600_62_63.P1
+031     @PSTRINGCN7_9600_62_63.P2
+031     delay_r.@SCRATCH1
+031     delay_g.@SCRATCH1
+031     delay_y.@SCRATCH1
+032     @delay_ms1.P1
+032     @PRINTF_X_9600_62_63.P2
+032     @PSTRINGCN7_9600_62_63.@SCRATCH1
+033     @PSTRINGCN7_9600_62_63.@SCRATCH2
+034     @PSTRINGCN7_9600_62_63.@SCRATCH3
+035     @PSTRINGCN7_9600_62_63.@SCRATCH4
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -64,19 +81,32 @@ F7F     @INTERRUPT_AREA
 FFF     @INTERRUPT_AREA
 
 ROM Allocation:
-000031  ngat_uart
-0000A3  MAIN
-0000A3  @cinit1
-0000B6  @cinit2
+000051  ngat_uart
+000091  @goto10579
+00009F  @const645.call
+0000A3  uart_test
+000126  @delay_ms1
+00013A  traffic
+00013A  red1
+000148  delay_r
+00015F  gr1
+00016D  delay_g
+000176  @PSTRINGCN7_9600_62_63
+0001D2  @PRINTF_X_9600_62_63
+000207  yl1
+000215  delay_y
+00022F  @cinit1
+00022F  MAIN
+000242  @cinit2
 
 Project Directory:
     E:\PIC16F877A\CCS\btlon\INT_PORTB\
 
 Project Files:
-    INT_PORTB.c                                             [24-Thg4-21 23:22  CRC=9D89A05F]
+    INT_PORTB.c                                             [26-Thg4-21 20:35  CRC=67E8A942]
     D:\Program File\PICC\Devices\16F877a.h                  [12-Thg11-13 14:35  CRC=81334808]
 
-Source signature=9FF0306F
+Source signature=6A4F3952
 
 Units:
     INT_PORTB (main)

@@ -1,7 +1,7 @@
-D G "__PCM__" 0 112 ""5.015""
-D G "__DEVICE__" 0 112 "877"
-D G "__DATE__" 0 112 ""24-Thg4-21""
-D G "__TIME__" 0 112 ""23:22:05"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 0 ""5.015""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""02-Thg5-21""
+D G "__TIME__" 0 0 ""16:51:23"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -776,22 +776,46 @@ d G "INT_BUSCOL" 1 665 "0x008D08"
 d G "INT_EEPROM" 1 666 "0x008D10"
 d G "INT_TIMER0" 1 667 "0x000B20"
 d G "INT_COMP" 1 668 "0x008D40"
-D G "tb1" 0 6 "PIN_B0"
-D G "tb2" 0 7 "PIN_B1"
-D G "tb3" 0 8 "PIN_B2"
-D G "tb4" 0 9 "PIN_B3"
-D G "btn1" 0 11 "PIN_B4"
-D G "btn2" 0 12 "PIN_B5"
-D G "btn3" 0 13 "PIN_B6"
-D G "btn4" 0 14 "PIN_B7"
-V G "data" 0 15 "int8" `624 
-V G "a" 0 17 "int8" `625 
-V G "b" 0 17 "int8" `626 
-V G "c" 0 17 "int8" `627 
-V G "d" 0 17 "int8" `628 
-F G "ngat_uart" 0 19 "void()" `629 
-V L "d" 0 20 "int8" `630 
-F G "MAIN" 0 65 "void()" `631 
+D G "tb1" 0 7 "PIN_B0"
+D G "tb2" 0 8 "PIN_B1"
+D G "tb3" 0 9 "PIN_B2"
+D G "tb4" 0 10 "PIN_B3"
+D G "btn1" 0 12 "PIN_B4"
+D G "btn2" 0 13 "PIN_B5"
+D G "btn3" 0 14 "PIN_B6"
+D G "btn4" 0 15 "PIN_B7"
+D G "red" 0 18 "PIN_D0"
+D G "yl" 0 19 "PIN_D1"
+D G "gr" 0 20 "PIN_D2"
+V G "d1" 0 22 "int8" `624 
+V G "a" 0 23 "int8" `625 
+V G "b" 0 23 "int8" `626 
+V G "c" 0 23 "int8" `627 
+V G "d" 0 23 "int8" `628 
+F G "ngat_uart" 0 28 "void()" `629 
+f G "red1" 0 73 "void()" `631 
+f G "yl1" 0 74 "void()" `632 
+f G "gr1" 0 75 "void()" `633 
+f G "uart_test" 0 76 "void()" `634 
+f G "traffic" 0 77 "void()" `635 
+V L "a" 0 78 "int8" `637 
+f G "delay_r" 0 78 "void(int8 a)" `636 
+V L "b" 0 79 "int8" `639 
+f G "delay_g" 0 79 "void(int8 b)" `638 
+V L "c" 0 80 "int8" `641 
+f G "delay_y" 0 80 "void(int8 c)" `640 
+F G "MAIN" 0 85 "void()" `642 
+F G "red1" 0 105 "void()" `631 
+F G "yl1" 0 110 "void()" `632 
+F G "gr1" 0 115 "void()" `633 
+F G "uart_test" 0 121 "void()" `634 
+V L "a" 0 178 "int8" `646 
+F G "delay_r" 0 178 "void(int8 a)" `636 
+V L "b" 0 189 "int8" `646 
+F G "delay_g" 0 189 "void(int8 b)" `638 
+V L "c" 0 200 "int8" `652 
+F G "delay_y" 0 200 "void(int8 c)" `640 
+F G "traffic" 0 211 "void()" `635 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

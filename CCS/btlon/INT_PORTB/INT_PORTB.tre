@@ -1,4 +1,18 @@
 ÀÄINT_PORTB
-   ÃÄMAIN  0/161  Ram=1
-   ³  ÀÄ@cinit1  (Inline)  Ram=0
-   ÀÄngat_uart  0/114  Ram=1
+   ÃÄMAIN  0/46  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄuart_test  0/131  Ram=1
+   ³  ÀÄtraffic  0/245  Ram=0
+   ³     ÃÄred1  (Inline)  Ram=0
+   ³     ÃÄdelay_r  (Inline)  Ram=2
+   ³     ³  ÀÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄgr1  (Inline)  Ram=0
+   ³     ÃÄdelay_g  (Inline)  Ram=2
+   ³     ³  ÃÄ@PSTRINGCN7_9600_62_63  (Inline)  Ram=5
+   ³     ³  ÃÄ@PRINTF_X_9600_62_63  (Inline)  Ram=2
+   ³     ³  ÀÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄyl1  (Inline)  Ram=0
+   ³     ÀÄdelay_y  (Inline)  Ram=2
+   ³        ÀÄ@delay_ms1  0/20  Ram=1
+   ÀÄngat_uart  0/64  Ram=0
+      ÀÄ@goto10579  0/14  Ram=0
