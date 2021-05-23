@@ -1,13 +1,6 @@
->>> Warning 207 "main.c" Line 262(1,1): Code has no effect
->>> Warning 203 "main.c" Line 262(1,1): Condition always TRUE
->>> Warning 207 "main.c" Line 285(1,1): Code has no effect
->>> Warning 203 "main.c" Line 285(1,1): Condition always TRUE
->>> Warning 207 "main.c" Line 305(1,1): Code has no effect
->>> Warning 203 "main.c" Line 305(1,1): Condition always TRUE
->>> Warning 202 "main.c" Line 28(13,15): Variable never used:   a2
->>> Warning 202 "main.c" Line 28(17,19): Variable never used:   a3
->>> Warning 202 "main.c" Line 28(21,23): Variable never used:   a4
->>> Warning 202 "main.c" Line 28(25,27): Variable never used:   a5
-      Memory usage:   ROM=7%      RAM=6% - 8%
-      0 Errors,  10 Warnings.
-Build Successful.
+>>> Warning 207 "main.c" Line 259(1,1): Code has no effect
+>>> Warning 203 "main.c" Line 259(1,1): Condition always TRUE
+>>> Warning 207 "main.c" Line 282(1,1): Code has no effect
+>>> Warning 203 "main.c" Line 282(1,1): Condition always TRUE
+>>> Warning 207 "main.c" Line 302(1,1): Code has no effect
+>>> Warning 203 "main.c" Line 302(1,1): Condition always TRUE

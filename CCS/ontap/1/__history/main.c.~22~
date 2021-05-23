@@ -1,0 +1,21 @@
+#include <16F877a.h>
+#device 16f877a*16ADC = 10
+#use fast_io(b)
+#FUSES NOWDT, HS, PUT, NOPROTECT,
+#use DELAY(clock = 20000000)
+#use rs232(baud = 9600, xmit = pin_c6, rcv = pin_c7)
+void main(){
+Int8 X=260, Y=54, Z=10, P=129, Arr[8] = {4, 4, 2, 1};
+Int8 Q=0b10101010, R=0xA5, A, B, C, E, F, G, H, I, L, M, T;
+Int16 D, K,S;
+S = (Int16)Q;
+If (!(X>Y)){
+ T = X;}
+Else{
+ T = Y;}
+ 
+A = T;
+printf("ket qua: %2u\n\r",A);
+
+}
+

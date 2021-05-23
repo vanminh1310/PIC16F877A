@@ -1,0 +1,301 @@
+CCS PCM C Compiler, Version 5.015, 5967               23-Thg5-21 16:45
+
+               Filename:   E:\PIC16F877A\CCS\ontap\2\main.lst
+
+               ROM used:   192 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   15 (4%) at main() level
+                           15 (4%) worst case
+               Stack used: 3 locations (1 in main + 2 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   091
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  MOVLW  8C
+0018:  MOVWF  04
+0019:  BTFSS  00.6
+001A:  GOTO   01D
+001B:  BTFSC  0C.6
+001C:  GOTO   02E
+001D:  MOVF   22,W
+001E:  MOVWF  04
+001F:  MOVF   23,W
+0020:  MOVWF  77
+0021:  MOVF   24,W
+0022:  MOVWF  78
+0023:  MOVF   25,W
+0024:  MOVWF  79
+0025:  MOVF   26,W
+0026:  MOVWF  7A
+0027:  MOVF   20,W
+0028:  MOVWF  0A
+0029:  SWAPF  21,W
+002A:  MOVWF  03
+002B:  SWAPF  7F,F
+002C:  SWAPF  7F,W
+002D:  RETFIE
+002E:  BCF    0A.3
+002F:  BCF    0A.4
+0030:  GOTO   08C
+.................... #include <16f877a.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=8 // ADC 8bit 
+....................  
+.................... #fuses XT,NOLVP,NOWDT,NOPROTECT 
+.................... #use delay(clock=20000000) // chinh lai thach abg  
+....................  
+....................  
+.................... #define  Wire1 PIN_B6 
+.................... #define  Wire2 PIN_B7 
+.................... #define  thuan    PIN_A0 
+.................... #define  nghich  PIN_A1 
+.................... #define  stop   PIN_A2 
+....................  
+.................... #define led_nghich PIN_D0 
+.................... #define led_thuan PIN_D1 
+.................... #define led_stop PIN_D2 
+....................  
+....................  
+.................... int16 duty_cycle;// 
+.................... void ngatadc(){ 
+....................  while(input(thuan)&&input(nghich)&&input(stop)); // kiem tra khi nao co nut dc nhan  
+0031:  BSF    03.5
+0032:  BSF    05.0
+0033:  BCF    03.5
+0034:  BTFSS  05.0
+0035:  GOTO   040
+0036:  BSF    03.5
+0037:  BSF    05.1
+0038:  BCF    03.5
+0039:  BTFSS  05.1
+003A:  GOTO   040
+003B:  BSF    03.5
+003C:  BSF    05.2
+003D:  BCF    03.5
+003E:  BTFSC  05.2
+003F:  GOTO   031
+....................   
+....................        if(!input(stop)){ 
+0040:  BSF    03.5
+0041:  BSF    05.2
+0042:  BCF    03.5
+0043:  BTFSC  05.2
+0044:  GOTO   059
+....................          output_low(Wire1);   // chon chieu quay cua dong co          
+0045:  BSF    03.5
+0046:  BCF    06.6
+0047:  BCF    03.5
+0048:  BCF    06.6
+....................          output_low (Wire2);  
+0049:  BSF    03.5
+004A:  BCF    06.7
+004B:  BCF    03.5
+004C:  BCF    06.7
+....................          output_high(led_stop); 
+004D:  BSF    03.5
+004E:  BCF    08.2
+004F:  BCF    03.5
+0050:  BSF    08.2
+....................          output_low(led_nghich); 
+0051:  BSF    03.5
+0052:  BCF    08.0
+0053:  BCF    03.5
+0054:  BCF    08.0
+....................          output_low(led_thuan); 
+0055:  BSF    03.5
+0056:  BCF    08.1
+0057:  BCF    03.5
+0058:  BCF    08.1
+....................        
+....................       } 
+....................        
+....................       if(!input(thuan))     
+0059:  BSF    03.5
+005A:  BSF    05.0
+005B:  BCF    03.5
+005C:  BTFSC  05.0
+005D:  GOTO   072
+....................       { 
+....................           output_high(Wire1); 
+005E:  BSF    03.5
+005F:  BCF    06.6
+0060:  BCF    03.5
+0061:  BSF    06.6
+....................           output_low(Wire2); 
+0062:  BSF    03.5
+0063:  BCF    06.7
+0064:  BCF    03.5
+0065:  BCF    06.7
+....................           output_high(led_thuan); 
+0066:  BSF    03.5
+0067:  BCF    08.1
+0068:  BCF    03.5
+0069:  BSF    08.1
+....................          output_low(led_nghich); 
+006A:  BSF    03.5
+006B:  BCF    08.0
+006C:  BCF    03.5
+006D:  BCF    08.0
+....................          output_low(led_stop); 
+006E:  BSF    03.5
+006F:  BCF    08.2
+0070:  BCF    03.5
+0071:  BCF    08.2
+....................        
+....................       } 
+....................       if(!input(nghich))  
+0072:  BSF    03.5
+0073:  BSF    05.1
+0074:  BCF    03.5
+0075:  BTFSC  05.1
+0076:  GOTO   08B
+....................       { 
+....................          output_high(Wire2); 
+0077:  BSF    03.5
+0078:  BCF    06.7
+0079:  BCF    03.5
+007A:  BSF    06.7
+....................           output_low(Wire1); 
+007B:  BSF    03.5
+007C:  BCF    06.6
+007D:  BCF    03.5
+007E:  BCF    06.6
+....................           output_high(led_nghich); 
+007F:  BSF    03.5
+0080:  BCF    08.0
+0081:  BCF    03.5
+0082:  BSF    08.0
+....................          output_low(led_stop); 
+0083:  BSF    03.5
+0084:  BCF    08.2
+0085:  BCF    03.5
+0086:  BCF    08.2
+....................          output_low(led_thuan); 
+0087:  BSF    03.5
+0088:  BCF    08.1
+0089:  BCF    03.5
+008A:  BCF    08.1
+....................        
+....................       } 
+008B:  RETURN
+....................        
+....................  
+.................... } 
+.................... #INT_AD 
+.................... void intad() 
+.................... {  //Làm chuong tr?nh nào dó 
+.................... ngatadc(); 
+008C:  CALL   031
+....................  
+008D:  BCF    0C.6
+008E:  BCF    0A.3
+008F:  BCF    0A.4
+0090:  GOTO   01D
+.................... } 
+....................  
+....................  
+.................... void main() 
+0091:  MOVF   03,W
+0092:  ANDLW  1F
+0093:  MOVWF  03
+0094:  BSF    03.5
+0095:  BSF    1F.0
+0096:  BSF    1F.1
+0097:  BSF    1F.2
+0098:  BCF    1F.3
+0099:  MOVLW  07
+009A:  MOVWF  1C
+009B:  BCF    03.7
+.................... { 
+....................    setup_adc(ADC_CLOCK_DIV_2); 
+009C:  BCF    1F.6
+009D:  BCF    03.5
+009E:  BCF    1F.6
+009F:  BCF    1F.7
+00A0:  BSF    03.5
+00A1:  BCF    1F.7
+00A2:  BCF    03.5
+00A3:  BSF    1F.0
+....................   set_adc_channel(0);   //analog input to pin A0 
+00A4:  MOVLW  00
+00A5:  MOVWF  78
+00A6:  MOVF   1F,W
+00A7:  ANDLW  C7
+00A8:  IORWF  78,W
+00A9:  MOVWF  1F
+....................    enable_interrupts(GLOBAL); 
+00AA:  MOVLW  C0
+00AB:  IORWF  0B,F
+....................      enable_interrupts(INT_AD); 
+00AC:  BSF    03.5
+00AD:  BSF    0C.6
+....................    set_tris_d(0x00); 
+00AE:  MOVLW  00
+00AF:  MOVWF  08
+....................     output_d(0x00); 
+00B0:  CLRF   08
+00B1:  BCF    03.5
+00B2:  CLRF   08
+....................     set_tris_a(0xff); 
+00B3:  MOVLW  FF
+00B4:  BSF    03.5
+00B5:  MOVWF  05
+....................     output_high(Wire1); 
+00B6:  BCF    06.6
+00B7:  BCF    03.5
+00B8:  BSF    06.6
+....................     output_low(Wire2); 
+00B9:  BSF    03.5
+00BA:  BCF    06.7
+00BB:  BCF    03.5
+00BC:  BCF    06.7
+....................  
+....................    while(1) 
+....................    { 
+....................    
+....................      ngatadc(); 
+00BD:  CALL   031
+00BE:  GOTO   0BD
+....................      
+....................    } 
+.................... } 
+....................  
+00BF:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

@@ -1,11 +1,11 @@
-CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
+CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 18:16
 
                Filename:   E:\PIC16F877A\CCS\btlon\btl\main.lst
 
-               ROM used:   583 words (7%)
+               ROM used:   597 words (7%)
                            Largest free fragment is 2048
-               RAM used:   21 (6%) at main() level
-                           30 (8%) worst case
+               RAM used:   22 (6%) at main() level
+                           31 (8%) worst case
                Stack used: 5 locations (3 in main + 2 for interrupts)
                Stack size: 8
 
@@ -108,25 +108,25 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 008D:  GOTO   07A
 008E:  GOTO   07C
 *
-0101:  MOVF   34,W
+0101:  MOVF   35,W
 0102:  CLRF   78
-0103:  SUBWF  33,W
+0103:  SUBWF  34,W
 0104:  BTFSC  03.0
 0105:  GOTO   109
-0106:  MOVF   33,W
+0106:  MOVF   34,W
 0107:  MOVWF  77
 0108:  GOTO   115
 0109:  CLRF   77
 010A:  MOVLW  08
-010B:  MOVWF  35
-010C:  RLF    33,F
+010B:  MOVWF  36
+010C:  RLF    34,F
 010D:  RLF    77,F
-010E:  MOVF   34,W
+010E:  MOVF   35,W
 010F:  SUBWF  77,W
 0110:  BTFSC  03.0
 0111:  MOVWF  77
 0112:  RLF    78,F
-0113:  DECFSZ 35,F
+0113:  DECFSZ 36,F
 0114:  GOTO   10C
 0115:  RETURN
 ....................  
@@ -137,7 +137,7 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 .................... #FUSES NOWDT, HS, PUT, NOPROTECT, 
 .................... #use DELAY(clock = 20000000) 
 *
-00ED:  MOVLW  34
+00ED:  MOVLW  35
 00EE:  MOVWF  04
 00EF:  BCF    03.7
 00F0:  MOVF   00,W
@@ -200,7 +200,7 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 .................... void delay_r(int8 a); 
 .................... void delay_g(int8 b); 
 .................... void delay_y(int8 c); 
-....................  char d1 ; 
+....................  char d1,d2 ; 
 .................... #int_RB 
 .................... void ngat_RB() 
 .................... { 
@@ -272,9 +272,12 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 .................... { 
 .................... if(kbhit()){ 
 0061:  BTFSC  0C.5
-.................... output_high(PIN_B5);        
+.................... output_high(PIN_B5);      
 0062:  BSF    06.5
+....................  
+....................  
 ....................  }   
+.................... //d2 = getc(); 
 .................... d1 = getc(); 
 0063:  BTFSS  0C.5
 0064:  GOTO   063
@@ -328,6 +331,7 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................     output_low(tb4); 
 007C:  BCF    06.3
 ....................     break; 
+....................    
 ....................   
 ....................   } 
 ....................    
@@ -442,19 +446,19 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 022E:  GOTO   0AC
 ....................   ghi_byte(0x90); 
 022F:  MOVLW  90
-0230:  MOVWF  34
+0230:  MOVWF  35
 0231:  CALL   0BB
 ....................   Delay_ms(200); 
 0232:  MOVLW  C8
-0233:  MOVWF  34
+0233:  MOVWF  35
 0234:  CALL   0ED
 ....................   ghi_byte(0xC0); 
 0235:  MOVLW  C0
-0236:  MOVWF  34
+0236:  MOVWF  35
 0237:  CALL   0BB
 ....................   Delay_ms(200); 
 0238:  MOVLW  C8
-0239:  MOVWF  34
+0239:  MOVWF  35
 023A:  CALL   0ED
 ....................   nData = 0; 
 023B:  CLRF   2E
@@ -462,40 +466,46 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................   while (true) 
 ....................   { 
 ....................  
-.................... autoo(); 
-023C:  CALL   1D1
-....................   if(d1=='j'){ 
-023D:  MOVF   2F,W
-023E:  SUBLW  6A
-023F:  BTFSC  03.2
+....................  
+....................   if(a1==3 || d1 == 'j'){ 
+023C:  MOVF   28,W
+023D:  SUBLW  03
+023E:  BTFSC  03.2
+023F:  GOTO   243
+0240:  MOVF   2F,W
+0241:  SUBLW  6A
+0242:  BTFSC  03.2
 ....................   traffic(); 
-0240:  CALL   116
+0243:  CALL   116
 ....................   } 
-....................    if(d1=='f'){ 
-0241:  MOVF   2F,W
-0242:  SUBLW  66
-0243:  BTFSC  03.2
+....................   if(a1==4 || d1 == 'f'){ 
+0244:  MOVF   28,W
+0245:  SUBLW  04
+0246:  BTFSC  03.2
+0247:  GOTO   24B
+0248:  MOVF   2F,W
+0249:  SUBLW  66
+024A:  BTFSC  03.2
 ....................   autoo(); 
-0244:  CALL   1D1
+024B:  CALL   1D1
 ....................   } 
-0245:  GOTO   23C
+....................   if(a1==5){ 
+024C:  MOVF   28,W
+024D:  SUBLW  05
+024E:  BTFSS  03.2
+024F:  GOTO   252
+....................   a1=0; 
+0250:  CLRF   28
+....................   } 
+0251:  GOTO   253
 ....................     
+....................    else{ 
+....................    autoo(); 
+0252:  CALL   1D1
+....................    } 
+0253:  GOTO   23C
 ....................  
 ....................    
-.................... //!   if(d2=='m'){ 
-.................... //!      if(d2=='r'){ 
-.................... //!          output_high(red); 
-.................... //!      } 
-.................... //!      if(d2=='y'){ 
-.................... //!          output_high(yl); 
-.................... //!      } 
-.................... //!       if(d2=='g'){ 
-.................... //!          output_high(gr); 
-.................... //!      } 
-.................... //!      } 
-....................    
-....................  
-....................   // 
 ....................  
 ....................   } 
 ....................   
@@ -504,7 +514,7 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................    
 .................... } 
 ....................  
-0246:  SLEEP
+0254:  SLEEP
 .................... void red1() 
 .................... { 
 ....................  
@@ -618,54 +628,54 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................     int a1 = (a) % 10; 
 ....................     int b1 = (a) / 10; 
 *
-0124:  MOVF   30,W
-0125:  MOVWF  33
+0124:  MOVF   31,W
+0125:  MOVWF  34
 0126:  MOVLW  0A
-0127:  MOVWF  34
+0127:  MOVWF  35
 0128:  CALL   101
 0129:  MOVF   77,W
-012A:  MOVWF  31
-012B:  MOVF   30,W
-012C:  MOVWF  33
+012A:  MOVWF  32
+012B:  MOVF   31,W
+012C:  MOVWF  34
 012D:  MOVLW  0A
-012E:  MOVWF  34
+012E:  MOVWF  35
 012F:  CALL   101
 0130:  MOVF   78,W
-0131:  MOVWF  32
+0131:  MOVWF  33
 ....................     ghi_byte(mang[a1]); 
-0132:  MOVF   31,W
+0132:  MOVF   32,W
 0133:  CALL   038
-0134:  MOVWF  33
-0135:  MOVWF  34
+0134:  MOVWF  34
+0135:  MOVWF  35
 0136:  CALL   0BB
 ....................     ghi_byte(mang[b1]); 
-0137:  MOVF   32,W
+0137:  MOVF   33,W
 0138:  CALL   038
-0139:  MOVWF  33
-013A:  MOVWF  34
+0139:  MOVWF  34
+013A:  MOVWF  35
 013B:  CALL   0BB
 ....................  
 ....................     //!    ghi_byte1(mang[c]); 
 ....................     //!    ghi_byte1(mang[v]); 
 ....................     putc(a + 48); 
 013C:  MOVLW  30
-013D:  ADDWF  30,W
-013E:  MOVWF  33
-013F:  MOVF   33,W
+013D:  ADDWF  31,W
+013E:  MOVWF  34
+013F:  MOVF   34,W
 0140:  BTFSS  0C.4
 0141:  GOTO   140
 0142:  MOVWF  19
 ....................  
 ....................     delay_ms(1000); 
 0143:  MOVLW  04
-0144:  MOVWF  33
+0144:  MOVWF  34
 0145:  MOVLW  FA
-0146:  MOVWF  34
+0146:  MOVWF  35
 0147:  CALL   0ED
-0148:  DECFSZ 33,F
+0148:  DECFSZ 34,F
 0149:  GOTO   145
 ....................     if (a == 0) 
-014A:  MOVF   30,F
+014A:  MOVF   31,F
 014B:  BTFSS  03.2
 014C:  GOTO   152
 ....................     { 
@@ -677,7 +687,7 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................       break; 
 0151:  GOTO   154
 ....................     } 
-0152:  DECF   30,F
+0152:  DECF   31,F
 0153:  GOTO   124
 ....................   } 
 .................... } 
@@ -691,50 +701,50 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................     int a1 = (b) % 10; 
 ....................     int b1 = (b) / 10; 
 *
-0162:  MOVF   30,W
-0163:  MOVWF  33
+0162:  MOVF   31,W
+0163:  MOVWF  34
 0164:  MOVLW  0A
-0165:  MOVWF  34
+0165:  MOVWF  35
 0166:  CALL   101
 0167:  MOVF   77,W
-0168:  MOVWF  31
-0169:  MOVF   30,W
-016A:  MOVWF  33
+0168:  MOVWF  32
+0169:  MOVF   31,W
+016A:  MOVWF  34
 016B:  MOVLW  0A
-016C:  MOVWF  34
+016C:  MOVWF  35
 016D:  CALL   101
 016E:  MOVF   78,W
-016F:  MOVWF  32
+016F:  MOVWF  33
 ....................     ghi_byte(mang[a1]); 
-0170:  MOVF   31,W
+0170:  MOVF   32,W
 0171:  CALL   038
-0172:  MOVWF  33
-0173:  MOVWF  34
+0172:  MOVWF  34
+0173:  MOVWF  35
 0174:  CALL   0BB
 ....................     ghi_byte(mang[b1]); 
-0175:  MOVF   32,W
+0175:  MOVF   33,W
 0176:  CALL   038
-0177:  MOVWF  33
-0178:  MOVWF  34
+0177:  MOVWF  34
+0178:  MOVWF  35
 0179:  CALL   0BB
 ....................     putc(b + 48); 
 017A:  MOVLW  30
-017B:  ADDWF  30,W
-017C:  MOVWF  33
-017D:  MOVF   33,W
+017B:  ADDWF  31,W
+017C:  MOVWF  34
+017D:  MOVF   34,W
 017E:  BTFSS  0C.4
 017F:  GOTO   17E
 0180:  MOVWF  19
 ....................     delay_ms(1000); 
 0181:  MOVLW  04
-0182:  MOVWF  33
+0182:  MOVWF  34
 0183:  MOVLW  FA
-0184:  MOVWF  34
+0184:  MOVWF  35
 0185:  CALL   0ED
-0186:  DECFSZ 33,F
+0186:  DECFSZ 34,F
 0187:  GOTO   183
 ....................     if (b == 0) 
-0188:  MOVF   30,F
+0188:  MOVF   31,F
 0189:  BTFSS  03.2
 018A:  GOTO   190
 ....................     { 
@@ -746,7 +756,7 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................       break; 
 018F:  GOTO   192
 ....................     } 
-0190:  DECF   30,F
+0190:  DECF   31,F
 0191:  GOTO   162
 ....................   } 
 .................... } 
@@ -760,50 +770,50 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................     int a1 = (c) % 10; 
 ....................     int b1 = (c) / 10; 
 *
-01A0:  MOVF   30,W
-01A1:  MOVWF  33
+01A0:  MOVF   31,W
+01A1:  MOVWF  34
 01A2:  MOVLW  0A
-01A3:  MOVWF  34
+01A3:  MOVWF  35
 01A4:  CALL   101
 01A5:  MOVF   77,W
-01A6:  MOVWF  31
-01A7:  MOVF   30,W
-01A8:  MOVWF  33
+01A6:  MOVWF  32
+01A7:  MOVF   31,W
+01A8:  MOVWF  34
 01A9:  MOVLW  0A
-01AA:  MOVWF  34
+01AA:  MOVWF  35
 01AB:  CALL   101
 01AC:  MOVF   78,W
-01AD:  MOVWF  32
+01AD:  MOVWF  33
 ....................     ghi_byte(mang[a1]); 
-01AE:  MOVF   31,W
+01AE:  MOVF   32,W
 01AF:  CALL   038
-01B0:  MOVWF  33
-01B1:  MOVWF  34
+01B0:  MOVWF  34
+01B1:  MOVWF  35
 01B2:  CALL   0BB
 ....................     ghi_byte(mang[b1]); 
-01B3:  MOVF   32,W
+01B3:  MOVF   33,W
 01B4:  CALL   038
-01B5:  MOVWF  33
-01B6:  MOVWF  34
+01B5:  MOVWF  34
+01B6:  MOVWF  35
 01B7:  CALL   0BB
 ....................     putc(c + 48); 
 01B8:  MOVLW  30
-01B9:  ADDWF  30,W
-01BA:  MOVWF  33
-01BB:  MOVF   33,W
+01B9:  ADDWF  31,W
+01BA:  MOVWF  34
+01BB:  MOVF   34,W
 01BC:  BTFSS  0C.4
 01BD:  GOTO   1BC
 01BE:  MOVWF  19
 ....................     delay_ms(1000); 
 01BF:  MOVLW  04
-01C0:  MOVWF  33
+01C0:  MOVWF  34
 01C1:  MOVLW  FA
-01C2:  MOVWF  34
+01C2:  MOVWF  35
 01C3:  CALL   0ED
-01C4:  DECFSZ 33,F
+01C4:  DECFSZ 34,F
 01C5:  GOTO   1C1
 ....................     if (c == 0) 
-01C6:  MOVF   30,F
+01C6:  MOVF   31,F
 01C7:  BTFSS  03.2
 01C8:  GOTO   1CE
 ....................     { 
@@ -815,7 +825,7 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................       break; 
 01CD:  GOTO   1D0
 ....................     } 
-01CE:  DECF   30,F
+01CE:  DECF   31,F
 01CF:  GOTO   1A0
 ....................   } 
 .................... } 
@@ -824,24 +834,24 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 .................... { 
 ....................    //send(); 
 ....................   red1(); 
-....................   delay_r(2); 
+....................   delay_r(10); 
 *
-0122:  MOVLW  02
-0123:  MOVWF  30
+0122:  MOVLW  0A
+0123:  MOVWF  31
 ....................  
 ....................   gr1(); 
 ....................  
-....................   delay_g(2); 
+....................   delay_g(5); 
 *
-0160:  MOVLW  02
-0161:  MOVWF  30
+0160:  MOVLW  05
+0161:  MOVWF  31
 ....................  
 ....................   yl1(); 
 ....................  
-....................   delay_y(1); 
+....................   delay_y(2); 
 *
-019E:  MOVLW  01
-019F:  MOVWF  30
+019E:  MOVLW  02
+019F:  MOVWF  31
 *
 01D0:  RETURN
 .................... } 
@@ -876,11 +886,11 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................   nMask = 0x80; 
 *
 00C1:  MOVLW  80
-00C2:  MOVWF  37
+00C2:  MOVWF  38
 ....................  
 ....................   for (i = 0; i < 8; i++) 
-00C3:  CLRF   36
-00C4:  MOVF   36,W
+00C3:  CLRF   37
+00C4:  MOVF   37,W
 00C5:  SUBLW  07
 00C6:  BTFSS  03.0
 00C7:  GOTO   0E8
@@ -892,8 +902,8 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 00CB:  BCF    08.3
 ....................  
 ....................     if (nData & nMask) 
-00CC:  MOVF   35,W
-00CD:  ANDWF  37,W
+00CC:  MOVF   36,W
+00CD:  ANDWF  38,W
 00CE:  BTFSC  03.2
 00CF:  GOTO   0D5
 ....................       output_high(DS); //DS=1 
@@ -926,8 +936,8 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 ....................  
 ....................     nMask = nMask >> 1; 
 00E4:  BCF    03.0
-00E5:  RRF    37,F
-00E6:  INCF   36,F
+00E5:  RRF    38,F
+00E6:  INCF   37,F
 00E7:  GOTO   0C4
 ....................   } 
 .................... } 
@@ -941,8 +951,8 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 00BD:  BCF    03.5
 00BE:  BCF    08.5
 ....................   dich_byte(nData); 
-00BF:  MOVF   34,W
-00C0:  MOVWF  35
+00BF:  MOVF   35,W
+00C0:  MOVWF  36
 ....................   output_high(ST); 
 *
 00E8:  BSF    03.5
@@ -981,69 +991,70 @@ CCS PCM C Compiler, Version 5.015, 5967               20-Thg5-21 00:13
 01D4:  BSF    03.5
 01D5:  MOVF   1E,W
 01D6:  BCF    03.5
-01D7:  MOVWF  30
+01D7:  MOVWF  31
 01D8:  MOVLW  30
-01D9:  ADDWF  30,W
+01D9:  ADDWF  31,W
 01DA:  MOVWF  2D
 .................... //printf ("%u",value); 
-.................... if (value>120){ 
+.................... if (value>100){ 
 01DB:  MOVF   2D,W
-01DC:  SUBLW  78
+01DC:  SUBLW  64
 01DD:  BTFSC  03.0
-01DE:  GOTO   1FB
-....................   output_high(tb1); 
-01DF:  BSF    06.0
-....................   output_high(tb2); 
-01E0:  BSF    06.1
-....................   output_high(tb3); 
-01E1:  BSF    06.2
-....................   output_high(tb4); 
-01E2:  BSF    06.3
-....................   output_low(PIN_B6); 
-01E3:  BCF    06.6
-....................    output_high(yl); 
-01E4:  BSF    03.5
-01E5:  BCF    08.1
-01E6:  BCF    03.5
-01E7:  BSF    08.1
-....................     delay_ms(500); 
-01E8:  MOVLW  02
-01E9:  MOVWF  30
-01EA:  MOVLW  FA
-01EB:  MOVWF  34
-01EC:  CALL   0ED
-01ED:  DECFSZ 30,F
-01EE:  GOTO   1EA
-....................     output_low(yl); 
-01EF:  BSF    03.5
-01F0:  BCF    08.1
-01F1:  BCF    03.5
-01F2:  BCF    08.1
-....................     delay_ms(500); 
-01F3:  MOVLW  02
-01F4:  MOVWF  30
-01F5:  MOVLW  FA
-01F6:  MOVWF  34
-01F7:  CALL   0ED
-01F8:  DECFSZ 30,F
-01F9:  GOTO   1F5
+01DE:  GOTO   1E6
+....................   output_high(PIN_B6); 
+01DF:  BSF    06.6
+.................... output_low(tb1); 
+01E0:  BCF    06.0
+.................... output_low(tb2); 
+01E1:  BCF    06.1
+.................... output_low(tb3); 
+01E2:  BCF    06.2
+.................... output_low(tb4); 
+01E3:  BCF    06.3
+.................... traffic(); 
+01E4:  CALL   116
 ....................   
 .................... } 
-01FA:  GOTO   201
+01E5:  GOTO   201
 ....................  
 .................... else{ 
-.................... output_high(PIN_B6); 
-01FB:  BSF    06.6
-.................... output_low(tb1); 
-01FC:  BCF    06.0
-.................... output_low(tb2); 
-01FD:  BCF    06.1
-.................... output_low(tb3); 
-01FE:  BCF    06.2
-.................... output_low(tb4); 
-01FF:  BCF    06.3
-.................... traffic(); 
-0200:  CALL   116
+.................... // 
+.................... output_high(tb1); 
+01E6:  BSF    06.0
+....................   output_high(tb2); 
+01E7:  BSF    06.1
+....................   output_high(tb3); 
+01E8:  BSF    06.2
+....................   output_high(tb4); 
+01E9:  BSF    06.3
+....................   output_low(PIN_B6); 
+01EA:  BCF    06.6
+....................    output_high(yl); 
+01EB:  BSF    03.5
+01EC:  BCF    08.1
+01ED:  BCF    03.5
+01EE:  BSF    08.1
+....................     delay_ms(500); 
+01EF:  MOVLW  02
+01F0:  MOVWF  31
+01F1:  MOVLW  FA
+01F2:  MOVWF  35
+01F3:  CALL   0ED
+01F4:  DECFSZ 31,F
+01F5:  GOTO   1F1
+....................     output_low(yl); 
+01F6:  BSF    03.5
+01F7:  BCF    08.1
+01F8:  BCF    03.5
+01F9:  BCF    08.1
+....................     delay_ms(500); 
+01FA:  MOVLW  02
+01FB:  MOVWF  31
+01FC:  MOVLW  FA
+01FD:  MOVWF  35
+01FE:  CALL   0ED
+01FF:  DECFSZ 31,F
+0200:  GOTO   1FC
 .................... } 
 0201:  RETURN
 ....................  

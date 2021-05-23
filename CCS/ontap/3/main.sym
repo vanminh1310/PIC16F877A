@@ -1,0 +1,85 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020-021 dem
+022     @TRIS_C
+023     main.x
+024-027 @DIVFF.P1
+024-025 @ITOF.P2
+024-027 @SFTOI.P3
+024-025 hienthi.uivalue
+026     hienthi.ngan
+027     hienthi.tram
+028     hienthi.chuc
+028-02B @DIVFF.P1
+029     hienthi.dvi
+02A-02B @DIV1616.P1
+02A     hienthi.@SCRATCH1
+02C-02D @DIV1616.P1
+02C     @DIVFF.@SCRATCH1
+02D     @DIVFF.@SCRATCH2
+02E     @DIVFF.@SCRATCH3
+02E     @DIV1616.@SCRATCH1
+02F     @DIVFF.@SCRATCH4
+030     @DIVFF.@SCRATCH5
+031     @DIVFF.@SCRATCH6
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  mang.call
+000008  mang.data
+000012  docADC
+00002F  @ITOF
+00004E  @DIVFF
+00011A  @SFTOI
+00013B  @DIV1616
+000160  hienthi
+0001C5  main
+0001C5  @cinit1
+0001D1  @cinit2
+
+Project Directory:
+    E:\PIC16F877A\CCS\ontap\3\
+
+Project Files:
+    main.c                                                  [23-Thg5-21 17:53  CRC=9619B05F]
+    D:\Program File\PICC\Devices\16f877a.h                  [12-Thg11-13 14:35  CRC=81334808]
+
+Source signature=9880406F
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

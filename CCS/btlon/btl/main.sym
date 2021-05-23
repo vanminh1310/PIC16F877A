@@ -26,29 +26,30 @@
 02D     value
 02E     nData
 02F     d1
-030     delay_g.b
-030     delay_y.c
-030     delay_r.a
-030     autoo.@SCRATCH1
-031     delay_r.a1
-031     delay_y.a1
-031     delay_g.a1
-031     autoo.@SCRATCH2
-032     delay_y.b1
-032     delay_g.b1
-032     delay_r.b1
-033     @DIV88.P1
-033     delay_r.@SCRATCH1
-033     delay_g.@SCRATCH1
-033     delay_y.@SCRATCH1
-034     @delay_ms1.P1
-034     ghi_byte.nData
+030     d2
+031     delay_y.c
+031     delay_g.b
+031     delay_r.a
+031     autoo.@SCRATCH1
+032     delay_g.a1
+032     delay_y.a1
+032     delay_r.a1
+032     autoo.@SCRATCH2
+033     delay_r.b1
+033     delay_g.b1
+033     delay_y.b1
 034     @DIV88.P1
-035     dich_byte.nData
-035     @DIV88.@SCRATCH1
-036     dich_byte.i
-037     dich_byte.nMask
-038     ngat_RB.@SCRATCH1
+034     delay_r.@SCRATCH1
+034     delay_g.@SCRATCH1
+034     delay_y.@SCRATCH1
+035     @delay_ms1.P1
+035     @DIV88.P2
+035     ghi_byte.nData
+036     dich_byte.nData
+036     @DIV88.@SCRATCH1
+037     dich_byte.i
+038     dich_byte.nMask
+039     ngat_RB.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -119,10 +120,10 @@ Project Directory:
     E:\PIC16F877A\CCS\btlon\btl\
 
 Project Files:
-    main.c                                                  [20-Thg5-21 00:13  CRC=4D31FC79]
+    main.c                                                  [20-Thg5-21 18:16  CRC=A595E6CE]
     D:\Program File\PICC\Devices\16F877a.h                  [12-Thg11-13 14:35  CRC=81334808]
 
-Source signature=4F988C89
+Source signature=A7FC76DE
 
 Units:
     main (main)

@@ -1,0 +1,98 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021     main.x
+022     main.Y
+023     main.Z
+024     main.P
+025-02C main.Arr
+02D     main.Q
+02E     main.R
+02F     main.A
+030     main.B
+031     main.C
+032     main.E
+033     main.F
+034     main.G
+035     main.H
+036     main.I
+037     main.L
+038     main.M
+039     main.T
+03A-03B main.D
+03C-03D main.K
+03E-03F main.S
+040     @PSTRINGCN7_9600_62_63.P1
+040     @PRINTF_U_9600_62_63.P2
+040     @PRINTF_X_9600_62_63.P3
+041     @PRINTF_U_9600_62_63.P1
+041     @PRINTF_X_9600_62_63.P2
+041     @PSTRINGCN7_9600_62_63.@SCRATCH1
+042     @DIV88.P1
+042     @PSTRINGCN7_9600_62_63.@SCRATCH2
+043     @DIV88.P1
+043     @PSTRINGCN7_9600_62_63.@SCRATCH3
+044     @PSTRINGCN7_9600_62_63.@SCRATCH4
+044     @DIV88.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const648.call
+00000B  @const657.call
+000013  @const658.call
+00001A  @const662.call
+000021  @const663.call
+000029  @const664.call
+000031  @PSTRINGCN7_9600_62_63
+00008A  @DIV88
+00009F  @PRINTF_U_9600_62_63
+0000D7  @PRINTF_X_9600_62_63
+0000FA  main
+0000FA  @cinit1
+00010C  @cinit2
+
+Project Directory:
+    E:\PIC16F877A\CCS\ontap\1\
+
+Project Files:
+    main.c                                                  [23-Thg5-21 16:00  CRC=EB5BCF10]
+    D:\Program File\PICC\Devices\16F877a.h                  [12-Thg11-13 14:35  CRC=81334808]
+
+Source signature=EDC25F20
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

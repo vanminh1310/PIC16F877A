@@ -46,7 +46,7 @@ void traffic();
 void delay_r(int8 a);
 void delay_g(int8 b);
 void delay_y(int8 c);
- char d1 ;
+ char d1,d2 ;
 #int_RB
 void ngat_RB()
 {
@@ -89,8 +89,11 @@ void ngat_RB()
 void ngat_uart()
 {
 if(kbhit()){
-output_high(PIN_B5);       
+output_high(PIN_B5);     
+
+
  }  
+//d2 = getc();
 d1 = getc();
   switch (d1)
   {
@@ -118,6 +121,7 @@ d1 = getc();
   case '9':
     output_low(tb4);
     break;
+  
  
   }
   
@@ -159,30 +163,22 @@ void main()
   while (true)
   {
 
-autoo();
-  if(d1=='j'){
+
+  if(a1==3 || d1 == 'j'){
   traffic();
   }
-   if(d1=='f'){
+  if(a1==4 || d1 == 'f'){
   autoo();
   }
+  if(a1==5){
+  a1=0;
+  }
    
+   else{
+   autoo();
+   }
 
   
-//!   if(d2=='m'){
-//!      if(d2=='r'){
-//!          output_high(red);
-//!      }
-//!      if(d2=='y'){
-//!          output_high(yl);
-//!      }
-//!       if(d2=='g'){
-//!          output_high(gr);
-//!      }
-//!      }
-  
-
-  //
 
   }
  
@@ -324,15 +320,15 @@ void traffic()
 {
    //send();
   red1();
-  delay_r(2);
+  delay_r(10);
 
   gr1();
 
-  delay_g(2);
+  delay_g(5);
 
   yl1();
 
-  delay_y(1);
+  delay_y(2);
 }
 
 ///
@@ -395,8 +391,19 @@ output_low(tb4);
 void autoo(){
 value = read_adc()+48;
 //printf ("%u",value);
-if (value>120){
-  output_high(tb1);
+if (value>100){
+  output_high(PIN_B6);
+output_low(tb1);
+output_low(tb2);
+output_low(tb3);
+output_low(tb4);
+traffic();
+ 
+}
+
+else{
+//
+output_high(tb1);
   output_high(tb2);
   output_high(tb3);
   output_high(tb4);
@@ -405,16 +412,6 @@ if (value>120){
     delay_ms(500);
     output_low(yl);
     delay_ms(500);
- 
-}
-
-else{
-output_high(PIN_B6);
-output_low(tb1);
-output_low(tb2);
-output_low(tb3);
-output_low(tb4);
-traffic();
 }
 
 

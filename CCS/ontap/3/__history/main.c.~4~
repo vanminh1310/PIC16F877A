@@ -1,0 +1,78 @@
+#include <16f877a.h>
+#fuses NOWDT, HS, PUT, NOPROTECT
+#use delay(clock = 20000000)
+#use fast_io(A)
+
+#define led PIN_B5 //khai bao led
+
+const char mang[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+
+#define led1 PIN_B4
+#define led2 PIN_B3
+#define led3 PIN_B2
+#define led4 PIN_B1
+
+int16 dem;
+void hienthi(int16 uivalue);
+void hienthisl(int8 value);
+void hienthiall();
+void ledblynk();
+void main()
+{
+  SET_TRIS_A(0xFF);
+  SET_TRIS_D(0x00); //cai dat PORTD la output=DATA
+  SET_TRIS_B(0x00); //PORT C = DIEU KHIEN
+  SET_TRIS_C(0x00);
+  setup_timer_0(RTCC_DIV_2 | RTCC_EXT_L_TO_H);
+
+  set_timer0(0); //cai dat cho timer dem tu 0
+                 // TMR0_TOCS = 1; //thiet lap Timer0 o trang thai counter nhan xung ngoaiTM
+                 // TMR0_TOSE = 0; //cho phep timer0 TAC DONG CANH XUONG
+  dem = 0;
+  output_high(led);
+  while (1)
+  { 
+   
+    int8 a, b;
+    dem = get_timer0();
+    hienthi(dem);
+   
+
+   
+  }
+}
+
+
+
+
+void hienthi(int16 uivalue)
+{
+  unsigned char ngan, tram, chuc, dvi;
+  //  ngan=uivalue/1000;
+  // tram=(uivalue%1000)/100;
+  chuc = ((uivalue % 1000) % 100) / 10;
+  dvi = ((uivalue % 1000) % 100) % 10;
+  OUTPUT_D(mang[chuc]);
+  output_high(led1);
+  Delay_us(100);
+  OUTPUT_B(0X00); //  TAT HET CAC LED, CHONG LEM
+
+  OUTPUT_D(mang[dvi]);
+  output_high(led2);
+  Delay_us(100);
+  OUTPUT_B(0X00); //  TAT HET CAC LED, CHONG LEM
+  
+   OUTPUT_D(0x9C);
+  output_high(led3);
+  Delay_us(100);
+  OUTPUT_B(0X00); //  TAT HET CAC LED, CHONG LEM
+  
+  OUTPUT_D(0xC6);
+  output_high(led4);
+  Delay_us(100);
+  OUTPUT_B(0X00); //  TAT HET CAC LED, CHONG LEM
+ 
+}
+
+
+
