@@ -1,8 +1,7 @@
-D G "led4" 0 14 "PIN_B1"
-D G "__PCM__" 0 94 ""5.015""
-D G "__DEVICE__" 0 94 "877"
-D G "__DATE__" 0 94 ""23-Thg5-21""
-D G "__TIME__" 0 94 ""17:53:30"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 0 ""5.015""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""16-Thg6-21""
+D G "__TIME__" 0 0 ""22:37:54"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 
@@ -777,35 +776,34 @@ d G "INT_BUSCOL" 1 665 "0x008D08"
 d G "INT_EEPROM" 1 666 "0x008D10"
 d G "INT_TIMER0" 1 667 "0x000B20"
 d G "INT_COMP" 1 668 "0x008D40"
-D G "led" 0 7 "PIN_C0" "khai bao led"
-V G "mang" 0 9 "[10]" `621 
-D G "led1" 0 11 "PIN_B4"
-D G "led2" 0 12 "PIN_B3"
-D G "led3" 0 13 "PIN_B2"
-D G "led4" 0 14 "PIN_B1"
-V G "dem" 0 16 "int16" `624 
-V L "uivalue" 0 17 "int16" `626 
-f G "hienthi" 0 17 "void(int16 uivalue)" `625 
-V L "value" 0 18 "int8" `628 
-f G "hienthisl" 0 18 "void(int8 value)" `627 
-f G "docADC" 0 19 "void()" `629 
-F G "main" 0 21 "void()" `630 
-C L "main" 0 23 1 "FUNCTION"
-C L "main" 0 23 1 "FUNCTION"
-C L "main" 0 23 3 "FUNCTION"
-V L "x" 0 37 "int8" `634 
-V L "uivalue" 0 55 "int16" `643 
-F G "hienthi" 0 56 "void(int16 uivalue)" `625 
-V L "ngan" 0 57 "int8" `642 
-V L "tram" 0 57 "int8" `643 
-V L "chuc" 0 57 "int8" `644 
-V L "dvi" 0 57 "int8" `645  "ngan=uivalue/1000;"
-C L "hienthi" 0 23 1 "FUNCTION"
-C L "hienthi" 0 23 1 "FUNCTION"
-C L "hienthi" 0 23 1 "FUNCTION"
-C L "hienthi" 0 23 1 "FUNCTION"
-C L "hienthi" 0 23 1 "FUNCTION"
-F G "docADC" 0 85 "void()" `629 
+D G "led" 0 6 "PIN_C0" "khai bao led"
+V G "mang" 0 7 "[10]" `621 
+D G "led1" 0 8 "PIN_B4"
+D G "led2" 0 9 "PIN_B3"
+D G "led3" 0 10 "PIN_B2"
+D G "led4" 0 11 "PIN_B1"
+V G "dem" 0 13 "int16" `624 
+V L "uivalue" 0 14 "int16" `626 
+f G "hienthi" 0 14 "void(int16 uivalue)" `625 
+V L "value" 0 15 "int8" `628 
+f G "hienthisl" 0 15 "void(int8 value)" `627 
+f G "docADC" 0 16 "void()" `629 
+F G "main" 0 18 "void()" `630 
+C L "main" 0 20 1 "FUNCTION"
+C L "main" 0 20 1 "FUNCTION"
+V L "x" 0 31 "int8" `634 
+V L "uivalue" 0 45 "int16" `643 
+F G "hienthi" 0 46 "void(int16 uivalue)" `625 
+V L "ngan" 0 47 "int8" `642 
+V L "tram" 0 47 "int8" `643 
+V L "chuc" 0 47 "int8" `644 
+V L "dvi" 0 47 "int8" `645  "ngan=uivalue/1000;"
+C L "hienthi" 0 20 1 "FUNCTION"
+C L "hienthi" 0 20 1 "FUNCTION"
+C L "hienthi" 0 20 1 "FUNCTION"
+C L "hienthi" 0 20 1 "FUNCTION"
+C L "hienthi" 0 20 1 "FUNCTION"
+F G "docADC" 0 75 "void()" `629 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

@@ -1,0 +1,8 @@
+>>> Warning 203 "E:\PIC16F877A\tieuluan\NHOM_2\code\code2\ds1307.c" Line 99(1,1): Condition always TRUE
+>>> Warning 216 "main.c" Line 142(1,2): Interrupts disabled during call to prevent re-entrancy:  (@I2C_WRITE_1)
+>>> Warning 216 "main.c" Line 142(1,2): Interrupts disabled during call to prevent re-entrancy:  (@I2C_READ_1)
+>>> Warning 216 "main.c" Line 142(1,2): Interrupts disabled during call to prevent re-entrancy:  (bcd2bin)
+>>> Warning 202 "main.c" Line 28(15,19): Variable never used:   dsec
+      Memory usage:   ROM=20%      RAM=10% - 15%
+      0 Errors,  5 Warnings.
+Build Successful.

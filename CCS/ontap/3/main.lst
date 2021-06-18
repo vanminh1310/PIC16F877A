@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               23-Thg5-21 17:53
+CCS PCM C Compiler, Version 5.015, 5967               16-Thg6-21 22:37
 
                Filename:   E:\PIC16F877A\CCS\ontap\3\main.lst
 
@@ -353,11 +353,8 @@ CCS PCM C Compiler, Version 5.015, 5967               23-Thg5-21 17:53
 .................... #fuses NOWDT, HS, PUT, NOPROTECT 
 .................... #use delay(clock = 20000000) 
 .................... #use fast_io(A) 
-....................  
 .................... #define led PIN_C0 //khai bao led 
-....................  
 .................... const char mang[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90}; 
-....................  
 .................... #define led1 PIN_B4 
 .................... #define led2 PIN_B3 
 .................... #define led3 PIN_B2 
@@ -401,12 +398,9 @@ CCS PCM C Compiler, Version 5.015, 5967               23-Thg5-21 17:53
 01DC:  ANDLW  C0
 01DD:  IORLW  20
 01DE:  MOVWF  01
-....................  
-....................   set_timer0(0); //cai dat cho timer dem tu 0 
+....................   set_timer0(0);  
 01DF:  BCF    03.5
 01E0:  CLRF   01
-....................                  // TMR0_TOCS = 1; //thiet lap Timer0 o trang thai counter nhan xung ngoaiTM 
-....................                  // TMR0_TOSE = 0; //cho phep timer0 TAC DONG CANH XUONG 
 ....................   dem = 0; 
 01E1:  CLRF   21
 01E2:  CLRF   20
@@ -482,9 +476,9 @@ CCS PCM C Compiler, Version 5.015, 5967               23-Thg5-21 17:53
 021D:  BCF    03.5
 021E:  BSF    07.0
 ....................    } 
-....................    if(x>=50){ 
+....................    if(x>50){ 
 021F:  MOVF   23,W
-0220:  SUBLW  31
+0220:  SUBLW  32
 0221:  BTFSC  03.0
 0222:  GOTO   229
 ....................     output_low(led); 
@@ -500,12 +494,8 @@ CCS PCM C Compiler, Version 5.015, 5967               23-Thg5-21 17:53
 ....................     
 ....................   } 
 .................... } 
-....................  
-022A:  SLEEP
-....................  
-....................  
-....................  
 .................... void hienthi(int16 uivalue) 
+022A:  SLEEP
 .................... { 
 ....................   unsigned char ngan, tram, chuc, dvi; 
 ....................   //  ngan=uivalue/1000; 

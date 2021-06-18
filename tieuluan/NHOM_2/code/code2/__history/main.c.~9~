@@ -1,0 +1,135 @@
+
+#include <16F877a.h>
+#device *=16 ADC=10
+#use delay(clock=20000000)
+#FUSES NOWDT, HS, NOPUT, NOPROTECT, NODEBUG, NOBROWNOUT, NOLVP, NOCPD, NOWRT
+#use i2c(Master, sda = PIN_C4, scl=PIN_C3)
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)
+const char mang[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+
+#include "ds1307.c"
+#include "74hc595.c"
+
+ 
+#define Slave_add 0x68
+#define Read 1
+#define Write 0
+
+
+#define digit1 PIN_D0
+#define digit2 PIN_D1
+#define digit3 PIN_D2
+#define digit4 PIN_D3
+#define digit5 PIN_D4
+#define digit6 PIN_D5
+#define digit7 PIN_D6
+#define digit8 PIN_D7
+
+
+ 
+void send(int8 a);
+ 
+int8 sec,min,hrs,day,month,yr,dow;
+unsigned int counter=99999;
+unsigned int a,b,c,d;
+//ngat o chan RB0: Truyen len cong RS232
+#int_EXT
+void EXT_isr(void) //moi 1s truyen len may tinh 1 lan
+{
+   ds1307_get_date(day,month,yr,dow); 
+   ds1307_get_time(hrs,min,sec);
+   send(hrs);
+   putc(45);
+   send(min);
+   putc(45);
+   send(sec);
+   putc(10);
+    
+   return;
+}
+void main()
+{
+      set_tris_c(0x00);
+ 
+    SET_TRIS_d (0X00);
+    
+    OUTPUT_C  (0X00);
+    
+   enable_interrupts(INT_EXT);//cho phep ngat RB0
+   ext_int_edge(0,H_TO_L);//dat suon ngat
+   enable_interrupts(GLOBAL);//cho phep ngat toan cuc
+   ds1307_init();// khoi tao DS1307, tao xung 1Hz o chan 7 DS1307.
+   // Set date : 12-4-2012
+   // Set time : thu 5 - 12 gio, 59 phút 10 giây
+      
+while(true) 
+   { 
+
+
+int a = day/10;
+ int b = day%10;
+ int c = month/10;
+ int d = month%10;
+ int e = yr/10;
+ int f = yr%10;
+ 
+       send_data(mang[a]); // send 1000's place data to fourth digit
+       output_high(digit1);   //  turn on forth display unit
+       delay_ms(10);
+       output_low(digit1);  //  turn off forth display unit
+      send_data(mang[b]);  // send 100's place data to 3rd digit
+       output_high(digit2);   //  turn on 3rd display unit
+       delay_ms(10);
+       output_low(digit2); //  turn off 3rd display unit
+      send_data(mang[c]);  // send 10th place data to 2nd digit
+       output_high(digit3); //  turn on 2nd display unit
+       delay_ms(10);
+       output_low(digit3); //  turn off 2nd display unit
+      send_data(mang[d]);  // send unit place data to 1st digit
+       output_high(digit4); //  turn on 1st display unit
+       delay_ms(10);
+       output_low(digit4);  //  turn off 1st display unit
+      send_data(mang[e]);  // send unit place data to 1st digit
+       output_high(digit5); //  turn on 1st display unit
+       delay_ms(10);
+       output_low(digit5);  //  turn off 1st display unit
+       send_data(mang[f]);  // send unit place data to 1st digit
+       output_high(digit6); //  turn on 1st display unit
+       delay_ms(10);
+       output_low(digit6);  //  turn off 1st display unit
+       
+     
+    
+}
+
+
+}
+
+  
+  
+      
+   
+
+void send(int8 a)
+{
+    if(a<10)
+     {
+         putc(a+48);         
+     }
+     if(a>9&&a<100)
+     {
+          unsigned char c=a/10;
+          unsigned char d=a%10;
+          putc(c+48);
+          putc(d+48);       
+     }
+     if(a>99)
+     {
+          unsigned char t=a/100;
+          unsigned char c=a/10-10*t;
+          unsigned char d=a%10;
+          putc(t+48);
+          putc(c+48);
+          putc(d+48);
+     }
+}
